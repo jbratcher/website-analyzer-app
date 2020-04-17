@@ -16,12 +16,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-Route.on("/").render("welcome");
-
-Route.get("/hello", () => "Hello Adonis");
+Route.get("/", () => "Root Route");
 
 Route.group(() => {
-  Route.get("/:filename", "ReportController.index");
+  Route.get("/", "ReportController.index");
+  Route.get("/:filename", "ReportController.getReports");
   Route.get("/raw/:filename", "ReportController.getRawReport");
   Route.get("/analyzed/:filename", "ReportController.getAnalyzedReport");
   Route.get("/action-steps/:filename", "ReportController.getActionStepsReport");

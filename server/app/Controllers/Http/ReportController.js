@@ -8,6 +8,20 @@ class ReportController {
     return "Report Index Route";
   }
 
+  getReports({ params }) {
+    const rawReport = require(Helpers.appRoot(
+      `/resources/${params.filename}/${params.filename}-lighthouse.json`
+    ));
+    const analyzedReport = require(Helpers.appRoot(
+      `/resources/${params.filename}/${params.filename}-analyzed.json`
+    ));
+    const actionStepsReprt = require(Helpers.appRoot(
+      `/resources/${params.filename}/${params.filename}-action-steps.json`
+    ));
+    let reports = Promise.all([rawReport, analyzedReport, actionStepsReprt])
+    return reports;
+  }
+
   async getRawReport({ params }) {
     const report = require(Helpers.appRoot(
       `/resources/${params.filename}/${params.filename}-lighthouse.json`
