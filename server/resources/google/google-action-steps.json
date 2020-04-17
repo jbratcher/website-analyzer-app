@@ -1,0 +1,170 @@
+[
+    {
+        "refName": "serviceWorker",
+        "title": "Registers a service worker that controls page and `start_url`",
+        "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
+        "actionStep": "",
+        "matches": "service-worker"
+    },
+    {
+        "refName": "worksOffline",
+        "title": "Current page responds with a 200 when offline",
+        "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
+        "actionStep": "",
+        "matches": "works-offline"
+    },
+    {
+        "refName": "firstContentfulPaint",
+        "title": "First Contentful Paint",
+        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
+        "actionStep": "",
+        "matches": "first-contentful-paint"
+    },
+    {
+        "refName": "firstMeaningfulPaint",
+        "title": "First Meaningful Paint",
+        "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
+        "actionStep": "",
+        "matches": "first-meaningful-paint"
+    },
+    {
+        "refName": "speedIndex",
+        "title": "Speed Index",
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
+        "actionStep": "",
+        "matches": "speed-index"
+    },
+    {
+        "refName": "totalBlockingTime",
+        "title": "Total Blocking Time",
+        "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+        "actionStep": "",
+        "matches": "total-blocking-time"
+    },
+    {
+        "refName": "maxPotentialFid",
+        "title": "Max Potential First Input Delay",
+        "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
+        "actionStep": "",
+        "matches": "max-potential-fid"
+    },
+    {
+        "refName": "firstCpuIdle",
+        "title": "First CPU Idle",
+        "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
+        "actionStep": "",
+        "matches": "first-cpu-idle"
+    },
+    {
+        "refName": "interactive",
+        "title": "Time to Interactive",
+        "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
+        "actionStep": "",
+        "matches": "interactive"
+    },
+    {
+        "refName": "installableManifest",
+        "title": "Web app manifest meets the installability requirements",
+        "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
+        "actionStep": "",
+        "matches": "installable-manifest"
+    },
+    {
+        "refName": "appleTouchIcon",
+        "title": "Provides a valid `apple-touch-icon`",
+        "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
+        "actionStep": "",
+        "matches": "apple-touch-icon"
+    },
+    {
+        "refName": "splashScreen",
+        "title": "Configured for a custom splash screen",
+        "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
+        "actionStep": "",
+        "matches": "splash-screen"
+    },
+    {
+        "refName": "themedOmnibox",
+        "title": "Sets a theme color for the address bar.",
+        "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
+        "actionStep": "",
+        "matches": "themed-omnibox"
+    },
+    {
+        "refName": "mainthreadWorkBreakdown",
+        "title": "Minimizes main-thread work",
+        "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
+        "actionStep": "",
+        "matches": "mainthread-work-breakdown"
+    },
+    {
+        "refName": "bootupTime",
+        "title": "JavaScript execution time",
+        "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+        "actionStep": "",
+        "matches": "bootup-time"
+    },
+    {
+        "refName": "usesRelPreconnect",
+        "title": "Preconnect to required origins",
+        "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
+        "actionStep": "",
+        "matches": "uses-rel-preconnect"
+    },
+    {
+        "refName": "offlineStartUrl",
+        "title": "`start_url` responds with a 200 when offline",
+        "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
+        "actionStep": "",
+        "matches": "offline-start-url"
+    },
+    {
+        "refName": "ariaRequiredAttr",
+        "title": "`[role]`s have all required `[aria-*]` attributes",
+        "description": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://web.dev/aria-required-attr/).",
+        "actionStep": "",
+        "matches": "aria-required-attr"
+    },
+    {
+        "refName": "bypass",
+        "title": "The page contains a heading, skip link, or landmark region",
+        "description": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://web.dev/bypass/).",
+        "actionStep": "",
+        "matches": "bypass"
+    },
+    {
+        "refName": "colorContrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "description": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://web.dev/color-contrast/).",
+        "actionStep": "",
+        "matches": "color-contrast"
+    },
+    {
+        "refName": "linkName",
+        "title": "Links have a discernible name",
+        "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
+        "actionStep": "",
+        "matches": "link-name"
+    },
+    {
+        "refName": "usesPassiveEventListeners",
+        "title": "Uses passive listeners to improve scrolling performance",
+        "description": "Consider marking your touch and wheel event listeners as `passive` to improve your page's scroll performance. [Learn more](https://web.dev/uses-passive-event-listeners).",
+        "actionStep": "",
+        "matches": "uses-passive-event-listeners"
+    },
+    {
+        "refName": "metaDescription",
+        "title": "Document has a meta description",
+        "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more](https://web.dev/meta-description).",
+        "actionStep": "",
+        "matches": "meta-description"
+    },
+    {
+        "refName": "tapTargets",
+        "title": "Tap targets are sized appropriately",
+        "description": "Interactive elements like buttons and links should be large enough (48x48px), and have enough space around them, to be easy enough to tap without overlapping onto other elements. [Learn more](https://web.dev/tap-targets).",
+        "actionStep": "",
+        "matches": "tap-targets"
+    }
+]

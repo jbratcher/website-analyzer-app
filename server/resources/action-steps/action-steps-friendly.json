@@ -1,0 +1,87 @@
+[
+    {
+        "refName": "usesLongCacheTtl",
+        "title": "Uses efficient cache policy on static assets",
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
+        "actionStep": "",
+        "matches": "uses-long-cache-ttl"
+    },
+    {
+        "refName": "redirects",
+        "name": "The page is being redirected too many time",
+        "description": "Redirects cause delays before the page can be loaded.",
+        "actionStep": "Review scripts that may cause a redirect from the page load. Redirects shouldn't happen unless intended.",
+        "matches": "redirects"
+    },
+    {
+        "refName": "usesRelPreload",
+        "name": "Preload key requests",
+        "description": "Consider using `<link rel=preload>` to prioritize fetching resources that are currently requested later in page load. [Learn more](https://web.dev/uses-rel-preload).",
+        "actionStep": "",
+        "matches": "uses-rel-preload"
+    },
+    {
+        "refName": "offscreenImages",
+        "name": "Defer offscreen images",
+        "description": "Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive. [Learn more](https://web.dev/offscreen-images).",
+        "actionStep": "",
+        "matches": "offscreen-images"
+    },
+    {
+        "refName": "renderBlockingResources",
+        "name": "File loading is making page invisible for some time",
+        "description": "There are files that are preventing the page from displaying quickly for the user. The loading of these files can done while the page is loading but they need to be configured first.",
+        "actionStep": "Review list of file that are slowing the initial display. In the link that requests the file, add \"async\" if they are critical to the inital display or \"defer\" if they are not",
+        "matches": "render-blocking-resources"
+    },
+    {
+        "refName": "unminifiedCss",
+        "name": "Files for style are not compressed.",
+        "description": "There are files that are preventing the page from displaying quickly for the use. The loading of these files can done while the page is loading but are not currently set up to do that.",
+        "actionStep": "Review list of file that are slowing the initial display. In the link that requests the file, add \"async\" if they are critical to the inital display or \"defer\" if they are not",
+        "matches": "unminified-css"
+    },
+    {
+        "refName": "unminifiedJavascript",
+        "title": "Minify JavaScript",
+        "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://web.dev/unminified-javascript).",
+        "actionStep": "",
+        "matches": "unminified-javascript"
+    },
+    {
+        "refName": "unusedCssRules",
+        "name": "Remove unused CSS",
+        "description": "Remove dead rules from stylesheets and defer the loading of CSS not used for above-the-fold content to reduce unnecessary bytes consumed by network activity. [Learn more](https://web.dev/unused-css-rules).",
+        "actionStep": "",
+        "matches": "unused-css-rules"
+    },
+    {
+        "refName": "usesWebpImages",
+        "title": "Serve images in next-gen formats",
+        "description": "Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more](https://web.dev/uses-webp-images).",
+        "actionStep": "",
+        "matches": "uses-webp-images"
+    },
+    {
+        "refName": "usesOptimizedImages",
+        "title": "Efficiently encode images",
+        "description": "Optimized images load faster and consume less cellular data. [Learn more](https://web.dev/uses-optimized-images).",
+        "actionStep": "",
+        "matches": "uses-optimized-images"
+    },
+    {
+        "refName": "usesTextCompression",
+        "title": "Enable text compression",
+        "description": "Text-based resources should be served with compression (gzip, deflate or brotli) to minimize total network bytes. [Learn more](https://web.dev/uses-text-compression).",
+        "actionStep": "",
+        "matches": "uses-text-compression"
+    },
+    {
+        "refName": "usesResponsiveImages",
+        "title": "Properly size images",
+        "description": "Serve images that are appropriately-sized to save cellular data and improve load time. [Learn more](https://web.dev/uses-responsive-images).",
+        "actionStep": "",
+        "matches": "uses-responsive-images"
+    }
+
+]

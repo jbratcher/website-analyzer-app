@@ -1,0 +1,93 @@
+[
+    {
+        "refName": "speedIndex",
+        "title": "Speed Index",
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
+        "actionStep": "",
+        "matches": "speed-index"
+    },
+    {
+        "refName": "estimatedInputLatency",
+        "title": "Estimated Input Latency",
+        "description": "Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. [Learn more](https://web.dev/estimated-input-latency).",
+        "actionStep": "",
+        "matches": "estimated-input-latency"
+    },
+    {
+        "refName": "totalBlockingTime",
+        "title": "Total Blocking Time",
+        "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+        "actionStep": "",
+        "matches": "total-blocking-time"
+    },
+    {
+        "refName": "maxPotentialFid",
+        "title": "Max Potential First Input Delay",
+        "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
+        "actionStep": "",
+        "matches": "max-potential-fid"
+    },
+    {
+        "refName": "firstCpuIdle",
+        "title": "First CPU Idle",
+        "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
+        "actionStep": "",
+        "matches": "first-cpu-idle"
+    },
+    {
+        "refName": "interactive",
+        "title": "Time to Interactive",
+        "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
+        "actionStep": "",
+        "matches": "interactive"
+    },
+    {
+        "refName": "mainthreadWorkBreakdown",
+        "title": "Minimizes main-thread work",
+        "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
+        "actionStep": "",
+        "matches": "mainthread-work-breakdown"
+    },
+    {
+        "refName": "bootupTime",
+        "title": "JavaScript execution time",
+        "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+        "actionStep": "",
+        "matches": "bootup-time"
+    },
+    {
+        "refName": "usesRelPreconnect",
+        "title": "Preconnect to required origins",
+        "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
+        "actionStep": "",
+        "matches": "uses-rel-preconnect"
+    },
+    {
+        "refName": "buttonName",
+        "title": "Buttons do not have an accessible name",
+        "description": "When a button doesn't have an accessible name, screen readers announce it as \"button\", making it unusable for users who rely on screen readers. [Learn more](https://web.dev/button-name/).",
+        "actionStep": "",
+        "matches": "button-name"
+    },
+    {
+        "refName": "colorContrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "description": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://web.dev/color-contrast/).",
+        "actionStep": "",
+        "matches": "color-contrast"
+    },
+    {
+        "refName": "tabindex",
+        "title": "Some elements have a `[tabindex]` value greater than 0",
+        "description": "A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more](https://web.dev/tabindex/).",
+        "actionStep": "",
+        "matches": "tabindex"
+    },
+    {
+        "refName": "usesLongCacheTtl",
+        "title": "Uses efficient cache policy on static assets",
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
+        "actionStep": "",
+        "matches": "uses-long-cache-ttl"
+    }
+]

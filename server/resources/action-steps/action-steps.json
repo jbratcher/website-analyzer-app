@@ -1,0 +1,898 @@
+[
+    {
+        "refName": "isOnHttps",
+        "title": "Uses HTTPS",
+        "description": "All sites should be protected with HTTPS, even ones that don't handle sensitive data. HTTPS prevents intruders from tampering with or passively listening in on the communications between your app and your users, and is a prerequisite for HTTP/2 and many new web platform APIs. [Learn more](https://web.dev/is-on-https).",
+        "actionStep": "",
+        "matches": "is-on-https"
+    },
+    {
+        "refName": "redirectsHttp",
+        "title": "Redirects HTTP traffic to HTTPS",
+        "description": "If you've already set up HTTPS, make sure that you redirect all HTTP traffic to HTTPS in order to enable secure web features for all your users. [Learn more](https://web.dev/redirects-http).",
+        "actionStep": "",
+        "matches": "redirects-http"
+    },
+    {
+        "refName": "serviceWorker",
+        "title": "Registers a service worker that controls page and `start_url`",
+        "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
+        "actionStep": "",
+        "matches": "service-worker"
+    },
+    {
+        "refName": "worksOffline",
+        "title": "Current page responds with a 200 when offline",
+        "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
+        "actionStep": "",
+        "matches": "works-offline"
+    },
+    {
+        "refName": "viewport",
+        "title": "Has a `<meta name=\"viewport\">` tag with `width` or `initial-scale`",
+        "description": "Add a `<meta name=\"viewport\">` tag to optimize your app for mobile screens. [Learn more](https://web.dev/viewport).",
+        "actionStep": "",
+        "matches": "viewport"
+    },
+    {
+        "refName": "withoutJavascript",
+        "title": "Contains some content when JavaScript is not available",
+        "description": "Your app should display some content when JavaScript is disabled, even if it's just a warning to the user that JavaScript is required to use the app. [Learn more](https://web.dev/without-javascript).",
+        "actionStep": "",
+        "matches": "without-javascript"
+    },
+    {
+        "refName": "firstContentfulPaint",
+        "title": "First Contentful Paint",
+        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
+        "actionStep": "",
+        "matches": "first-contentful-paint"
+    },
+    {
+        "refName": "firstMeaningfulPaint",
+        "title": "First Meaningful Paint",
+        "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
+        "actionStep": "",
+        "matches": "first-meaningful-paint"
+    },
+    {
+        "refName": "loadFastEnoughForPwa",
+        "title": "Page load is fast enough on mobile networks",
+        "description": "A fast page load over a cellular network ensures a good mobile user experience. [Learn more](https://web.dev/load-fast-enough-for-pwa).",
+        "actionStep": "",
+        "matches": "load-fast-enough-for-pwa"
+    },
+    {
+        "refName": "speedIndex",
+        "title": "Speed Index",
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
+        "actionStep": "",
+        "matches": "speed-index"
+    },
+    {
+        "refName": "screenshotThumbnails",
+        "title": "Screenshot Thumbnails",
+        "description": "This is what the load of your site looked like.",
+        "actionStep": "",
+        "matches": "screenshot-thumbnails"
+    },
+    {
+        "refName": "finalScreenshot",
+        "title": "Final Screenshot",
+        "description": "The last screenshot captured of the pageload.",
+        "actionStep": "",
+        "matches": "final-screenshot"
+    },
+    {
+        "refName": "estimatedInputLatency",
+        "title": "Estimated Input Latency",
+        "description": "Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. [Learn more](https://web.dev/estimated-input-latency).",
+        "actionStep": "",
+        "matches": "estimated-input-latency"
+    },
+    {
+        "refName": "totalBlockingTime",
+        "title": "Total Blocking Time",
+        "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+        "actionStep": "",
+        "matches": "total-blocking-time"
+    },
+    {
+        "refName": "maxPotentialFid",
+        "title": "Max Potential First Input Delay",
+        "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
+        "actionStep": "",
+        "matches": "max-potential-fid"
+    },
+    {
+        "refName": "errorsInConsole",
+        "title": "No browser errors logged to the console",
+        "description": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more](https://web.dev/errors-in-console)",
+        "actionStep": "",
+        "matches": "errors-in-console"
+    },
+    {
+        "refName": "timeToFirstByte",
+        "title": "Server response times are low (TTFB)",
+        "description": "Time To First Byte identifies the time at which your server sends a response. [Learn more](https://web.dev/time-to-first-byte).",
+        "actionStep": "",
+        "matches": "time-to-first-byte"
+    },
+    {
+        "refName": "firstCpuIdle",
+        "title": "First CPU Idle",
+        "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
+        "actionStep": "",
+        "matches": "first-cpu-idle"
+    },
+    {
+        "refName": "interactive",
+        "title": "Time to Interactive",
+        "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
+        "actionStep": "",
+        "matches": "interactive"
+    },
+    {
+        "refName": "userTimings",
+        "title": "User Timing marks and measures",
+        "description": "Consider instrumenting your app with the User Timing API to measure your app's real-world performance during key user experiences. [Learn more](https://web.dev/user-timings).",
+        "actionStep": "",
+        "matches": "user-timings"
+    },
+    {
+        "refName": "criticalRequestChains",
+        "title": "Avoid chaining critical requests",
+        "description": "The Critical Request Chains below show you what resources are loaded with a high priority. Consider reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load. [Learn more](https://web.dev/critical-request-chains).",
+        "actionStep": "",
+        "matches": "critical-request-chains"
+    },
+    {
+        "refName": "redirects",
+        "title": "Avoid multiple page redirects",
+        "description": "Redirects introduce additional delays before the page can be loaded. [Learn more](https://web.dev/redirects).",
+        "actionStep": "",
+        "matches": "redirects"
+    },
+    {
+        "refName": "installableManifest",
+        "title": "Web app manifest meets the installability requirements",
+        "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
+        "actionStep": "",
+        "matches": "installable-manifest"
+    },
+    {
+        "refName": "appleTouchIcon",
+        "title": "Provides a valid `apple-touch-icon`",
+        "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
+        "actionStep": "",
+        "matches": "apple-touch-icon"
+    },
+    {
+        "refName": "splashScreen",
+        "title": "Configured for a custom splash screen",
+        "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
+        "actionStep": "",
+        "matches": "splash-screen"
+    },
+    {
+        "refName": "themedOmnibox",
+        "title": "Sets a theme color for the address bar.",
+        "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
+        "actionStep": "",
+        "matches": "themed-omnibox"
+    },
+    {
+        "refName": "contentWidth",
+        "title": "Content is sized correctly for the viewport",
+        "description": "If the width of your app's content doesn't match the width of the viewport, your app might not be optimized for mobile screens. [Learn more](https://web.dev/content-width).",
+        "actionStep": "",
+        "matches": "content-width"
+    },
+    {
+        "refName": "imageAspectRatio",
+        "title": "Displays images with correct aspect ratio",
+        "description": "Image display dimensions should match natural aspect ratio. [Learn more](https://web.dev/image-aspect-ratio).",
+        "actionStep": "",
+        "matches": "image-aspect-ratio"
+    },
+    {
+        "refName": "deprecations",
+        "title": "Avoids deprecated APIs",
+        "description": "Deprecated APIs will eventually be removed from the browser. [Learn more](https://web.dev/deprecations).",
+        "actionStep": "",
+        "matches": "deprecations"
+    },
+    {
+        "refName": "mainthreadWorkBreakdown",
+        "title": "Minimizes main-thread work",
+        "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
+        "actionStep": "",
+        "matches": "mainthread-work-breakdown"
+    },
+    {
+        "refName": "bootupTime",
+        "title": "JavaScript execution time",
+        "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+        "actionStep": "",
+        "matches": "bootup-time"
+    },
+    {
+        "refName": "usesRelPreload",
+        "title": "Preload key requests",
+        "description": "Consider using `<link rel=preload>` to prioritize fetching resources that are currently requested later in page load. [Learn more](https://web.dev/uses-rel-preload).",
+        "actionStep": "",
+        "matches": "uses-rel-preload"
+    },
+    {
+        "refName": "usesRelPreconnect",
+        "title": "Preconnect to required origins",
+        "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
+        "actionStep": "",
+        "matches": "uses-rel-preconnect"
+    },
+    {
+        "refName": "fontDisplay",
+        "title": "All text remains visible during webfont loads",
+        "description": "Leverage the font-display CSS feature to ensure text is user-visible while webfonts are loading. [Learn more](https://web.dev/font-display).",
+        "actionStep": "",
+        "matches": "font-display"
+    },
+    {
+        "refName": "diagnostics",
+        "title": "Diagnostics",
+        "description": "Collection of useful page vitals.",
+        "actionStep": "",
+        "matches": "diagnostics"
+    },
+    {
+        "refName": "networkRequests",
+        "title": "Network Requests",
+        "description": "Lists the network requests that were made during page load.",
+        "actionStep": "",
+        "matches": "network-requests"
+    },
+    {
+        "refName": "networkRtt",
+        "title": "Network Round Trip Times",
+        "description": "Network round trip times (RTT) have a large impact on performance. If the RTT to an origin is high, it's an indication that servers closer to the user could improve performance. [Learn more](https://hpbn.co/primer-on-latency-and-bandwidth/).",
+        "actionStep": "",
+        "matches": "network-rtt"
+    },
+    {
+        "refName": "networkServerLatency",
+        "title": "Server Backend Latencies",
+        "description": "Server latencies can impact web performance. If the server latency of an origin is high, it's an indication the server is overloaded or has poor backend performance. [Learn more](https://hpbn.co/primer-on-web-performance/#analyzing-the-resource-waterfall).",
+        "actionStep": "",
+        "matches": "network-server-latency"
+    },
+    {
+        "refName": "mainThreadTasks",
+        "title": "Tasks",
+        "description": "Lists the toplevel main thread tasks that executed during page load.",
+        "actionStep": "",
+        "matches": "main-thread-tasks"
+    },
+    {
+        "refName": "metrics",
+        "title": "Metrics",
+        "description": "Collects all available metrics.",
+        "actionStep": "",
+        "matches": "metrics"
+    },
+    {
+        "refName": "offlineStartUrl",
+        "title": "`start_url` responds with a 200 when offline",
+        "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
+        "actionStep": "",
+        "matches": "offline-start-url"
+    },
+    {
+        "refName": "performanceBudget",
+        "title": "Performance budget",
+        "description": "Keep the quantity and size of network requests under the targets set by the provided performance budget. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/budgets).",
+        "actionStep": "",
+        "matches": "performance-budget"
+    },
+    {
+        "refName": "resourceSummary",
+        "title": "Keep request counts low and transfer sizes small",
+        "description": "To set budgets for the quantity and size of page resources, add a budget.json file. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/budgets).",
+        "actionStep": "",
+        "matches": "resource-summary"
+    },
+    {
+        "refName": "thirdPartySummary",
+        "title": "Minimize third-party usage",
+        "description": "Third-party code can significantly impact load performance. Limit the number of redundant third-party providers and try to load third-party code after your page has primarily finished loading. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/).",
+        "actionStep": "",
+        "matches": "third-party-summary"
+    },
+    {
+        "refName": "pwaCrossBrowser",
+        "title": "Site works cross-browser",
+        "description": "To reach the most number of users, sites should work across every major browser. [Learn more](https://web.dev/pwa-cross-browser).",
+        "actionStep": "",
+        "matches": "pwa-cross-browser"
+    },
+    {
+        "refName": "pwaPageTransitions",
+        "title": "Page transitions don't feel like they block on the network",
+        "description": "Transitions should feel snappy as you tap around, even on a slow network. This experience is key to a user's perception of performance. [Learn more](https://web.dev/pwa-page-transitions).",
+        "actionStep": "",
+        "matches": "pwa-page-transitions"
+    },
+    {
+        "refName": "pwaEachPageHasUrl",
+        "title": "Each page has a URL",
+        "description": "Ensure individual pages are deep linkable via URL and that URLs are unique for the purpose of shareability on social media. [Learn more](https://web.dev/pwa-each-page-has-url).",
+        "actionStep": "",
+        "matches": "pwa-each-page-has-url"
+    },
+    {
+        "refName": "accesskeys",
+        "title": "`[accesskey]` values are unique",
+        "description": "Access keys let users quickly focus a part of the page. For proper navigation, each access key must be unique. [Learn more](https://web.dev/accesskeys/).",
+        "actionStep": "",
+        "matches": "accesskeys"
+    },
+    {
+        "refName": "ariaAllowedAttr",
+        "title": "`[aria-*]` attributes match their roles",
+        "description": "Each ARIA `role` supports a specific subset of `aria-*` attributes. Mismatching these invalidates the `aria-*` attributes. [Learn more](https://web.dev/aria-allowed-attr/).",
+        "actionStep": "",
+        "matches": "aria-allowed-attr"
+    },
+    {
+        "refName": "ariaRequiredAttr",
+        "title": "`[role]`s have all required `[aria-*]` attributes",
+        "description": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://web.dev/aria-required-attr/).",
+        "actionStep": "",
+        "matches": "aria-required-attr"
+    },
+    {
+        "refName": "ariaRequiredChildren",
+        "title": "Elements with an ARIA `[role]` that require children to contain a specific `[role]` have all required children.",
+        "description": "Some ARIA parent roles must contain specific child roles to perform their intended accessibility functions. [Learn more](https://web.dev/aria-required-children/).",
+        "actionStep": "",
+        "matches": "aria-required-children"
+    },
+    {
+        "refName": "ariaRequiredParent",
+        "title": "`[role]`s are contained by their required parent element",
+        "description": "Some ARIA child roles must be contained by specific parent roles to properly perform their intended accessibility functions. [Learn more](https://web.dev/aria-required-parent/).",
+        "actionStep": "",
+        "matches": "aria-required-parent"
+    },
+    {
+        "refName": "ariaRoles",
+        "title": "`[role]` values are valid",
+        "description": "ARIA roles must have valid values in order to perform their intended accessibility functions. [Learn more](https://web.dev/aria-roles/).",
+        "actionStep": "",
+        "matches": "aria-roles"
+    },
+    {
+        "refName": "ariaValidAttrValue",
+        "title": "`[aria-*]` attributes have valid values",
+        "description": "Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid values. [Learn more](https://web.dev/aria-valid-attr-value/).",
+        "actionStep": "",
+        "matches": "aria-valid-attr-value"
+    },
+    {
+        "refName": "ariaValidAttr",
+        "title": "`[aria-*]` attributes are valid and not misspelled",
+        "description": "Assistive technologies, like screen readers, can't interpret ARIA attributes with invalid names. [Learn more](https://web.dev/aria-valid-attr/).",
+        "actionStep": "",
+        "matches": "aria-valid-attr"
+    },
+    {
+        "refName": "audioCaption",
+        "title": "`<audio>` elements contain a `<track>` element with `[kind=\"captions\"]`",
+        "description": "Captions make audio elements usable for deaf or hearing-impaired users, providing critical information such as who is talking, what they're saying, and other non-speech information. [Learn more](https://web.dev/audio-caption/).",
+        "actionStep": "",
+        "matches": "audio-caption"
+    },
+    {
+        "refName": "buttonName",
+        "title": "Buttons do not have an accessible name",
+        "description": "When a button doesn't have an accessible name, screen readers announce it as \"button\", making it unusable for users who rely on screen readers. [Learn more](https://web.dev/button-name/).",
+        "actionStep": "",
+        "matches": "button-name"
+    },
+    {
+        "refName": "bypass",
+        "title": "The page contains a heading, skip link, or landmark region",
+        "description": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://web.dev/bypass/).",
+        "actionStep": "",
+        "matches": "bypass"
+    },
+    {
+        "refName": "colorContrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "description": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://web.dev/color-contrast/).",
+        "actionStep": "",
+        "matches": "color-contrast"
+    },
+    {
+        "refName": "definitionList",
+        "title": "`<dl>`'s contain only properly-ordered `<dt>` and `<dd>` groups, `<script>` or `<template>` elements.",
+        "description": "When definition lists are not properly marked up, screen readers may produce confusing or inaccurate output. [Learn more](https://web.dev/definition-list/).",
+        "actionStep": "",
+        "matches": "definition-list"
+    },
+    {
+        "refName": "dlitem",
+        "title": "Definition list items are wrapped in `<dl>` elements",
+        "description": "Definition list items (`<dt>` and `<dd>`) must be wrapped in a parent `<dl>` element to ensure that screen readers can properly announce them. [Learn more](https://web.dev/dlitem/).",
+        "actionStep": "",
+        "matches": "dlitem"
+    },
+    {
+        "refName": "documentTitle",
+        "title": "Document has a `<title>` element",
+        "description": "The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search. [Learn more](https://web.dev/document-title/).",
+        "actionStep": "",
+        "matches": "document-title"
+    },
+    {
+        "refName": "duplicateId",
+        "title": "`[id]` attributes on the page are unique",
+        "description": "The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://web.dev/duplicate-id/).",
+        "actionStep": "",
+        "matches": "duplicate-id"
+    },
+    {
+        "refName": "frameTitle",
+        "title": "`<frame>` or `<iframe>` elements have a title",
+        "description": "Screen reader users rely on frame titles to describe the contents of frames. [Learn more](https://web.dev/frame-title/).",
+        "actionStep": "",
+        "matches": "frame-title"
+    },
+    {
+        "refName": "htmlHasLang",
+        "title": "`<html>` element has a `[lang]` attribute",
+        "description": "If a page doesn't specify a lang attribute, a screen reader assumes that the page is in the default language that the user chose when setting up the screen reader. If the page isn't actually in the default language, then the screen reader might not announce the page's text correctly. [Learn more](https://web.dev/html-has-lang/).",
+        "actionStep": "",
+        "matches": "html-has-lang"
+    },
+    {
+        "refName": "htmlLangValid",
+        "title": "`<html>` element has a valid value for its `[lang]` attribute",
+        "description": "Specifying a valid [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question) helps screen readers announce text properly. [Learn more](https://web.dev/html-lang-valid/).",
+        "actionStep": "",
+        "matches": "html-lang-valid"
+    },
+    {
+        "refName": "imageAlt",
+        "title": "Image elements have `[alt]` attributes",
+        "description": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more](https://web.dev/image-alt/).",
+        "actionStep": "",
+        "matches": "image-alt"
+    },
+    {
+        "refName": "inputImageAlt",
+        "title": "`<input type=\"image\">` elements have `[alt]` text",
+        "description": "When an image is being used as an `<input>` button, providing alternative text can help screen reader users understand the purpose of the button. [Learn more](https://web.dev/input-image-alt/).",
+        "actionStep": "",
+        "matches": "input-image-alt"
+    },
+    {
+        "refName": "label",
+        "title": "Form elements have associated labels",
+        "description": "Labels ensure that form controls are announced properly by assistive technologies, like screen readers. [Learn more](https://web.dev/label/).",
+        "actionStep": "",
+        "matches": "label"
+    },
+    {
+        "refName": "layoutTable",
+        "title": "Presentational `<table>` elements avoid using `<th>`, `<caption>` or the `[summary]` attribute.",
+        "description": "A table being used for layout purposes should not include data elements, such as the th or caption elements or the summary attribute, because this can create a confusing experience for screen reader users. [Learn more](https://web.dev/layout-table/).",
+        "actionStep": "",
+        "matches": "layout-table"
+    },
+    {
+        "refName": "linkName",
+        "title": "Links have a discernible name",
+        "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
+        "actionStep": "",
+        "matches": "link-name"
+    },
+    {
+        "refName": "list",
+        "title": "Lists contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+        "description": "Screen readers have a specific way of announcing lists. Ensuring proper list structure aids screen reader output. [Learn more](https://web.dev/list/).",
+        "actionStep": "",
+        "matches": "list"
+    },
+    {
+        "refName": "listitem",
+        "title": "List items (`<li>`) are contained within `<ul>` or `<ol>` parent elements",
+        "description": "Screen readers require list items (`<li>`) to be contained within a parent `<ul>` or `<ol>` to be announced properly. [Learn more](https://web.dev/listitem/).",
+        "actionStep": "",
+        "matches": "listitem"
+    },
+    {
+        "refName": "metaRefresh",
+        "title": "The document does not use `<meta http-equiv=\"refresh\">`",
+        "description": "Users do not expect a page to refresh automatically, and doing so will move focus back to the top of the page. This may create a frustrating or confusing experience. [Learn more](https://web.dev/meta-refresh/).",
+        "actionStep": "",
+        "matches": "meta-refresh"
+    },
+    {
+        "refName": "metaViewport",
+        "title": "`[user-scalable=\"no\"]` is not used in the `<meta name=\"viewport\">` element and the `[maximum-scale]` attribute is not less than 5.",
+        "description": "Disabling zooming is problematic for users with low vision who rely on screen magnification to properly see the contents of a web page. [Learn more](https://web.dev/meta-viewport/).",
+        "actionStep": "",
+        "matches": "meta-viewport"
+    },
+    {
+        "refName": "objectAlt",
+        "title": "`<object>` elements have `[alt]` text",
+        "description": "Screen readers cannot translate non-text content. Adding alt text to `<object>` elements helps screen readers convey meaning to users. [Learn more](https://web.dev/object-alt/).",
+        "actionStep": "",
+        "matches": "object-alt"
+    },
+    {
+        "refName": "tabindex",
+        "title": "Some elements have a `[tabindex]` value greater than 0",
+        "description": "A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more](https://web.dev/tabindex/).",
+        "actionStep": "",
+        "matches": "tabindex"
+    },
+    {
+        "refName": "tdHeadersAttr",
+        "title": "Cells in a `<table>` element that use the `[headers]` attribute refer to table cells within the same table.",
+        "description": "Screen readers have features to make navigating tables easier. Ensuring `<td>` cells using the `[headers]` attribute only refer to other cells in the same table may improve the experience for screen reader users. [Learn more](https://web.dev/td-headers-attr/).",
+        "actionStep": "",
+        "matches": "td-headers-attr"
+    },
+    {
+        "refName": "thHasDataCells",
+        "title": "`<th>` elements and elements with `[role=\"columnheader\"/\"rowheader\"]` have data cells they describe.",
+        "description": "Screen readers have features to make navigating tables easier. Ensuring table headers always refer to some set of cells may improve the experience for screen reader users. [Learn more](https://web.dev/th-has-data-cells/).",
+        "actionStep": "",
+        "matches": "th-has-data-cells"
+    },
+    {
+        "refName": "validLang",
+        "title": "`[lang]` attributes have a valid value",
+        "description": "Specifying a valid [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question) on elements helps ensure that text is pronounced correctly by a screen reader. [Learn more](https://web.dev/valid-lang/).",
+        "actionStep": "",
+        "matches": "valid-lang"
+    },
+    {
+        "refName": "videoCaption",
+        "title": "`<video>` elements contain a `<track>` element with `[kind=\"captions\"]`",
+        "description": "When a video provides a caption it is easier for deaf and hearing impaired users to access its information. [Learn more](https://web.dev/video-caption/).",
+        "actionStep": "",
+        "matches": "video-caption"
+    },
+    {
+        "refName": "videoDescription",
+        "title": "`<video>` elements contain a `<track>` element with `[kind=\"description\"]`",
+        "description": "Audio descriptions provide relevant information for videos that dialogue cannot, such as facial expressions and scenes. [Learn more](https://web.dev/video-description/).",
+        "actionStep": "",
+        "matches": "video-description"
+    },
+    {
+        "refName": "customControlsLabels",
+        "title": "Custom controls have associated labels",
+        "description": "Custom interactive controls have associated labels, provided by aria-label or aria-labelledby. [Learn more](https://web.dev/custom-controls-labels/).",
+        "actionStep": "",
+        "matches": "custom-controls-labels"
+    },
+    {
+        "refName": "customControlsRoles",
+        "title": "Custom controls have ARIA roles",
+        "description": "Custom interactive controls have appropriate ARIA roles. [Learn more](https://web.dev/custom-control-roles/).",
+        "actionStep": "",
+        "matches": "custom-controls-roles"
+    },
+    {
+        "refName": "focusTraps",
+        "title": "User focus is not accidentally trapped in a region",
+        "description": "A user can tab into and out of any control or region without accidentally trapping their focus. [Learn more](https://web.dev/focus-traps/).",
+        "actionStep": "",
+        "matches": "focus-traps"
+    },
+    {
+        "refName": "focusableControls",
+        "title": "Interactive controls are keyboard focusable",
+        "description": "Custom interactive controls are keyboard focusable and display a focus indicator. [Learn more](https://web.dev/focusable-controls/).",
+        "actionStep": "",
+        "matches": "focusable-controls"
+    },
+    {
+        "refName": "headingLevels",
+        "title": "Headings don't skip levels",
+        "description": "Headings are used to create an outline for the page and heading levels are not skipped. [Learn more](https://web.dev/heading-levels/).",
+        "actionStep": "",
+        "matches": "heading-levels"
+    },
+    {
+        "refName": "interactiveElementAffordance",
+        "title": "Interactive elements indicate their purpose and state",
+        "description": "Interactive elements, such as links and buttons, should indicate their state and be distinguishable from non-interactive elements. [Learn more](https://web.dev/interactive-element-affordance/).",
+        "actionStep": "",
+        "matches": "interactive-element-affordance"
+    },
+    {
+        "refName": "logicalTabOrder",
+        "title": "The page has a logical tab order",
+        "description": "Tabbing through the page follows the visual layout. Users cannot focus elements that are offscreen. [Learn more](https://web.dev/logical-tab-order/).",
+        "actionStep": "",
+        "matches": "logical-tab-order"
+    },
+    {
+        "refName": "managedFocus",
+        "title": "The user's focus is directed to new content added to the page",
+        "description": "If new content, such as a dialog, is added to the page, the user's focus is directed to it. [Learn more](https://web.dev/managed-focus/).",
+        "actionStep": "",
+        "matches": "managed-focus"
+    },
+    {
+        "refName": "offscreenContentHidden",
+        "title": "Offscreen content is hidden from assistive technology",
+        "description": "Offscreen content is hidden with display: none or aria-hidden=true. [Learn more](https://web.dev/offscreen-content-hidden/).",
+        "actionStep": "",
+        "matches": "offscreen-content-hidden"
+    },
+    {
+        "refName": "useLandmarks",
+        "title": "HTML5 landmark elements are used to improve navigation",
+        "description": "Landmark elements (<main>, <nav>, etc.) are used to improve the keyboard navigation of the page for assistive technology. [Learn more](https://web.dev/use-landmarks/).",
+        "actionStep": "",
+        "matches": "use-landmarks"
+    },
+    {
+        "refName": "visualOrderFollowsDom",
+        "title": "Visual order on the page follows DOM order",
+        "description": "DOM order matches the visual order, improving navigation for assistive technology. [Learn more](https://web.dev/visual-order-follows-dom/).",
+        "actionStep": "",
+        "matches": "visual-order-follows-dom"
+    },
+    {
+        "refName": "usesLongCacheTtl",
+        "title": "Uses efficient cache policy on static assets",
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
+        "actionStep": "",
+        "matches": "uses-long-cache-ttl"
+    },
+    {
+        "refName": "totalByteWeight",
+        "title": "Avoids enormous network payloads",
+        "description": "Large network payloads cost users real money and are highly correlated with long load times. [Learn more](https://web.dev/total-byte-weight).",
+        "actionStep": "",
+        "matches": "total-byte-weight"
+    },
+    {
+        "refName": "offscreenImages",
+        "title": "Defer offscreen images",
+        "description": "Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive. [Learn more](https://web.dev/offscreen-images).",
+        "actionStep": "",
+        "matches": "offscreen-images"
+    },
+    {
+        "refName": "renderBlockingResources",
+        "title": "Eliminate render-blocking resources",
+        "description": "Resources are blocking the first paint of your page. Consider delivering critical JS/CSS inline and deferring all non-critical JS/styles. [Learn more](https://web.dev/render-blocking-resources).",
+        "actionStep": "",
+        "matches": "render-blocking-resources"
+    },
+    {
+        "refName": "unminifiedCss",
+        "title": "Minify CSS",
+        "description": "Minifying CSS files can reduce network payload sizes. [Learn more](https://web.dev/unminified-css).",
+        "actionStep": "",
+        "matches": "unminified-css"
+    },
+    {
+        "refName": "unminifiedJavascript",
+        "title": "Minify JavaScript",
+        "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn more](https://web.dev/unminified-javascript).",
+        "actionStep": "",
+        "matches": "unminified-javascript"
+    },
+    {
+        "refName": "unusedCssRules",
+        "title": "Remove unused CSS",
+        "description": "Remove dead rules from stylesheets and defer the loading of CSS not used for above-the-fold content to reduce unnecessary bytes consumed by network activity. [Learn more](https://web.dev/unused-css-rules).",
+        "actionStep": "",
+        "matches": "unused-css-rules"
+    },
+    {
+        "refName": "usesWebpImages",
+        "title": "Serve images in next-gen formats",
+        "description": "Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more](https://web.dev/uses-webp-images).",
+        "actionStep": "",
+        "matches": "uses-webp-images"
+    },
+    {
+        "refName": "usesOptimizedImages",
+        "title": "Efficiently encode images",
+        "description": "Optimized images load faster and consume less cellular data. [Learn more](https://web.dev/uses-optimized-images).",
+        "actionStep": "",
+        "matches": "uses-optimized-images"
+    },
+    {
+        "refName": "usesTextCompression",
+        "title": "Enable text compression",
+        "description": "Text-based resources should be served with compression (gzip, deflate or brotli) to minimize total network bytes. [Learn more](https://web.dev/uses-text-compression).",
+        "actionStep": "",
+        "matches": "uses-text-compression"
+    },
+    {
+        "refName": "usesResponsiveImages",
+        "title": "Properly size images",
+        "description": "Serve images that are appropriately-sized to save cellular data and improve load time. [Learn more](https://web.dev/uses-responsive-images).",
+        "actionStep": "",
+        "matches": "uses-responsive-images"
+    },
+    {
+        "refName": "efficientAnimatedContent",
+        "title": "Use video formats for animated content",
+        "description": "Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. [Learn more](https://web.dev/efficient-animated-content)",
+        "actionStep": "",
+        "matches": "efficient-animated-content"
+    },
+    {
+        "refName": "appcacheManifest",
+        "title": "Avoids Application Cache",
+        "description": "Application Cache is deprecated. [Learn more](https://web.dev/appcache-manifest).",
+        "actionStep": "",
+        "matches": "appcache-manifest"
+    },
+    {
+        "refName": "doctype",
+        "title": "Page has the HTML doctype",
+        "description": "Specifying a doctype prevents the browser from switching to quirks-mode. [Learn more](https://web.dev/doctype).",
+        "actionStep": "",
+        "matches": "doctype"
+    },
+    {
+        "refName": "domSize",
+        "title": "Avoids an excessive DOM size",
+        "description": "A large DOM will increase memory usage, cause longer [style calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations), and produce costly [layout reflows](https://developers.google.com/speed/articles/reflow). [Learn more](https://web.dev/dom-size).",
+        "actionStep": "",
+        "matches": "dom-size"
+    },
+    {
+        "refName": "externalAnchorsUseRelNoopener",
+        "title": "Links to cross-origin destinations are safe",
+        "description": "Add `rel=\"noopener\"` or `rel=\"noreferrer\"` to any external links to improve performance and prevent security vulnerabilities. [Learn more](https://web.dev/external-anchors-use-rel-noopener).",
+        "actionStep": "",
+        "matches": "external-anchors-use-rel-noopener"
+    },
+    {
+        "refName": "geolocationOnStart",
+        "title": "Avoids requesting the geolocation permission on page load",
+        "description": "Users are mistrustful of or confused by sites that request their location without context. Consider tying the request to a user action instead. [Learn more](https://web.dev/geolocation-on-start).",
+        "actionStep": "",
+        "matches": "geolocation-on-start"
+    },
+    {
+        "refName": "noDocumentWrite",
+        "title": "Avoids `document.write()`",
+        "description": "For users on slow connections, external scripts dynamically injected via `document.write()` can delay page load by tens of seconds. [Learn more](https://web.dev/no-document-write).",
+        "actionStep": "",
+        "matches": "no-document-write"
+    },
+    {
+        "refName": "noVulnerableLibraries",
+        "title": "Avoids front-end JavaScript libraries with known security vulnerabilities",
+        "description": "Some third-party scripts may contain known security vulnerabilities that are easily identified and exploited by attackers. [Learn more](https://web.dev/no-vulnerable-libraries).",
+        "actionStep": "",
+        "matches": "no-vulnerable-libraries"
+    },
+    {
+        "refName": "jsLibraries",
+        "title": "Detected JavaScript libraries",
+        "description": "All front-end JavaScript libraries detected on the page. [Learn more](https://web.dev/js-libraries).",
+        "actionStep": "",
+        "matches": "js-libraries"
+    },
+    {
+        "refName": "notificationOnStart",
+        "title": "Avoids requesting the notification permission on page load",
+        "description": "Users are mistrustful of or confused by sites that request to send notifications without context. Consider tying the request to user gestures instead. [Learn more](https://web.dev/notification-on-start).",
+        "actionStep": "",
+        "matches": "notification-on-start"
+    },
+    {
+        "refName": "passwordInputsCanBePastedInto",
+        "title": "Allows users to paste into password fields",
+        "description": "Preventing password pasting undermines good security policy. [Learn more](https://web.dev/password-inputs-can-be-pasted-into).",
+        "actionStep": "",
+        "matches": "password-inputs-can-be-pasted-into"
+    },
+    {
+        "refName": "usesHttp2",
+        "title": "Uses HTTP/2 for its own resources",
+        "description": "HTTP/2 offers many benefits over HTTP/1.1, including binary headers, multiplexing, and server push. [Learn more](https://web.dev/uses-http2).",
+        "actionStep": "",
+        "matches": "uses-http2"
+    },
+    {
+        "refName": "usesPassiveEventListeners",
+        "title": "Uses passive listeners to improve scrolling performance",
+        "description": "Consider marking your touch and wheel event listeners as `passive` to improve your page's scroll performance. [Learn more](https://web.dev/uses-passive-event-listeners).",
+        "actionStep": "",
+        "matches": "uses-passive-event-listeners"
+    },
+    {
+        "refName": "metaDescription",
+        "title": "Document has a meta description",
+        "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more](https://web.dev/meta-description).",
+        "actionStep": "",
+        "matches": "meta-description"
+    },
+    {
+        "refName": "httpStatusCode",
+        "title": "Page has successful HTTP status code",
+        "description": "Pages with unsuccessful HTTP status codes may not be indexed properly. [Learn more](https://web.dev/http-status-code).",
+        "actionStep": "",
+        "matches": "http-status-code"
+    },
+    {
+        "refName": "fontSize",
+        "title": "Document uses legible font sizes",
+        "description": "Font sizes less than 12px are too small to be legible and require mobile visitors to “pinch to zoom” in order to read. Strive to have >60% of page text ≥12px. [Learn more](https://web.dev/font-size).",
+        "actionStep": "",
+        "matches": "font-size"
+    },
+    {
+        "refName": "linkText",
+        "title": "Links have descriptive text",
+        "description": "Descriptive link text helps search engines understand your content. [Learn more](https://web.dev/link-text).",
+        "actionStep": "",
+        "matches": "link-text"
+    },
+    {
+        "refName": "isCrawlable",
+        "title": "Page isn’t blocked from indexing",
+        "description": "Search engines are unable to include your pages in search results if they don't have permission to crawl them. [Learn more](https://web.dev/is-crawable).",
+        "actionStep": "",
+        "matches": "is-crawlable"
+    },
+    {
+        "refName": "robotsTxt",
+        "title": "robots.txt is valid",
+        "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more](https://web.dev/robots-txt).",
+        "actionStep": "",
+        "matches": "robots-txt"
+    },
+    {
+        "refName": "tapTargets",
+        "title": "Tap targets are sized appropriately",
+        "description": "Interactive elements like buttons and links should be large enough (48x48px), and have enough space around them, to be easy enough to tap without overlapping onto other elements. [Learn more](https://web.dev/tap-targets).",
+        "actionStep": "",
+        "matches": "tap-targets"
+    },
+    {
+        "refName": "hreflang",
+        "title": "Document has a valid `hreflang`",
+        "description": "hreflang links tell search engines what version of a page they should list in search results for a given language or region. [Learn more](https://web.dev/hreflang).",
+        "actionStep": "",
+        "matches": "hreflang"
+    },
+    {
+        "refName": "plugins",
+        "title": "Document avoids plugins",
+        "description": "Search engines can't index plugin content, and many devices restrict plugins or don't support them. [Learn more](https://web.dev/plugins).",
+        "actionStep": "",
+        "matches": "plugins"
+    },
+    {
+        "refName": "canonical",
+        "title": "Document has a valid `rel=canonical`",
+        "description": "Canonical links suggest which URL to show in search results. [Learn more](https://web.dev/canonical).",
+        "actionStep": "",
+        "matches": "canonical"
+    },
+    {
+        "refName": "structuredData",
+        "title": "Structured data is valid",
+        "description": "Run the [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/) and the [Structured Data Linter](http://linter.structured-data.org/) to validate structured data. [Learn more](https://web.dev/structured-data).",
+        "actionStep": "",
+        "matches": "structured-data"
+    }
+]
