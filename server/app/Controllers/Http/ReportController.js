@@ -15,10 +15,10 @@ class ReportController {
     const analyzedReport = require(Helpers.appRoot(
       `/resources/${params.filename}/${params.filename}-analyzed.json`
     ));
-    const actionStepsReprt = require(Helpers.appRoot(
+    const actionStepsReport = require(Helpers.appRoot(
       `/resources/${params.filename}/${params.filename}-action-steps.json`
     ));
-    let reports = Promise.all([rawReport, analyzedReport, actionStepsReprt])
+    let reports = Promise.all([rawReport, analyzedReport, actionStepsReport]);
     return reports;
   }
 

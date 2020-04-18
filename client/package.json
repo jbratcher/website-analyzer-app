@@ -1,0 +1,27 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "description": "Client for Website Analyzer App",
+  "author": "Jeremy Bratcher",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbratcher/website-analyzer-app"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nuxt": "^2.12.2",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.0",
+    "nuxt-webfontloader": "^1.1.0"
+  }
+}
