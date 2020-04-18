@@ -9,7 +9,18 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState("reports", ["reports"])
+  },
+  methods: {
+    ...mapActions("reports", ["fetchAllReports"])
+  },
+  created() {
+    this.fetchAllReports("airhorner");
+  }
+};
 </script>
 
 <style lang="scss"></style>

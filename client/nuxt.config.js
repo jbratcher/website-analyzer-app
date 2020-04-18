@@ -76,9 +76,22 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["nuxt-webfontloader"],
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy",
+    "nuxt-webfontloader"
+  ],
   markdownit: {
     injected: true
+  },
+  proxy: {
+    "/api": {
+      target: "http://localhost:3333",
+      pathRewrite: {
+        "^/api": "/"
+      }
+    }
   },
   /*
    ** Build configuration
@@ -122,7 +135,7 @@ export default {
         light: {
           primary: colors.indigo,
           accent: colors.indigo.accent2,
-          secondary: '#b5763f"',
+          secondary: "#b5763f",
           info: colors.blueGrey.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
