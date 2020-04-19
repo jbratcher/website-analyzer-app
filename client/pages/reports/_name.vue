@@ -1,24 +1,27 @@
 <template>
-  <v-container class="pa-0" fluid>
+  <v-container>
     <v-row>
-      <v-col class="pa-0">
-        <h1 class="display-2">Report Index Page By ID</h1>
+      <v-col>
+        <h2>{{ allReports[1].name }}</h2>
+        <p>{{ allReports[1].url }}</p>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   computed: {
-    ...mapState("reports", ["reports"])
+    ...mapState("reports", ["allReports"])
   },
   methods: {
-    ...mapActions("reports", ["fetchAllReports"])
+    ...mapActions("reports", ["fetchAllReports"]),
+    ...mapMutations("reports", ["setAllReports"])
   },
   created() {
-    this.fetchAllReports("airhorner");
+    console.log(this.$route.params.name);
+    this.fetchAllReports(this.$route.params.name);
   }
 };
 </script>

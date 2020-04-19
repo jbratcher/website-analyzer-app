@@ -2,7 +2,7 @@ i<template>
   <v-app>
     <!-- Header Area -->
     <!-- Main Navigation Bar -->
-    <v-app-bar app color="transparent" elevation="1" light short>
+    <v-app-bar app color="white" elevation="1" light short>
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click.stop="drawer = !drawer"
@@ -42,7 +42,12 @@ i<template>
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="item in dashboardLinks" :key="item.title" link :to="item.to">
+        <v-list-item
+          v-for="item in dashboardLinks"
+          :key="item.title"
+          link
+          :to="item.to"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -61,7 +66,6 @@ i<template>
     <v-divider />
     <v-lazy>
       <v-footer
-        app
         class="d-flex flex-column align-center my-12 pt-12 py-6 px-5"
         color="transparent"
       >
@@ -71,21 +75,23 @@ i<template>
             'display-1': $breakpoint.mdAndUp,
             headline: $breakpoint.smAndDown
           }"
-        >{{ appTitle }}</h2>
+        >
+          {{ appTitle }}
+        </h2>
         <p
           class="px-6 text-align-center"
           :class="{
             headline: $breakpoint.mdAndUp,
             'subtitle-1': $breakpoint.smAndDown
           }"
-        >{{ appDescription }}</p>
+        >
+          {{ appDescription }}
+        </p>
         <nav>
           <ul class="d-flex flex-wrap py-3 px-0">
             <li v-for="(link, i) in generalLinks" :key="i + link.title">
               <v-btn :href="link.to" :name="link.title" text rounded>
-                {{
-                link.title
-                }}
+                {{ link.title }}
               </v-btn>
             </li>
           </ul>
