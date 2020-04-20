@@ -23,14 +23,16 @@
         </v-card>
         <!-- Report dump -->
         <v-card v-for="(item, index) in rawReport" :key="index">
-          <v-card-title>{{ item.constructor.name }}</v-card-title>
-          <!-- <v-card-text
-            >Object Name:
-            {{ Array.from(Object.entries(rawReport[index]))[0] }}</v-card-text
-          > -->
-          <v-card-text v-if="item.constructor.name === 'Object'"
-            >Object Keys: {{ Object.keys(item) }}</v-card-text
-          >
+          <v-card-title>{{ index }}</v-card-title>
+          <template v-if="item.constructor.name === 'Object'">
+            <v-card
+              v-for="(key, index) in Object.keys(item)"
+              :key="`${key}${index}`"
+              flat
+            >
+              <v-card-text>{{ key }}</v-card-text>
+            </v-card>
+          </template>
           <v-card-text>{{ item }}</v-card-text>
         </v-card>
       </v-col>
