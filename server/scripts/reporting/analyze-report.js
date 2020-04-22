@@ -28,10 +28,30 @@ let failingAudits = function () {
 
 failingAudits();
 
+// calculate overall Score
+let totalScore = 0;
+let scores = [];
+
+let overallScore = function () {
+  Object.values(formattedJson.categories).map((category) => {
+    if (category.score) {
+      console.log(category.score);
+      let normalizedScore = category.score * 100;
+      scores.push(normalizedScore);
+    }
+    totalScore = (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(0);
+  });
+};
+
+overallScore();
+
+console.log(`Total Score: ${totalScore}`);
+
 // build json object with pertinent company/website info and action step info
 auditList = {
   name: filename[0].toUpperCase() + filename.slice(1),
   url: formattedJson.requestedUrl,
+  totalScore: totalScore,
   ...auditList,
 };
 

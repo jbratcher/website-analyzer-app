@@ -1,6 +1,7 @@
 {
     "name": "Airhorner",
     "url": "https://airhorner.com/",
+    "totalScore": "97",
     "audits": {
         "speed-index": {
             "id": "speed-index",

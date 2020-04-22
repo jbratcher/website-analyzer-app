@@ -32,22 +32,17 @@ i<template>
       />
     </v-navigation-drawer>
     <!-- Main Dashboard Navigation -->
-    <v-navigation-drawer app :permanent="$breakpoint.smAndUp ? true : false">
-      <v-list-item id="dashboard" class="py-1" to="/">
-        <v-list-item-content>
-          <v-list-item-title class="black--text">Dashboard</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+    <v-navigation-drawer
+      app
+      :mini-variant="sidedrawer"
+      :permanent="$breakpoint.smAndUp ? true : false"
+    >
+      <v-app-bar-nav-icon @click.stop="sidedrawer = !sidedrawer" name="sidemenu" x-large />
 
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item
-          v-for="item in dashboardLinks"
-          :key="item.title"
-          link
-          :to="item.to"
-        >
+        <v-list-item v-for="item in dashboardLinks" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -65,34 +60,25 @@ i<template>
     <!-- Footer Area -->
     <v-divider />
     <v-lazy>
-      <v-footer
-        class="d-flex flex-column align-center my-12 pt-12 py-6 px-5"
-        color="transparent"
-      >
+      <v-footer class="d-flex flex-column align-center my-12 pt-12 py-6 px-5" color="transparent">
         <h2
           class="mb-3"
           :class="{
             'display-1': $breakpoint.mdAndUp,
             headline: $breakpoint.smAndDown
           }"
-        >
-          {{ appTitle }}
-        </h2>
+        >{{ appTitle }}</h2>
         <p
           class="px-6 text-align-center"
           :class="{
             headline: $breakpoint.mdAndUp,
             'subtitle-1': $breakpoint.smAndDown
           }"
-        >
-          {{ appDescription }}
-        </p>
+        >{{ appDescription }}</p>
         <nav>
           <ul class="d-flex flex-wrap py-3 px-0">
             <li v-for="(link, i) in generalLinks" :key="i + link.title">
-              <v-btn :href="link.to" :name="link.title" text rounded>
-                {{ link.title }}
-              </v-btn>
+              <v-btn :href="link.to" :name="link.title" text rounded>{{ link.title }}</v-btn>
             </li>
           </ul>
         </nav>
@@ -124,10 +110,12 @@ export default {
           to: "/reports/action-steps"
         }
       ],
+      mini: true,
       right: null,
       appTitle: process.env.title,
       appDescription: process.env.description,
       drawer: false,
+      sidedrawer: true,
       generalLinks: [
         {
           title: "Reports",
