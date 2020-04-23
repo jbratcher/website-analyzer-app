@@ -50,6 +50,10 @@ launchChromeAndRunLighthouse(website_url, opts).then((results) => {
   if (!fs.existsSync(`resources/${website_name}`)) {
     fs.mkdirSync(`resources/${website_name}`, { recursive: true });
   }
+  results = {
+    name: website_name,
+    ...results,
+  };
   storeData(
     results,
     `resources/${website_name}/${website_name}-lighthouse.json`

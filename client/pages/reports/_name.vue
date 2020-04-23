@@ -5,15 +5,19 @@
         <!-- Report Score Header View-->
         <!-- Overall Score -->
         <v-card class="d-flex flex-column align-center py-6 text-center" flat>
-          <v-card-title class="font-weight-bold pb-0">Overall Score</v-card-title>
-          <v-card-text class="display-4 green--text">{{ analyzedReport.totalScore }}</v-card-text>
+          <v-card-title class="font-weight-bold pb-0"
+            >Overall Score</v-card-title
+          >
+          <v-card-text class="display-4 green--text">{{
+            analyzedReport.report.totalScore
+          }}</v-card-text>
         </v-card>
         <!-- Categories Score -->
         <v-card>
           <v-container class="pa-0">
             <v-row justify="center">
               <v-col
-                v-for="(category, index) in rawReport.categories"
+                v-for="(category, index) in rawReport.report.categories"
                 :key="`${category.title}${index}`"
                 sm="2"
               >
@@ -29,11 +33,11 @@
                     size="128"
                     width="12"
                   >
-                    {{
-                    normalizedScore(category.score)
-                    }}
+                    {{ normalizedScore(category.score) }}
                   </v-progress-circular>
-                  <v-card-text class="body-1 mt-auto">{{ category.title }}</v-card-text>
+                  <v-card-text class="body-1 mt-auto">{{
+                    category.title
+                  }}</v-card-text>
                 </v-card>
               </v-col>
             </v-row>

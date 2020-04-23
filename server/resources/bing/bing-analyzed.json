@@ -1,5 +1,5 @@
 {
-    "name": "Bing",
+    "name": "bing",
     "url": "https://bing.com/",
     "totalScore": "83",
     "audits": {
@@ -17,26 +17,26 @@
             "score": 0,
             "scoreDisplayMode": "binary",
             "warnings": [
-                "The page may not be loading offline because your test URL (https://bing.com/) was redirected to \"https://www.bing.com/?toWww=1&redig=A3F9921C89D348F991B4EFC6E412DA0C\". Try testing the second URL directly."
+                "The page may not be loading offline because your test URL (https://bing.com/) was redirected to \"https://www.bing.com/?toWww=1&redig=4257DBE263D14AAF8D6B20D2365A9AB3\". Try testing the second URL directly."
             ]
         },
         "first-contentful-paint": {
             "id": "first-contentful-paint",
             "title": "First Contentful Paint",
             "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
-            "score": 0.97,
+            "score": 0.96,
             "scoreDisplayMode": "numeric",
-            "numericValue": 1786.732,
-            "displayValue": "1.8 s"
+            "numericValue": 1923.141,
+            "displayValue": "1.9 s"
         },
         "first-meaningful-paint": {
             "id": "first-meaningful-paint",
             "title": "First Meaningful Paint",
             "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
-            "score": 0.94,
+            "score": 0.92,
             "scoreDisplayMode": "numeric",
-            "numericValue": 2045.232,
-            "displayValue": "2.0 s"
+            "numericValue": 2193.141,
+            "displayValue": "2.2 s"
         },
         "speed-index": {
             "id": "speed-index",
@@ -44,35 +44,44 @@
             "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
             "score": 0.91,
             "scoreDisplayMode": "numeric",
-            "numericValue": 3285.3461898964842,
+            "numericValue": 3316.281117871833,
             "displayValue": "3.3 s"
+        },
+        "total-blocking-time": {
+            "id": "total-blocking-time",
+            "title": "Total Blocking Time",
+            "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+            "score": 0.98,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 183.49999999999977,
+            "displayValue": "180 ms"
         },
         "max-potential-fid": {
             "id": "max-potential-fid",
             "title": "Max Potential First Input Delay",
             "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
-            "score": 0.88,
+            "score": 0.5,
             "scoreDisplayMode": "numeric",
-            "numericValue": 138,
-            "displayValue": "140 ms"
+            "numericValue": 249,
+            "displayValue": "250 ms"
         },
         "first-cpu-idle": {
             "id": "first-cpu-idle",
             "title": "First CPU Idle",
             "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
-            "score": 0.98,
+            "score": 0.97,
             "scoreDisplayMode": "numeric",
-            "numericValue": 2431.732,
-            "displayValue": "2.4 s"
+            "numericValue": 2671.1409999999996,
+            "displayValue": "2.7 s"
         },
         "interactive": {
             "id": "interactive",
             "title": "Time to Interactive",
             "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
-            "score": 0.93,
+            "score": 0.92,
             "scoreDisplayMode": "numeric",
-            "numericValue": 3406.732,
-            "displayValue": "3.4 s"
+            "numericValue": 3496.1409999999996,
+            "displayValue": "3.5 s"
         },
         "installable-manifest": {
             "id": "installable-manifest",
@@ -181,12 +190,12 @@
         },
         "mainthread-work-breakdown": {
             "id": "mainthread-work-breakdown",
-            "title": "Minimizes main-thread work",
+            "title": "Minimize main-thread work",
             "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
-            "score": 0.95,
+            "score": 0.7,
             "scoreDisplayMode": "numeric",
-            "numericValue": 1685.4240000000045,
-            "displayValue": "1.7 s",
+            "numericValue": 3029.3919999999966,
+            "displayValue": "3.0 s",
             "details": {
                 "type": "table",
                 "headings": [
@@ -204,36 +213,114 @@
                 ],
                 "items": [
                     {
-                        "group": "other",
-                        "groupLabel": "Other",
-                        "duration": 437.3400000000016
-                    },
-                    {
-                        "group": "paintCompositeRender",
-                        "groupLabel": "Rendering",
-                        "duration": 393.67600000000147
-                    },
-                    {
                         "group": "scriptEvaluation",
                         "groupLabel": "Script Evaluation",
-                        "duration": 390.60800000000137
+                        "duration": 761.3679999999979
+                    },
+                    {
+                        "group": "other",
+                        "groupLabel": "Other",
+                        "duration": 747.6440000000011
                     },
                     {
                         "group": "styleLayout",
                         "groupLabel": "Style & Layout",
-                        "duration": 389.1559999999999
+                        "duration": 718.5720000000002
                     },
                     {
-                        "group": "scriptParseCompile",
-                        "groupLabel": "Script Parsing & Compilation",
-                        "duration": 38.272
+                        "group": "paintCompositeRender",
+                        "groupLabel": "Rendering",
+                        "duration": 650.9279999999977
                     },
                     {
                         "group": "parseHTML",
                         "groupLabel": "Parse HTML & CSS",
-                        "duration": 36.37199999999999
+                        "duration": 79.308
+                    },
+                    {
+                        "group": "scriptParseCompile",
+                        "groupLabel": "Script Parsing & Compilation",
+                        "duration": 71.57199999999999
                     }
                 ]
+            }
+        },
+        "bootup-time": {
+            "id": "bootup-time",
+            "title": "JavaScript execution time",
+            "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+            "score": 0.97,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 777.7120000000004,
+            "displayValue": "0.8 s",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "total",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Total CPU Time"
+                    },
+                    {
+                        "key": "scripting",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Evaluation"
+                    },
+                    {
+                        "key": "scriptParseCompile",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Parse"
+                    }
+                ],
+                "items": [
+                    {
+                        "url": "Other",
+                        "total": 1745.6719999999996,
+                        "scripting": 240.88400000000047,
+                        "scriptParseCompile": 5.8519999999999985
+                    },
+                    {
+                        "url": "https://www.bing.com/?toWww=1&redig=4257DBE263D14AAF8D6B20D2365A9AB3",
+                        "total": 476.26400000000007,
+                        "scripting": 89.364,
+                        "scriptParseCompile": 20.791999999999998
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/14/cj,nj/zc3Nq4y0XOr2-Tl-Fj4HlkBeK5s.js?bu=Di8YN3WFAXI-MjqzAacBGKEBGA",
+                        "total": 424.87600000000003,
+                        "scripting": 128.6,
+                        "scriptParseCompile": 6.056
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/5h/cj,nj/RfTSifaIc6XiNcgfnMvX9AyfNXM.js?bu=EqUhyyHVIO8gtgX7IIIh0yGAIY8hhSG9IcEhsSGeIKUfsB-hIA",
+                        "total": 137.61999999999998,
+                        "scripting": 125.56399999999998,
+                        "scriptParseCompile": 8.860000000000003
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/2V/cj,nj/6BsKE-ZQeKe0vHb0vclH0k01aag.js?bu=BURMDllc",
+                        "total": 114.50399999999998,
+                        "scripting": 71.03599999999999,
+                        "scriptParseCompile": 11.539999999999997
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/G/cj,nj/u0LhvcPzjcMNOYOJTph9EdC-4zA.js?bu=EkrtAfAB8wGbAtkBRKYBugG3AURERETXAUSOAr0B",
+                        "total": 72.284,
+                        "scripting": 62.327999999999996,
+                        "scriptParseCompile": 6.836
+                    }
+                ],
+                "summary": {
+                    "wastedMs": 777.7120000000004
+                }
             }
         },
         "offline-start-url": {
@@ -244,6 +331,52 @@
             "scoreDisplayMode": "binary",
             "explanation": "No usable web app manifest found on page.",
             "warnings": []
+        },
+        "third-party-summary": {
+            "id": "third-party-summary",
+            "title": "Reduce the impact of third-party code",
+            "description": "Third-party code can significantly impact load performance. Limit the number of redundant third-party providers and try to load third-party code after your page has primarily finished loading. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "displayValue": "Third-party code blocked the main thread for 460 ms",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "entity",
+                        "itemType": "link",
+                        "text": "Third-Party"
+                    },
+                    {
+                        "key": "transferSize",
+                        "granularity": 1,
+                        "itemType": "bytes",
+                        "text": "Size"
+                    },
+                    {
+                        "key": "blockingTime",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Main-Thread Blocking Time"
+                    }
+                ],
+                "items": [
+                    {
+                        "entity": {
+                            "type": "link",
+                            "text": "Bing Ads",
+                            "url": "https://bingads.microsoft.com"
+                        },
+                        "transferSize": 496082,
+                        "mainThreadTime": 1283.7199999999984,
+                        "blockingTime": 457.404
+                    }
+                ],
+                "summary": {
+                    "wastedBytes": 496082,
+                    "wastedMs": 457.404
+                }
+            }
         },
         "duplicate-id": {
             "id": "duplicate-id",
@@ -453,8 +586,8 @@
                         "node": {
                             "type": "node",
                             "selector": "img[src$=\"BNPOpalappIcon\\.png\"]",
-                            "path": "1,HTML,1,BODY,20,DIV,0,DIV,0,DIV,0,DIV,0,DIV,0,IMG",
-                            "snippet": "<img class=\"icon\" src=\"/s/bnp/BNPOpalappIcon.png\" data-bm=\"8\">",
+                            "path": "1,HTML,1,BODY,17,DIV,0,DIV,0,DIV,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img class=\"icon\" src=\"/s/bnp/BNPOpalappIcon.png\" data-bm=\"1\">",
                             "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
                             "nodeLabel": "img"
                         }
@@ -463,8 +596,8 @@
                         "node": {
                             "type": "node",
                             "selector": ".closeIcon",
-                            "path": "1,HTML,1,BODY,20,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,SPAN,0,IMG",
-                            "snippet": "<img class=\"closeIcon rms_img\" src=\"/rp/Hqee4L-KVAUxRNuI01_YzGZt0t4.png\" data-bm=\"9\">",
+                            "path": "1,HTML,1,BODY,17,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,SPAN,0,IMG",
+                            "snippet": "<img class=\"closeIcon rms_img\" src=\"/rp/Hqee4L-KVAUxRNuI01_YzGZt0t4.png\" data-bm=\"2\">",
                             "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
                             "nodeLabel": "img"
                         }
@@ -528,9 +661,9 @@
             "id": "uses-long-cache-ttl",
             "title": "Serve static assets with an efficient cache policy",
             "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
-            "score": 0.89,
+            "score": 0.87,
             "scoreDisplayMode": "numeric",
-            "numericValue": 31636.976815642443,
+            "numericValue": 33855.63184357541,
             "displayValue": "18 resources found",
             "details": {
                 "type": "table",
@@ -556,7 +689,7 @@
                 ],
                 "items": [
                     {
-                        "url": "https://www.bing.com/fd/ls/l?IG=DBB92726896A45D7BC07E7D9102478A3&Type=Event.CPT&DATA={%22pp%22:{%22S%22:%22L%22,%22FC%22:-1,%22BC%22:-1,%22SE%22:-1,%22TC%22:-1,%22H%22:-1,%22BP%22:41,%22CT%22:47,%22IL%22:0},%22net%22:%22undefined%22}&P=SERP&DA=BN2B&MN=SERP",
+                        "url": "https://www.bing.com/fd/ls/l?IG=7AF9BDAF9E3C43319C5CA78D356DCED1&Type=Event.CPT&DATA={%22pp%22:{%22S%22:%22L%22,%22FC%22:-1,%22BC%22:-1,%22SE%22:-1,%22TC%22:-1,%22H%22:-1,%22BP%22:102,%22CT%22:119,%22IL%22:0},%22net%22:%22undefined%22}&P=SERP&DA=BN2B&MN=SERP",
                         "cacheLifetimeMs": 0,
                         "cacheHitProbability": 0,
                         "totalBytes": 93,
@@ -571,8 +704,32 @@
                         },
                         "cacheLifetimeMs": 691200000,
                         "cacheHitProbability": 0.9002793296089385,
-                        "totalBytes": 141078,
-                        "wastedBytes": 14068.392737430171
+                        "totalBytes": 141079,
+                        "wastedBytes": 14068.492458100562
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_XS_JI41YA0KJDTj6P_bM9A&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 27910,
+                        "wastedBytes": 2736.4273743016743
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_ztxSDluhg27BrWfvvIeiXg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 23822,
+                        "wastedBytes": 2335.62067039106
                     },
                     {
                         "url": "https://www.bing.com/th?id=OPN.RTNews_NHsq_Nf1mtJwAukdHi7K7g&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
@@ -595,11 +752,11 @@
                         },
                         "cacheLifetimeMs": 1209600000,
                         "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 19825,
-                        "wastedBytes": 1943.736033519552
+                        "totalBytes": 19823,
+                        "wastedBytes": 1943.539944134077
                     },
                     {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_CokvGxMVx6bXONl_GvtO-w&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "url": "https://www.bing.com/th?id=OPN.RTNews__sAu3fe6iegm8N-on8xUCw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
                         "debugData": {
                             "type": "debugdata",
                             "public": true,
@@ -607,44 +764,8 @@
                         },
                         "cacheLifetimeMs": 1209600000,
                         "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 18650,
-                        "wastedBytes": 1828.5335195530715
-                    },
-                    {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_y8Jxd97Wk_h6hS3SdyoZHQ&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                        "debugData": {
-                            "type": "debugdata",
-                            "public": true,
-                            "maxAge": 1209600
-                        },
-                        "cacheLifetimeMs": 1209600000,
-                        "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 17686,
-                        "wastedBytes": 1734.0184357541889
-                    },
-                    {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_SBZuZCeBn6I3Iz1cIY3cYw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                        "debugData": {
-                            "type": "debugdata",
-                            "public": true,
-                            "maxAge": 1209600
-                        },
-                        "cacheLifetimeMs": 1209600000,
-                        "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 15001,
-                        "wastedBytes": 1470.768435754189
-                    },
-                    {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_79qF2djC6gviYa0yzsl7EA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                        "debugData": {
-                            "type": "debugdata",
-                            "public": true,
-                            "maxAge": 1209600
-                        },
-                        "cacheLifetimeMs": 1209600000,
-                        "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 14927,
-                        "wastedBytes": 1463.5131284916192
+                        "totalBytes": 15553,
+                        "wastedBytes": 1524.8891061452505
                     },
                     {
                         "url": "https://www.bing.com/th?id=OPN.RTNews_DVHetyzZjiuSdbZipOpEiw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
@@ -655,8 +776,8 @@
                         },
                         "cacheLifetimeMs": 1209600000,
                         "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 14613,
-                        "wastedBytes": 1432.7270949720662
+                        "totalBytes": 14359,
+                        "wastedBytes": 1407.823743016759
                     },
                     {
                         "url": "https://www.bing.com/th?id=OPN.RTNews_aFet5lPnkFLPtdh4VhcTCQ&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
@@ -671,6 +792,30 @@
                         "wastedBytes": 1393.4111731843566
                     },
                     {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_9d0I8D9WrsYuaFD_dV-NbA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 13716,
+                        "wastedBytes": 1344.7810055865914
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_T61SeSQXlw53oL5L0d5q_A&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 13402,
+                        "wastedBytes": 1313.9949720670384
+                    },
+                    {
                         "url": "https://www.bing.com/th?id=OPN.RTNews_3ewdDfYpjYtIHhCufnmiFA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
                         "debugData": {
                             "type": "debugdata",
@@ -683,6 +828,18 @@
                         "wastedBytes": 1296.7391061452506
                     },
                     {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_H9NUqqzu1zH0razch5qb7Q&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 11432,
+                        "wastedBytes": 1120.846927374301
+                    },
+                    {
                         "url": "https://www.bing.com/th?id=OPN.RTNews_i8jALUp9lBV1mQ-c3liLvA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
                         "debugData": {
                             "type": "debugdata",
@@ -691,32 +848,8 @@
                         },
                         "cacheLifetimeMs": 1209600000,
                         "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 10196,
-                        "wastedBytes": 999.6636871508374
-                    },
-                    {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_zEX4pFpfDSzsrNNTUjPSxg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                        "debugData": {
-                            "type": "debugdata",
-                            "public": true,
-                            "maxAge": 1209600
-                        },
-                        "cacheLifetimeMs": 1209600000,
-                        "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 9120,
-                        "wastedBytes": 894.1675977653625
-                    },
-                    {
-                        "url": "https://www.bing.com/th?id=OPN.RTNews_m6tSI8dJYmNc1Y-U7f5jPg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                        "debugData": {
-                            "type": "debugdata",
-                            "public": true,
-                            "maxAge": 1209600
-                        },
-                        "cacheLifetimeMs": 1209600000,
-                        "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 7808,
-                        "wastedBytes": 765.5329608938542
+                        "totalBytes": 10438,
+                        "wastedBytes": 1023.3905027932955
                     },
                     {
                         "url": "https://www.bing.com/th?id=ABTFF8AAE3B539A83EE49C8C4DA07587125F6CB178119AD647978487ED1DCCAFC6D&w=28&h=28&pid=BingHomepage",
@@ -739,8 +872,8 @@
                         },
                         "cacheLifetimeMs": 1209600000,
                         "cacheHitProbability": 0.9019553072625699,
-                        "totalBytes": 543,
-                        "wastedBytes": 53.238268156424546
+                        "totalBytes": 542,
+                        "wastedBytes": 53.140223463687114
                     },
                     {
                         "url": "https://www.bing.com/th?id=ABTAE1C5113E3038D910720934F8614A5B9F7A6A9A6898DB1E45A1B8F6104E7D6C6&w=28&h=28&pid=BingHomepage",
@@ -768,7 +901,7 @@
                     }
                 ],
                 "summary": {
-                    "wastedBytes": 31636.976815642443
+                    "wastedBytes": 33855.63184357541
                 }
             }
         },
@@ -776,9 +909,9 @@
             "id": "uses-webp-images",
             "title": "Serve images in next-gen formats",
             "description": "Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more](https://web.dev/uses-webp-images).",
-            "score": 0.5,
+            "score": 0.58,
             "scoreDisplayMode": "numeric",
-            "numericValue": 750,
+            "numericValue": 600,
             "displayValue": "Potential savings of 77 KB",
             "warnings": [],
             "details": {
@@ -814,7 +947,7 @@
                         "wastedBytes": 79357
                     }
                 ],
-                "overallSavingsMs": 750,
+                "overallSavingsMs": 600,
                 "overallSavingsBytes": 79357
             }
         },

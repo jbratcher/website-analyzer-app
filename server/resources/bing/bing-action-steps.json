@@ -1,912 +1,983 @@
 {
+    "name": "bing",
     "auditsMatched": {
-        "service-worker": [
-            "service-worker",
-            {
-                "id": "service-worker",
-                "title": "Does not register a service worker that controls page and `start_url`",
-                "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
-                "score": 0,
-                "scoreDisplayMode": "binary"
-            }
-        ],
-        "works-offline": [
-            "works-offline",
-            {
-                "id": "works-offline",
-                "title": "Current page does not respond with a 200 when offline",
-                "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "warnings": [
-                    "The page may not be loading offline because your test URL (https://bing.com/) was redirected to \"https://www.bing.com/?toWww=1&redig=A3F9921C89D348F991B4EFC6E412DA0C\". Try testing the second URL directly."
+        "service-worker": {
+            "id": "service-worker",
+            "title": "Does not register a service worker that controls page and `start_url`",
+            "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
+            "score": 0,
+            "scoreDisplayMode": "binary"
+        },
+        "works-offline": {
+            "id": "works-offline",
+            "title": "Current page does not respond with a 200 when offline",
+            "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "warnings": [
+                "The page may not be loading offline because your test URL (https://bing.com/) was redirected to \"https://www.bing.com/?toWww=1&redig=4257DBE263D14AAF8D6B20D2365A9AB3\". Try testing the second URL directly."
+            ]
+        },
+        "first-contentful-paint": {
+            "id": "first-contentful-paint",
+            "title": "First Contentful Paint",
+            "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
+            "score": 0.96,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 1923.141,
+            "displayValue": "1.9 s"
+        },
+        "first-meaningful-paint": {
+            "id": "first-meaningful-paint",
+            "title": "First Meaningful Paint",
+            "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
+            "score": 0.92,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 2193.141,
+            "displayValue": "2.2 s"
+        },
+        "speed-index": {
+            "id": "speed-index",
+            "title": "Speed Index",
+            "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
+            "score": 0.91,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 3316.281117871833,
+            "displayValue": "3.3 s"
+        },
+        "total-blocking-time": {
+            "id": "total-blocking-time",
+            "title": "Total Blocking Time",
+            "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+            "score": 0.98,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 183.49999999999977,
+            "displayValue": "180 ms"
+        },
+        "max-potential-fid": {
+            "id": "max-potential-fid",
+            "title": "Max Potential First Input Delay",
+            "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
+            "score": 0.5,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 249,
+            "displayValue": "250 ms"
+        },
+        "first-cpu-idle": {
+            "id": "first-cpu-idle",
+            "title": "First CPU Idle",
+            "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
+            "score": 0.97,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 2671.1409999999996,
+            "displayValue": "2.7 s"
+        },
+        "interactive": {
+            "id": "interactive",
+            "title": "Time to Interactive",
+            "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
+            "score": 0.92,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 3496.1409999999996,
+            "displayValue": "3.5 s"
+        },
+        "installable-manifest": {
+            "id": "installable-manifest",
+            "title": "Web app manifest does not meet the installability requirements",
+            "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched"
+                        ],
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
                 ]
             }
-        ],
-        "first-contentful-paint": [
-            "first-contentful-paint",
-            {
-                "id": "first-contentful-paint",
-                "title": "First Contentful Paint",
-                "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
-                "score": 0.97,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 1786.732,
-                "displayValue": "1.8 s"
+        },
+        "apple-touch-icon": {
+            "id": "apple-touch-icon",
+            "title": "Does not provide a valid `apple-touch-icon`",
+            "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "warnings": []
+        },
+        "splash-screen": {
+            "id": "splash-screen",
+            "title": "Is not configured for a custom splash screen",
+            "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched"
+                        ],
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
+                ]
             }
-        ],
-        "first-meaningful-paint": [
-            "first-meaningful-paint",
-            {
-                "id": "first-meaningful-paint",
-                "title": "First Meaningful Paint",
-                "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
-                "score": 0.94,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 2045.232,
-                "displayValue": "2.0 s"
+        },
+        "themed-omnibox": {
+            "id": "themed-omnibox",
+            "title": "Does not set a theme color for the address bar.",
+            "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched"
+                        ],
+                        "themeColor": "#4F4F4F",
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
+                ]
             }
-        ],
-        "speed-index": [
-            "speed-index",
-            {
-                "id": "speed-index",
-                "title": "Speed Index",
-                "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
-                "score": 0.91,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 3285.3461898964842,
-                "displayValue": "3.3 s"
+        },
+        "deprecations": {
+            "id": "deprecations",
+            "title": "Uses deprecated APIs",
+            "description": "Deprecated APIs will eventually be removed from the browser. [Learn more](https://web.dev/deprecations).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "displayValue": "1 warning found",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "value",
+                        "itemType": "text",
+                        "text": "Deprecation / Warning"
+                    },
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "lineNumber",
+                        "itemType": "text",
+                        "text": "Line"
+                    }
+                ],
+                "items": [
+                    {
+                        "value": "chrome.loadTimes() is deprecated, instead use standardized API: Paint Timing. https://www.chromestatus.com/features/5637885046816768.",
+                        "url": "https://www.bing.com/rb/14/cj,nj/zc3Nq4y0XOr2-Tl-Fj4HlkBeK5s.js?bu=Di8YN3WFAXI-MjqzAacBGKEBGA",
+                        "source": "deprecation",
+                        "lineNumber": 1
+                    }
+                ]
             }
-        ],
-        "max-potential-fid": [
-            "max-potential-fid",
-            {
-                "id": "max-potential-fid",
-                "title": "Max Potential First Input Delay",
-                "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
-                "score": 0.88,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 138,
-                "displayValue": "140 ms"
+        },
+        "mainthread-work-breakdown": {
+            "id": "mainthread-work-breakdown",
+            "title": "Minimize main-thread work",
+            "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
+            "score": 0.7,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 3029.3919999999966,
+            "displayValue": "3.0 s",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "groupLabel",
+                        "itemType": "text",
+                        "text": "Category"
+                    },
+                    {
+                        "key": "duration",
+                        "itemType": "ms",
+                        "granularity": 1,
+                        "text": "Time Spent"
+                    }
+                ],
+                "items": [
+                    {
+                        "group": "scriptEvaluation",
+                        "groupLabel": "Script Evaluation",
+                        "duration": 761.3679999999979
+                    },
+                    {
+                        "group": "other",
+                        "groupLabel": "Other",
+                        "duration": 747.6440000000011
+                    },
+                    {
+                        "group": "styleLayout",
+                        "groupLabel": "Style & Layout",
+                        "duration": 718.5720000000002
+                    },
+                    {
+                        "group": "paintCompositeRender",
+                        "groupLabel": "Rendering",
+                        "duration": 650.9279999999977
+                    },
+                    {
+                        "group": "parseHTML",
+                        "groupLabel": "Parse HTML & CSS",
+                        "duration": 79.308
+                    },
+                    {
+                        "group": "scriptParseCompile",
+                        "groupLabel": "Script Parsing & Compilation",
+                        "duration": 71.57199999999999
+                    }
+                ]
             }
-        ],
-        "first-cpu-idle": [
-            "first-cpu-idle",
-            {
-                "id": "first-cpu-idle",
-                "title": "First CPU Idle",
-                "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
-                "score": 0.98,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 2431.732,
-                "displayValue": "2.4 s"
+        },
+        "bootup-time": {
+            "id": "bootup-time",
+            "title": "JavaScript execution time",
+            "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+            "score": 0.97,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 777.7120000000004,
+            "displayValue": "0.8 s",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "total",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Total CPU Time"
+                    },
+                    {
+                        "key": "scripting",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Evaluation"
+                    },
+                    {
+                        "key": "scriptParseCompile",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Parse"
+                    }
+                ],
+                "items": [
+                    {
+                        "url": "Other",
+                        "total": 1745.6719999999996,
+                        "scripting": 240.88400000000047,
+                        "scriptParseCompile": 5.8519999999999985
+                    },
+                    {
+                        "url": "https://www.bing.com/?toWww=1&redig=4257DBE263D14AAF8D6B20D2365A9AB3",
+                        "total": 476.26400000000007,
+                        "scripting": 89.364,
+                        "scriptParseCompile": 20.791999999999998
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/14/cj,nj/zc3Nq4y0XOr2-Tl-Fj4HlkBeK5s.js?bu=Di8YN3WFAXI-MjqzAacBGKEBGA",
+                        "total": 424.87600000000003,
+                        "scripting": 128.6,
+                        "scriptParseCompile": 6.056
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/5h/cj,nj/RfTSifaIc6XiNcgfnMvX9AyfNXM.js?bu=EqUhyyHVIO8gtgX7IIIh0yGAIY8hhSG9IcEhsSGeIKUfsB-hIA",
+                        "total": 137.61999999999998,
+                        "scripting": 125.56399999999998,
+                        "scriptParseCompile": 8.860000000000003
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/2V/cj,nj/6BsKE-ZQeKe0vHb0vclH0k01aag.js?bu=BURMDllc",
+                        "total": 114.50399999999998,
+                        "scripting": 71.03599999999999,
+                        "scriptParseCompile": 11.539999999999997
+                    },
+                    {
+                        "url": "https://www.bing.com/rb/G/cj,nj/u0LhvcPzjcMNOYOJTph9EdC-4zA.js?bu=EkrtAfAB8wGbAtkBRKYBugG3AURERETXAUSOAr0B",
+                        "total": 72.284,
+                        "scripting": 62.327999999999996,
+                        "scriptParseCompile": 6.836
+                    }
+                ],
+                "summary": {
+                    "wastedMs": 777.7120000000004
+                }
             }
-        ],
-        "interactive": [
-            "interactive",
-            {
-                "id": "interactive",
-                "title": "Time to Interactive",
-                "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
-                "score": 0.93,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 3406.732,
-                "displayValue": "3.4 s"
+        },
+        "offline-start-url": {
+            "id": "offline-start-url",
+            "title": "`start_url` does not respond with a 200 when offline",
+            "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "No usable web app manifest found on page.",
+            "warnings": []
+        },
+        "third-party-summary": {
+            "id": "third-party-summary",
+            "title": "Reduce the impact of third-party code",
+            "description": "Third-party code can significantly impact load performance. Limit the number of redundant third-party providers and try to load third-party code after your page has primarily finished loading. [Learn more](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "displayValue": "Third-party code blocked the main thread for 460 ms",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "entity",
+                        "itemType": "link",
+                        "text": "Third-Party"
+                    },
+                    {
+                        "key": "transferSize",
+                        "granularity": 1,
+                        "itemType": "bytes",
+                        "text": "Size"
+                    },
+                    {
+                        "key": "blockingTime",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Main-Thread Blocking Time"
+                    }
+                ],
+                "items": [
+                    {
+                        "entity": {
+                            "type": "link",
+                            "text": "Bing Ads",
+                            "url": "https://bingads.microsoft.com"
+                        },
+                        "transferSize": 496082,
+                        "mainThreadTime": 1283.7199999999984,
+                        "blockingTime": 457.404
+                    }
+                ],
+                "summary": {
+                    "wastedBytes": 496082,
+                    "wastedMs": 457.404
+                }
             }
-        ],
-        "installable-manifest": [
-            "installable-manifest",
-            {
-                "id": "installable-manifest",
-                "title": "Web app manifest does not meet the installability requirements",
-                "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "explanation": "Failures: No manifest was fetched.",
-                "details": {
+        },
+        "duplicate-id": {
+            "id": "duplicate-id",
+            "title": "`[id]` attributes on the page are not unique",
+            "description": "The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://web.dev/duplicate-id/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": ":root",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,UL,3,LI,0,A,0,DIV,0,svg",
+                            "snippet": "<svg class=\"shareicon\" version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 32 32\" enable-background=\"new 0 0 32 32\" xml:space=\"preserve\">",
+                            "explanation": "Fix any of the following:\n  Document has multiple static elements with the same id attribute",
+                            "nodeLabel": "svg"
+                        }
+                    }
+                ],
+                "debugData": {
                     "type": "debugdata",
-                    "items": [
-                        {
-                            "failures": [
-                                "No manifest was fetched"
-                            ],
-                            "isParseFailure": true,
-                            "parseFailureReason": "No manifest was fetched"
-                        }
+                    "impact": "minor",
+                    "tags": [
+                        "cat.parsing",
+                        "wcag2a",
+                        "wcag411"
                     ]
                 }
             }
-        ],
-        "apple-touch-icon": [
-            "apple-touch-icon",
-            {
-                "id": "apple-touch-icon",
-                "title": "Does not provide a valid `apple-touch-icon`",
-                "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "warnings": []
-            }
-        ],
-        "splash-screen": [
-            "splash-screen",
-            {
-                "id": "splash-screen",
-                "title": "Is not configured for a custom splash screen",
-                "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "explanation": "Failures: No manifest was fetched.",
-                "details": {
+        },
+        "image-alt": {
+            "id": "image-alt",
+            "title": "Image elements do not have `[alt]` attributes",
+            "description": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more](https://web.dev/image-alt/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "#download_img_icon",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,2,UL,0,LI,0,A,0,DIV,0,IMG",
+                            "snippet": "<img id=\"download_img_icon\" class=\"rms_img\" src=\"data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0wIDBoMTZ2MTZoLTE2em0wIDBoMTZ2MTZoLTE2eiIvPjxwYXRoIGQ9Im03LjI5MyAxMS43MDdjLjA0NjEzNzY4LjA0NTg5NzMuMDk2NzE5Mi4wODcwOTk1LjE1MS4xMjMuMTA5NTI0ODcuMDcyODI5Ny4yMzIxMTM2NS4xMjM3NjY5LjM2MS4xNS4xMjkzMzA0MS4wMjY0Mjc2LjI2MjY2OTU5LjAyNjQyNzYuMzkyIDAgLjEyODg4NjM1LS4wMjYyMzMxLjI1MTQ3NTEzLS4wNzcxNzAzLjM2MS0uMTUuMDUzOTI1MjMtLjAzNTk2NDcuMTA0MTY4ODEtLjA3NzE2NDUuMTUtLjEyM2wzLTNjLjI1OTk1NjYtLjI1MTA3NDQ3LjM2NDIxMjYtLjYyMjg3Nzg5LjI3MjY5NzItLjk3MjUwNzMyLS4wOTE1MTU1LS4zNDk2Mjk0NC0uMzY0NTYwNC0uNjIyNjc0NC0uNzE0MTg5OS0uNzE0MTg5ODQtLjM0OTYyOTQtLjA5MTUxNTQ0LS43MjE0MzI4LjAxMjc0MDU4LS45NzI1MDczLjI3MjY5NzE2bC0xLjI5NCAxLjI5M3YtNy41ODZjMC0uNTUyMjg0NzUtLjQ0NzcxNTI1LTEtMS0xcy0xIC40NDc3MTUyNS0xIDF2Ny41ODZsLTEuMjkzLTEuMjkzYy0uMjUxMDc0NDctLjI1OTk1NjU4LS42MjI4Nzc4OS0uMzY0MjEyNi0uOTcyNTA3MzItLjI3MjY5NzE2LS4zNDk2Mjk0NC4wOTE1MTU0NC0uNjIyNjc0NC4zNjQ1NjA0LS43MTQxODk4NC43MTQxODk4NC0uMDkxNTE1NDQuMzQ5NjI5NDMuMDEyNzQwNTguNzIxNDMyODUuMjcyNjk3MTYuOTcyNTA3MzJ6bTcuNDE0IDIuNTg2Yy0uMTg3NDkyNy0uMTg3NTQ5NC0uNDQxODA1Mi0uMjkyOTQzNC0uNzA3LS4yOTNoLTEyYy0uNTUyMjg0NzUgMC0xIC40NDc3MTUzLTEgMXMuNDQ3NzE1MjUgMSAxIDFoMTJjLjQwNDM5NTktLjAwMDA4NjMuNzY4OTM0MS0uMjQzNzI3NS45MjM2NzgtLjYxNzM0NTQuMTU0NzQzOS0uMzczNjE4LjA2OTIyOTktLjgwMzY2MDMtLjIxNjY3OC0xLjA4OTY1NDZ6IiBmaWxsPSIjNzY3Njc2IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+\" data-bm=\"11\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\32 4\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,0,TD,0,A,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTFF8AAE3B539A83EE49C8C4DA07587125F6CB178119AD647978487ED1DCCAFC6D&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"24\">",
+                            "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
+                            "nodeLabel": " "
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\32 5\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,1,TD,0,A,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTBBA429CEF6ADD9E1703BA24418FC16C19BD21E3CF470E90FF70D910C23E92578&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"25\">",
+                            "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
+                            "nodeLabel": " "
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\32 6\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,2,TD,0,A,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABT370854851A95F182258257D8A8B8A36788AF807F76C7BC5E8DDB9D47E64866DC&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"26\">",
+                            "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
+                            "nodeLabel": " "
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\32 7\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,3,TD,0,A,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTAE1C5113E3038D910720934F8614A5B9F7A6A9A6898DB1E45A1B8F6104E7D6C6&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"27\">",
+                            "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
+                            "nodeLabel": " "
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\32 9\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,0,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/hySN0yrBeCAqPsQffWEkZe1oiDI.jpg\" data-bm=\"29\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 0\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,1,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/zBocH91BEygr1pK1bKYTVF41vnQ.jpg\" data-bm=\"30\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 1\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,2,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/yqGGLulxgsurViBD8DeI7CdgTm4.jpg\" data-bm=\"31\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 2\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,3,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/L0SnctH9FoCJ5qxG7tJZxzYDYu8.jpg\" data-bm=\"32\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 3\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,4,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/mfHPzy7xe1inBGCQZ60AR8qkc60.jpg\" data-bm=\"33\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 4\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,5,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/bMhaP6_vzLS12FBajx993uNEwn4.jpg\" data-bm=\"34\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 5\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,6,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/ltfgcD6e2a9IeqfhyrpzOAwmlzE.jpg\" data-bm=\"35\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 6\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,7,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/wczLeE4K491VM1MZdUIxbjb1haM.jpg\" data-bm=\"36\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 7\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,8,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/1tBwo9kQ719Fi9La_StKxSHnQsk.jpg\" data-bm=\"37\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[data-bm=\"\\33 8\"]",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,9,A,0,IMG",
+                            "snippet": "<img class=\"rms_img\" src=\"/rp/6zyaDvvdSmjNsAaMU25uDf-RoCA.jpg\" data-bm=\"38\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "img[src$=\"BNPOpalappIcon\\.png\"]",
+                            "path": "1,HTML,1,BODY,17,DIV,0,DIV,0,DIV,0,DIV,0,DIV,0,IMG",
+                            "snippet": "<img class=\"icon\" src=\"/s/bnp/BNPOpalappIcon.png\" data-bm=\"1\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": ".closeIcon",
+                            "path": "1,HTML,1,BODY,17,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,SPAN,0,IMG",
+                            "snippet": "<img class=\"closeIcon rms_img\" src=\"/rp/Hqee4L-KVAUxRNuI01_YzGZt0t4.png\" data-bm=\"2\">",
+                            "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    }
+                ],
+                "debugData": {
                     "type": "debugdata",
-                    "items": [
-                        {
-                            "failures": [
-                                "No manifest was fetched"
-                            ],
-                            "isParseFailure": true,
-                            "parseFailureReason": "No manifest was fetched"
-                        }
+                    "impact": "critical",
+                    "tags": [
+                        "cat.text-alternatives",
+                        "wcag2a",
+                        "wcag111",
+                        "section508",
+                        "section508.22.a"
                     ]
                 }
             }
-        ],
-        "themed-omnibox": [
-            "themed-omnibox",
-            {
-                "id": "themed-omnibox",
-                "title": "Does not set a theme color for the address bar.",
-                "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "explanation": "Failures: No manifest was fetched.",
-                "details": {
+        },
+        "link-name": {
+            "id": "link-name",
+            "title": "Links do not have a discernible name",
+            "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "#ShareMore",
+                            "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,UL,3,LI,0,A",
+                            "snippet": "<a id=\"ShareMore\" href=\"javascript:void(0)\" h=\"ID=MobileCards,5111.1\">",
+                            "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "a"
+                        }
+                    }
+                ],
+                "debugData": {
                     "type": "debugdata",
-                    "items": [
-                        {
-                            "failures": [
-                                "No manifest was fetched"
-                            ],
-                            "themeColor": "#4F4F4F",
-                            "isParseFailure": true,
-                            "parseFailureReason": "No manifest was fetched"
-                        }
+                    "impact": "serious",
+                    "tags": [
+                        "cat.name-role-value",
+                        "wcag2a",
+                        "wcag412",
+                        "wcag244",
+                        "section508",
+                        "section508.22.a"
                     ]
                 }
             }
-        ],
-        "deprecations": [
-            "deprecations",
-            {
-                "id": "deprecations",
-                "title": "Uses deprecated APIs",
-                "description": "Deprecated APIs will eventually be removed from the browser. [Learn more](https://web.dev/deprecations).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "displayValue": "1 warning found",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "value",
-                            "itemType": "text",
-                            "text": "Deprecation / Warning"
-                        },
-                        {
-                            "key": "url",
-                            "itemType": "url",
-                            "text": "URL"
-                        },
-                        {
-                            "key": "lineNumber",
-                            "itemType": "text",
-                            "text": "Line"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "value": "chrome.loadTimes() is deprecated, instead use standardized API: Paint Timing. https://www.chromestatus.com/features/5637885046816768.",
-                            "url": "https://www.bing.com/rb/14/cj,nj/zc3Nq4y0XOr2-Tl-Fj4HlkBeK5s.js?bu=Di8YN3WFAXI-MjqzAacBGKEBGA",
-                            "source": "deprecation",
-                            "lineNumber": 1
-                        }
-                    ]
-                }
-            }
-        ],
-        "mainthread-work-breakdown": [
-            "mainthread-work-breakdown",
-            {
-                "id": "mainthread-work-breakdown",
-                "title": "Minimizes main-thread work",
-                "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
-                "score": 0.95,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 1685.4240000000045,
-                "displayValue": "1.7 s",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "groupLabel",
-                            "itemType": "text",
-                            "text": "Category"
-                        },
-                        {
-                            "key": "duration",
-                            "itemType": "ms",
-                            "granularity": 1,
-                            "text": "Time Spent"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "group": "other",
-                            "groupLabel": "Other",
-                            "duration": 437.3400000000016
-                        },
-                        {
-                            "group": "paintCompositeRender",
-                            "groupLabel": "Rendering",
-                            "duration": 393.67600000000147
-                        },
-                        {
-                            "group": "scriptEvaluation",
-                            "groupLabel": "Script Evaluation",
-                            "duration": 390.60800000000137
-                        },
-                        {
-                            "group": "styleLayout",
-                            "groupLabel": "Style & Layout",
-                            "duration": 389.1559999999999
-                        },
-                        {
-                            "group": "scriptParseCompile",
-                            "groupLabel": "Script Parsing & Compilation",
-                            "duration": 38.272
-                        },
-                        {
-                            "group": "parseHTML",
-                            "groupLabel": "Parse HTML & CSS",
-                            "duration": 36.37199999999999
-                        }
-                    ]
-                }
-            }
-        ],
-        "offline-start-url": [
-            "offline-start-url",
-            {
-                "id": "offline-start-url",
-                "title": "`start_url` does not respond with a 200 when offline",
-                "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "explanation": "No usable web app manifest found on page.",
-                "warnings": []
-            }
-        ],
-        "duplicate-id": [
-            "duplicate-id",
-            {
-                "id": "duplicate-id",
-                "title": "`[id]` attributes on the page are not unique",
-                "description": "The value of an id attribute must be unique to prevent other instances from being overlooked by assistive technologies. [Learn more](https://web.dev/duplicate-id/).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "node",
-                            "itemType": "node",
-                            "text": "Failing Elements"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": ":root",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,UL,3,LI,0,A,0,DIV,0,svg",
-                                "snippet": "<svg class=\"shareicon\" version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 32 32\" enable-background=\"new 0 0 32 32\" xml:space=\"preserve\">",
-                                "explanation": "Fix any of the following:\n  Document has multiple static elements with the same id attribute",
-                                "nodeLabel": "svg"
-                            }
-                        }
-                    ],
-                    "debugData": {
-                        "type": "debugdata",
-                        "impact": "minor",
-                        "tags": [
-                            "cat.parsing",
-                            "wcag2a",
-                            "wcag411"
-                        ]
+        },
+        "uses-long-cache-ttl": {
+            "id": "uses-long-cache-ttl",
+            "title": "Serve static assets with an efficient cache policy",
+            "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
+            "score": 0.87,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 33855.63184357541,
+            "displayValue": "18 resources found",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "cacheLifetimeMs",
+                        "itemType": "ms",
+                        "text": "Cache TTL",
+                        "displayUnit": "duration"
+                    },
+                    {
+                        "key": "totalBytes",
+                        "itemType": "bytes",
+                        "text": "Size",
+                        "displayUnit": "kb",
+                        "granularity": 1
                     }
-                }
-            }
-        ],
-        "image-alt": [
-            "image-alt",
-            {
-                "id": "image-alt",
-                "title": "Image elements do not have `[alt]` attributes",
-                "description": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more](https://web.dev/image-alt/).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "node",
-                            "itemType": "node",
-                            "text": "Failing Elements"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "#download_img_icon",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,2,UL,0,LI,0,A,0,DIV,0,IMG",
-                                "snippet": "<img id=\"download_img_icon\" class=\"rms_img\" src=\"data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0wIDBoMTZ2MTZoLTE2em0wIDBoMTZ2MTZoLTE2eiIvPjxwYXRoIGQ9Im03LjI5MyAxMS43MDdjLjA0NjEzNzY4LjA0NTg5NzMuMDk2NzE5Mi4wODcwOTk1LjE1MS4xMjMuMTA5NTI0ODcuMDcyODI5Ny4yMzIxMTM2NS4xMjM3NjY5LjM2MS4xNS4xMjkzMzA0MS4wMjY0Mjc2LjI2MjY2OTU5LjAyNjQyNzYuMzkyIDAgLjEyODg4NjM1LS4wMjYyMzMxLjI1MTQ3NTEzLS4wNzcxNzAzLjM2MS0uMTUuMDUzOTI1MjMtLjAzNTk2NDcuMTA0MTY4ODEtLjA3NzE2NDUuMTUtLjEyM2wzLTNjLjI1OTk1NjYtLjI1MTA3NDQ3LjM2NDIxMjYtLjYyMjg3Nzg5LjI3MjY5NzItLjk3MjUwNzMyLS4wOTE1MTU1LS4zNDk2Mjk0NC0uMzY0NTYwNC0uNjIyNjc0NC0uNzE0MTg5OS0uNzE0MTg5ODQtLjM0OTYyOTQtLjA5MTUxNTQ0LS43MjE0MzI4LjAxMjc0MDU4LS45NzI1MDczLjI3MjY5NzE2bC0xLjI5NCAxLjI5M3YtNy41ODZjMC0uNTUyMjg0NzUtLjQ0NzcxNTI1LTEtMS0xcy0xIC40NDc3MTUyNS0xIDF2Ny41ODZsLTEuMjkzLTEuMjkzYy0uMjUxMDc0NDctLjI1OTk1NjU4LS42MjI4Nzc4OS0uMzY0MjEyNi0uOTcyNTA3MzItLjI3MjY5NzE2LS4zNDk2Mjk0NC4wOTE1MTU0NC0uNjIyNjc0NC4zNjQ1NjA0LS43MTQxODk4NC43MTQxODk4NC0uMDkxNTE1NDQuMzQ5NjI5NDMuMDEyNzQwNTguNzIxNDMyODUuMjcyNjk3MTYuOTcyNTA3MzJ6bTcuNDE0IDIuNTg2Yy0uMTg3NDkyNy0uMTg3NTQ5NC0uNDQxODA1Mi0uMjkyOTQzNC0uNzA3LS4yOTNoLTEyYy0uNTUyMjg0NzUgMC0xIC40NDc3MTUzLTEgMXMuNDQ3NzE1MjUgMSAxIDFoMTJjLjQwNDM5NTktLjAwMDA4NjMuNzY4OTM0MS0uMjQzNzI3NS45MjM2NzgtLjYxNzM0NTQuMTU0NzQzOS0uMzczNjE4LjA2OTIyOTktLjgwMzY2MDMtLjIxNjY3OC0xLjA4OTY1NDZ6IiBmaWxsPSIjNzY3Njc2IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+\" data-bm=\"11\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                ],
+                "items": [
+                    {
+                        "url": "https://www.bing.com/fd/ls/l?IG=7AF9BDAF9E3C43319C5CA78D356DCED1&Type=Event.CPT&DATA={%22pp%22:{%22S%22:%22L%22,%22FC%22:-1,%22BC%22:-1,%22SE%22:-1,%22TC%22:-1,%22H%22:-1,%22BP%22:102,%22CT%22:119,%22IL%22:0},%22net%22:%22undefined%22}&P=SERP&DA=BN2B&MN=SERP",
+                        "cacheLifetimeMs": 0,
+                        "cacheHitProbability": 0,
+                        "totalBytes": 93,
+                        "wastedBytes": 93
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OHR.KingEider_EN-US7654847363_768x1366.jpg&rf=LaDigue_1920x1080.jpg",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 691200
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\32 4\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,0,TD,0,A,0,DIV,0,DIV,0,IMG",
-                                "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTFF8AAE3B539A83EE49C8C4DA07587125F6CB178119AD647978487ED1DCCAFC6D&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"24\">",
-                                "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
-                                "nodeLabel": " "
-                            }
+                        "cacheLifetimeMs": 691200000,
+                        "cacheHitProbability": 0.9002793296089385,
+                        "totalBytes": 141079,
+                        "wastedBytes": 14068.492458100562
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_XS_JI41YA0KJDTj6P_bM9A&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\32 5\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,1,TD,0,A,0,DIV,0,DIV,0,IMG",
-                                "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTBBA429CEF6ADD9E1703BA24418FC16C19BD21E3CF470E90FF70D910C23E92578&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"25\">",
-                                "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
-                                "nodeLabel": " "
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 27910,
+                        "wastedBytes": 2736.4273743016743
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_ztxSDluhg27BrWfvvIeiXg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\32 6\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,2,TD,0,A,0,DIV,0,DIV,0,IMG",
-                                "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABT370854851A95F182258257D8A8B8A36788AF807F76C7BC5E8DDB9D47E64866DC&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"26\">",
-                                "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
-                                "nodeLabel": " "
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 23822,
+                        "wastedBytes": 2335.62067039106
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_NHsq_Nf1mtJwAukdHi7K7g&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\32 7\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,3,DIV,0,DIV,1,DIV,0,TABLE,0,TBODY,0,TR,3,TD,0,A,0,DIV,0,DIV,0,IMG",
-                                "snippet": "<img height=\"28\" width=\"28\" src=\"/th?id=ABTAE1C5113E3038D910720934F8614A5B9F7A6A9A6898DB1E45A1B8F6104E7D6C6&amp;w=28&amp;h=28&amp;pid=BingHomepage\" alt=\" \" data-bm=\"27\">",
-                                "explanation": "Fix all of the following:\n  Element has an alt attribute containing only a space character, which is not ignored by all screen readers",
-                                "nodeLabel": " "
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 20831,
+                        "wastedBytes": 2042.3689944134064
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_4eBqw6Dceeh2mMPqSFgB-Q&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\32 9\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,0,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/hySN0yrBeCAqPsQffWEkZe1oiDI.jpg\" data-bm=\"29\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 19823,
+                        "wastedBytes": 1943.539944134077
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews__sAu3fe6iegm8N-on8xUCw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 0\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,1,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/zBocH91BEygr1pK1bKYTVF41vnQ.jpg\" data-bm=\"30\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 15553,
+                        "wastedBytes": 1524.8891061452505
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_DVHetyzZjiuSdbZipOpEiw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 1\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,2,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/yqGGLulxgsurViBD8DeI7CdgTm4.jpg\" data-bm=\"31\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 14359,
+                        "wastedBytes": 1407.823743016759
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_aFet5lPnkFLPtdh4VhcTCQ&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 2\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,3,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/L0SnctH9FoCJ5qxG7tJZxzYDYu8.jpg\" data-bm=\"32\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 14212,
+                        "wastedBytes": 1393.4111731843566
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_9d0I8D9WrsYuaFD_dV-NbA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 3\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,4,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/mfHPzy7xe1inBGCQZ60AR8qkc60.jpg\" data-bm=\"33\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 13716,
+                        "wastedBytes": 1344.7810055865914
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_T61SeSQXlw53oL5L0d5q_A&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 4\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,5,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/bMhaP6_vzLS12FBajx993uNEwn4.jpg\" data-bm=\"34\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 13402,
+                        "wastedBytes": 1313.9949720670384
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_3ewdDfYpjYtIHhCufnmiFA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 5\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,6,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/ltfgcD6e2a9IeqfhyrpzOAwmlzE.jpg\" data-bm=\"35\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 13226,
+                        "wastedBytes": 1296.7391061452506
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_H9NUqqzu1zH0razch5qb7Q&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 6\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,7,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/wczLeE4K491VM1MZdUIxbjb1haM.jpg\" data-bm=\"36\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 11432,
+                        "wastedBytes": 1120.846927374301
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=OPN.RTNews_i8jALUp9lBV1mQ-c3liLvA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 7\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,8,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/1tBwo9kQ719Fi9La_StKxSHnQsk.jpg\" data-bm=\"37\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 10438,
+                        "wastedBytes": 1023.3905027932955
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=ABTFF8AAE3B539A83EE49C8C4DA07587125F6CB178119AD647978487ED1DCCAFC6D&w=28&h=28&pid=BingHomepage",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[data-bm=\"\\33 8\"]",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,4,DIV,0,DIV,0,DIV,1,DIV,9,A,0,IMG",
-                                "snippet": "<img class=\"rms_img\" src=\"/rp/6zyaDvvdSmjNsAaMU25uDf-RoCA.jpg\" data-bm=\"38\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 625,
+                        "wastedBytes": 61.277932960893814
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=ABT370854851A95F182258257D8A8B8A36788AF807F76C7BC5E8DDB9D47E64866DC&w=28&h=28&pid=BingHomepage",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "img[src$=\"BNPOpalappIcon\\.png\"]",
-                                "path": "1,HTML,1,BODY,20,DIV,0,DIV,0,DIV,0,DIV,0,DIV,0,IMG",
-                                "snippet": "<img class=\"icon\" src=\"/s/bnp/BNPOpalappIcon.png\" data-bm=\"8\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 542,
+                        "wastedBytes": 53.140223463687114
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=ABTAE1C5113E3038D910720934F8614A5B9F7A6A9A6898DB1E45A1B8F6104E7D6C6&w=28&h=28&pid=BingHomepage",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
                         },
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": ".closeIcon",
-                                "path": "1,HTML,1,BODY,20,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,SPAN,0,IMG",
-                                "snippet": "<img class=\"closeIcon rms_img\" src=\"/rp/Hqee4L-KVAUxRNuI01_YzGZt0t4.png\" data-bm=\"9\">",
-                                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute or the title attribute is empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "img"
-                            }
-                        }
-                    ],
-                    "debugData": {
-                        "type": "debugdata",
-                        "impact": "critical",
-                        "tags": [
-                            "cat.text-alternatives",
-                            "wcag2a",
-                            "wcag111",
-                            "section508",
-                            "section508.22.a"
-                        ]
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 494,
+                        "wastedBytes": 48.43407821229047
+                    },
+                    {
+                        "url": "https://www.bing.com/th?id=ABTBBA429CEF6ADD9E1703BA24418FC16C19BD21E3CF470E90FF70D910C23E92578&w=28&h=28&pid=BingHomepage",
+                        "debugData": {
+                            "type": "debugdata",
+                            "public": true,
+                            "maxAge": 1209600
+                        },
+                        "cacheLifetimeMs": 1209600000,
+                        "cacheHitProbability": 0.9019553072625699,
+                        "totalBytes": 484,
+                        "wastedBytes": 47.45363128491617
                     }
+                ],
+                "summary": {
+                    "wastedBytes": 33855.63184357541
                 }
             }
-        ],
-        "link-name": [
-            "link-name",
-            {
-                "id": "link-name",
-                "title": "Links do not have a discernible name",
-                "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "node",
-                            "itemType": "node",
-                            "text": "Failing Elements"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "node": {
-                                "type": "node",
-                                "selector": "#ShareMore",
-                                "path": "1,HTML,1,BODY,0,DIV,2,DIV,0,DIV,1,DIV,0,DIV,2,DIV,1,DIV,0,DIV,0,DIV,0,DIV,0,DIV,1,UL,3,LI,0,A",
-                                "snippet": "<a id=\"ShareMore\" href=\"javascript:void(0)\" h=\"ID=MobileCards,5111.1\">",
-                                "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
-                                "nodeLabel": "a"
-                            }
-                        }
-                    ],
-                    "debugData": {
-                        "type": "debugdata",
-                        "impact": "serious",
-                        "tags": [
-                            "cat.name-role-value",
-                            "wcag2a",
-                            "wcag412",
-                            "wcag244",
-                            "section508",
-                            "section508.22.a"
-                        ]
+        },
+        "uses-webp-images": {
+            "id": "uses-webp-images",
+            "title": "Serve images in next-gen formats",
+            "description": "Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more](https://web.dev/uses-webp-images).",
+            "score": 0.58,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 600,
+            "displayValue": "Potential savings of 77 KB",
+            "warnings": [],
+            "details": {
+                "type": "opportunity",
+                "headings": [
+                    {
+                        "key": "url",
+                        "valueType": "thumbnail",
+                        "label": ""
+                    },
+                    {
+                        "key": "url",
+                        "valueType": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "key": "totalBytes",
+                        "valueType": "bytes",
+                        "label": "Size"
+                    },
+                    {
+                        "key": "wastedBytes",
+                        "valueType": "bytes",
+                        "label": "Potential Savings"
                     }
-                }
-            }
-        ],
-        "uses-long-cache-ttl": [
-            "uses-long-cache-ttl",
-            {
-                "id": "uses-long-cache-ttl",
-                "title": "Serve static assets with an efficient cache policy",
-                "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
-                "score": 0.89,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 31636.976815642443,
-                "displayValue": "18 resources found",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "url",
-                            "itemType": "url",
-                            "text": "URL"
-                        },
-                        {
-                            "key": "cacheLifetimeMs",
-                            "itemType": "ms",
-                            "text": "Cache TTL",
-                            "displayUnit": "duration"
-                        },
-                        {
-                            "key": "totalBytes",
-                            "itemType": "bytes",
-                            "text": "Size",
-                            "displayUnit": "kb",
-                            "granularity": 1
-                        }
-                    ],
-                    "items": [
-                        {
-                            "url": "https://www.bing.com/fd/ls/l?IG=DBB92726896A45D7BC07E7D9102478A3&Type=Event.CPT&DATA={%22pp%22:{%22S%22:%22L%22,%22FC%22:-1,%22BC%22:-1,%22SE%22:-1,%22TC%22:-1,%22H%22:-1,%22BP%22:41,%22CT%22:47,%22IL%22:0},%22net%22:%22undefined%22}&P=SERP&DA=BN2B&MN=SERP",
-                            "cacheLifetimeMs": 0,
-                            "cacheHitProbability": 0,
-                            "totalBytes": 93,
-                            "wastedBytes": 93
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OHR.KingEider_EN-US7654847363_768x1366.jpg&rf=LaDigue_1920x1080.jpg",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 691200
-                            },
-                            "cacheLifetimeMs": 691200000,
-                            "cacheHitProbability": 0.9002793296089385,
-                            "totalBytes": 141078,
-                            "wastedBytes": 14068.392737430171
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_NHsq_Nf1mtJwAukdHi7K7g&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 20831,
-                            "wastedBytes": 2042.3689944134064
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_4eBqw6Dceeh2mMPqSFgB-Q&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 19825,
-                            "wastedBytes": 1943.736033519552
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_CokvGxMVx6bXONl_GvtO-w&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 18650,
-                            "wastedBytes": 1828.5335195530715
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_y8Jxd97Wk_h6hS3SdyoZHQ&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 17686,
-                            "wastedBytes": 1734.0184357541889
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_SBZuZCeBn6I3Iz1cIY3cYw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 15001,
-                            "wastedBytes": 1470.768435754189
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_79qF2djC6gviYa0yzsl7EA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 14927,
-                            "wastedBytes": 1463.5131284916192
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_DVHetyzZjiuSdbZipOpEiw&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 14613,
-                            "wastedBytes": 1432.7270949720662
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_aFet5lPnkFLPtdh4VhcTCQ&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 14212,
-                            "wastedBytes": 1393.4111731843566
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_3ewdDfYpjYtIHhCufnmiFA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 13226,
-                            "wastedBytes": 1296.7391061452506
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_i8jALUp9lBV1mQ-c3liLvA&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 10196,
-                            "wastedBytes": 999.6636871508374
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_zEX4pFpfDSzsrNNTUjPSxg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 9120,
-                            "wastedBytes": 894.1675977653625
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=OPN.RTNews_m6tSI8dJYmNc1Y-U7f5jPg&w=400&h=200&c=7&rs=2&qlt=80&cdv=1&pid=PopNow",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 7808,
-                            "wastedBytes": 765.5329608938542
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=ABTFF8AAE3B539A83EE49C8C4DA07587125F6CB178119AD647978487ED1DCCAFC6D&w=28&h=28&pid=BingHomepage",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 625,
-                            "wastedBytes": 61.277932960893814
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=ABT370854851A95F182258257D8A8B8A36788AF807F76C7BC5E8DDB9D47E64866DC&w=28&h=28&pid=BingHomepage",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 543,
-                            "wastedBytes": 53.238268156424546
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=ABTAE1C5113E3038D910720934F8614A5B9F7A6A9A6898DB1E45A1B8F6104E7D6C6&w=28&h=28&pid=BingHomepage",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 494,
-                            "wastedBytes": 48.43407821229047
-                        },
-                        {
-                            "url": "https://www.bing.com/th?id=ABTBBA429CEF6ADD9E1703BA24418FC16C19BD21E3CF470E90FF70D910C23E92578&w=28&h=28&pid=BingHomepage",
-                            "debugData": {
-                                "type": "debugdata",
-                                "public": true,
-                                "maxAge": 1209600
-                            },
-                            "cacheLifetimeMs": 1209600000,
-                            "cacheHitProbability": 0.9019553072625699,
-                            "totalBytes": 484,
-                            "wastedBytes": 47.45363128491617
-                        }
-                    ],
-                    "summary": {
-                        "wastedBytes": 31636.976815642443
+                ],
+                "items": [
+                    {
+                        "url": "https://www.bing.com/th?id=OHR.KingEider_EN-US7654847363_768x1366.jpg&rf=LaDigue_1920x1080.jpg",
+                        "fromProtocol": true,
+                        "isCrossOrigin": false,
+                        "totalBytes": 140617,
+                        "wastedBytes": 79357
                     }
-                }
+                ],
+                "overallSavingsMs": 600,
+                "overallSavingsBytes": 79357
             }
-        ],
-        "uses-webp-images": [
-            "uses-webp-images",
-            {
-                "id": "uses-webp-images",
-                "title": "Serve images in next-gen formats",
-                "description": "Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more](https://web.dev/uses-webp-images).",
-                "score": 0.5,
-                "scoreDisplayMode": "numeric",
-                "numericValue": 750,
-                "displayValue": "Potential savings of 77 KB",
-                "warnings": [],
-                "details": {
-                    "type": "opportunity",
-                    "headings": [
-                        {
-                            "key": "url",
-                            "valueType": "thumbnail",
-                            "label": ""
-                        },
-                        {
-                            "key": "url",
-                            "valueType": "url",
-                            "label": "URL"
-                        },
-                        {
-                            "key": "totalBytes",
-                            "valueType": "bytes",
-                            "label": "Size"
-                        },
-                        {
-                            "key": "wastedBytes",
-                            "valueType": "bytes",
-                            "label": "Potential Savings"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "url": "https://www.bing.com/th?id=OHR.KingEider_EN-US7654847363_768x1366.jpg&rf=LaDigue_1920x1080.jpg",
-                            "fromProtocol": true,
-                            "isCrossOrigin": false,
-                            "totalBytes": 140617,
-                            "wastedBytes": 79357
-                        }
-                    ],
-                    "overallSavingsMs": 750,
-                    "overallSavingsBytes": 79357
-                }
+        },
+        "link-text": {
+            "id": "link-text",
+            "title": "Links do not have descriptive text",
+            "description": "Descriptive link text helps search engines understand your content. [Learn more](https://web.dev/link-text).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "displayValue": "1 link found",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "href",
+                        "itemType": "url",
+                        "text": "Link destination"
+                    },
+                    {
+                        "key": "text",
+                        "itemType": "text",
+                        "text": "Link Text"
+                    }
+                ],
+                "items": [
+                    {
+                        "href": "https://www.bing.com/search?q=king+eider+duck&form=hpcapt&filters=HpDate:%2220200423_0700%22",
+                        "text": "Learn more"
+                    }
+                ],
+                "summary": {}
             }
-        ],
-        "link-text": [
-            "link-text",
-            {
-                "id": "link-text",
-                "title": "Links do not have descriptive text",
-                "description": "Descriptive link text helps search engines understand your content. [Learn more](https://web.dev/link-text).",
-                "score": 0,
-                "scoreDisplayMode": "binary",
-                "displayValue": "1 link found",
-                "details": {
-                    "type": "table",
-                    "headings": [
-                        {
-                            "key": "href",
-                            "itemType": "url",
-                            "text": "Link destination"
-                        },
-                        {
-                            "key": "text",
-                            "itemType": "text",
-                            "text": "Link Text"
-                        }
-                    ],
-                    "items": [
-                        {
-                            "href": "https://www.bing.com/search?q=king+eider+duck&form=hpcapt&filters=HpDate:%2220200423_0700%22",
-                            "text": "Learn more"
-                        }
-                    ],
-                    "summary": {}
-                }
-            }
-        ]
+        }
     }
 }

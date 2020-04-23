@@ -1,5 +1,5 @@
 export const state = () => ({
-  actionStepsList: [],
+  actionStepsList: {},
   allReports: [],
   analyzedReport: {},
   rawReport: {}
@@ -12,7 +12,7 @@ export const actions = {
     return this.$axios
       .$get(`/api/reports/${websiteName}`)
       .then(data => {
-        commit("setAllReports", data);
+        commit("setAllReports", data[0]);
       })
       .catch(error => {
         console.log(`Fetch all reports error: ${error}`);
@@ -24,7 +24,7 @@ export const actions = {
     return this.$axios
       .$get(`/api/reports/analyzed/${websiteName}`)
       .then(data => {
-        commit("setAnalyzedReport", data);
+        commit("setAnalyzedReport", data[0]);
       })
       .catch(error => {
         console.log(`Fetch analyzed report error: ${error}`);
@@ -36,7 +36,7 @@ export const actions = {
     return this.$axios
       .$get(`/api/reports/raw/${websiteName}`)
       .then(data => {
-        commit("setRawReport", data);
+        commit("setRawReport", data[0]);
       })
       .catch(error => {
         console.log(`Fetch raw report error: ${error}`);
@@ -48,7 +48,7 @@ export const actions = {
     return this.$axios
       .$get(`/api/reports/action-steps/${websiteName}`)
       .then(data => {
-        commit("setActionStepsList", data);
+        commit("setActionStepsList", data[0]);
       })
       .catch(error => {
         console.log(`Fetch action steps report error: ${error}`);

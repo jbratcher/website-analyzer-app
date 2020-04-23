@@ -1,5 +1,5 @@
 {
-    "name": "Airhorner",
+    "name": "airhorner",
     "url": "https://airhorner.com/",
     "totalScore": "97",
     "audits": {
@@ -9,53 +9,53 @@
             "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
             "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 2116.9878800494675,
+            "numericValue": 2105.332705996567,
             "displayValue": "2.1 s"
         },
         "estimated-input-latency": {
             "id": "estimated-input-latency",
             "title": "Estimated Input Latency",
             "description": "Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. [Learn more](https://web.dev/estimated-input-latency).",
-            "score": 0.05,
+            "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 200.8,
-            "displayValue": "200 ms"
+            "numericValue": 35.4,
+            "displayValue": "40 ms"
         },
         "total-blocking-time": {
             "id": "total-blocking-time",
             "title": "Total Blocking Time",
             "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
-            "score": 0.42,
+            "score": 0.73,
             "scoreDisplayMode": "numeric",
-            "numericValue": 674,
-            "displayValue": "670 ms"
+            "numericValue": 423.0000000000002,
+            "displayValue": "420 ms"
         },
         "max-potential-fid": {
             "id": "max-potential-fid",
             "title": "Max Potential First Input Delay",
             "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
-            "score": 0.02,
+            "score": 0.15,
             "scoreDisplayMode": "numeric",
-            "numericValue": 735,
-            "displayValue": "740 ms"
+            "numericValue": 427.0000000000002,
+            "displayValue": "430 ms"
         },
         "first-cpu-idle": {
             "id": "first-cpu-idle",
             "title": "First CPU Idle",
             "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
-            "score": 0.98,
+            "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 2524.508,
-            "displayValue": "2.5 s"
+            "numericValue": 2310.3900000000003,
+            "displayValue": "2.3 s"
         },
         "interactive": {
             "id": "interactive",
             "title": "Time to Interactive",
             "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
-            "score": 0.98,
+            "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 2563.508,
-            "displayValue": "2.6 s"
+            "numericValue": 2310.3900000000003,
+            "displayValue": "2.3 s"
         },
         "mainthread-work-breakdown": {
             "id": "mainthread-work-breakdown",
@@ -63,8 +63,8 @@
             "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
             "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 1199.6240000000003,
-            "displayValue": "1.2 s",
+            "numericValue": 1036.072,
+            "displayValue": "1.0 s",
             "details": {
                 "type": "table",
                 "headings": [
@@ -84,32 +84,32 @@
                     {
                         "group": "scriptEvaluation",
                         "groupLabel": "Script Evaluation",
-                        "duration": 841.8239999999998
+                        "duration": 551.8479999999994
                     },
                     {
                         "group": "other",
                         "groupLabel": "Other",
-                        "duration": 189.69600000000017
+                        "duration": 290.54400000000044
                     },
                     {
                         "group": "styleLayout",
                         "groupLabel": "Style & Layout",
-                        "duration": 81.43200000000003
+                        "duration": 84.46
                     },
                     {
                         "group": "paintCompositeRender",
                         "groupLabel": "Rendering",
-                        "duration": 53.687999999999995
+                        "duration": 75.71999999999997
                     },
                     {
                         "group": "parseHTML",
                         "groupLabel": "Parse HTML & CSS",
-                        "duration": 20.304000000000002
+                        "duration": 19.168
                     },
                     {
                         "group": "scriptParseCompile",
                         "groupLabel": "Script Parsing & Compilation",
-                        "duration": 12.680000000000003
+                        "duration": 14.331999999999997
                     }
                 ]
             }
@@ -118,10 +118,10 @@
             "id": "bootup-time",
             "title": "JavaScript execution time",
             "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
-            "score": 0.97,
+            "score": 0.99,
             "scoreDisplayMode": "numeric",
-            "numericValue": 841.96,
-            "displayValue": "0.8 s",
+            "numericValue": 551.624,
+            "displayValue": "0.6 s",
             "details": {
                 "type": "table",
                 "headings": [
@@ -151,26 +151,26 @@
                 ],
                 "items": [
                     {
-                        "url": "https://airhorner.com/scripts/main.min.js",
-                        "total": 739.9639999999999,
-                        "scripting": 738.3839999999999,
-                        "scriptParseCompile": 1.58
+                        "url": "Other",
+                        "total": 500.3040000000004,
+                        "scripting": 28.623999999999995,
+                        "scriptParseCompile": 1.788
                     },
                     {
-                        "url": "Other",
-                        "total": 371.0080000000002,
-                        "scripting": 22.415999999999997,
-                        "scriptParseCompile": 3.4720000000000004
+                        "url": "https://airhorner.com/scripts/main.min.js",
+                        "total": 439.88800000000003,
+                        "scripting": 438.29600000000005,
+                        "scriptParseCompile": 1.592
                     },
                     {
                         "url": "https://www.google-analytics.com/analytics.js",
-                        "total": 76.10800000000003,
-                        "scripting": 73.88400000000003,
-                        "scriptParseCompile": 2.224
+                        "total": 81.32400000000003,
+                        "scripting": 76.89200000000002,
+                        "scriptParseCompile": 4.432
                     }
                 ],
                 "summary": {
-                    "wastedMs": 841.96
+                    "wastedMs": 551.624
                 }
             }
         },
@@ -178,10 +178,10 @@
             "id": "uses-rel-preconnect",
             "title": "Preconnect to required origins",
             "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
-            "score": 0.87,
+            "score": 0.85,
             "scoreDisplayMode": "numeric",
-            "numericValue": 159.63200003767014,
-            "displayValue": "Potential savings of 160 ms",
+            "numericValue": 182.89000000214577,
+            "displayValue": "Potential savings of 180 ms",
             "warnings": [],
             "details": {
                 "type": "opportunity",
@@ -200,10 +200,10 @@
                 "items": [
                     {
                         "url": "https://www.google-analytics.com",
-                        "wastedMs": 159.63200003767014
+                        "wastedMs": 182.89000000214577
                     }
                 ],
-                "overallSavingsMs": 159.63200003767014
+                "overallSavingsMs": 182.89000000214577
             }
         },
         "button-name": {
@@ -327,7 +327,7 @@
             "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more](https://web.dev/uses-long-cache-ttl).",
             "score": 0.93,
             "scoreDisplayMode": "numeric",
-            "numericValue": 23043.319444444445,
+            "numericValue": 23139.93611111111,
             "displayValue": "6 resources found",
             "details": {
                 "type": "table",
@@ -361,8 +361,8 @@
                         },
                         "cacheLifetimeMs": 10000,
                         "cacheHitProbability": 0.001388888888888889,
-                        "totalBytes": 3655,
-                        "wastedBytes": 3649.9236111111113
+                        "totalBytes": 3676,
+                        "wastedBytes": 3670.8944444444446
                     },
                     {
                         "url": "https://airhorner.com/scripts/pwacompat.min.js",
@@ -373,8 +373,8 @@
                         },
                         "cacheLifetimeMs": 10000,
                         "cacheHitProbability": 0.001388888888888889,
-                        "totalBytes": 1822,
-                        "wastedBytes": 1819.4694444444444
+                        "totalBytes": 1853,
+                        "wastedBytes": 1850.4263888888888
                     },
                     {
                         "url": "https://airhorner.com/scripts/main.min.js",
@@ -385,8 +385,8 @@
                         },
                         "cacheLifetimeMs": 10000,
                         "cacheHitProbability": 0.001388888888888889,
-                        "totalBytes": 1538,
-                        "wastedBytes": 1535.8638888888888
+                        "totalBytes": 1558,
+                        "wastedBytes": 1555.8361111111112
                     },
                     {
                         "url": "https://airhorner.com/scripts/messagechanneladapter.global.js",
@@ -397,8 +397,8 @@
                         },
                         "cacheLifetimeMs": 10000,
                         "cacheHitProbability": 0.001388888888888889,
-                        "totalBytes": 1293,
-                        "wastedBytes": 1291.2041666666667
+                        "totalBytes": 1330,
+                        "wastedBytes": 1328.1527777777778
                     },
                     {
                         "url": "https://airhorner.com/styles/main.css",
@@ -409,8 +409,8 @@
                         },
                         "cacheLifetimeMs": 10000,
                         "cacheHitProbability": 0.001388888888888889,
-                        "totalBytes": 822,
-                        "wastedBytes": 820.8583333333333
+                        "totalBytes": 809,
+                        "wastedBytes": 807.8763888888889
                     },
                     {
                         "url": "https://www.google-analytics.com/analytics.js",
@@ -421,12 +421,12 @@
                         },
                         "cacheLifetimeMs": 7200000,
                         "cacheHitProbability": 0.25,
-                        "totalBytes": 18568,
-                        "wastedBytes": 13926
+                        "totalBytes": 18569,
+                        "wastedBytes": 13926.75
                     }
                 ],
                 "summary": {
-                    "wastedBytes": 23043.319444444445
+                    "wastedBytes": 23139.93611111111
                 }
             }
         }

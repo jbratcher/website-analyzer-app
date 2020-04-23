@@ -7,6 +7,7 @@ class RawReportSchema extends Schema {
   up() {
     this.create("raw_reports", (table) => {
       table.increments();
+      table.text("name");
       table.jsonb("report");
       table.timestamps();
     });

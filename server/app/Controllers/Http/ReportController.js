@@ -14,39 +14,55 @@ class ReportController {
     return "Report Index Route";
   }
 
+  /*
+   **  Get all reports by name
+   */
   async getReports({ params }) {
-    const rawReport = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-lighthouse.json`
-    ));
-    const analyzedReport = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-analyzed.json`
-    ));
-    const actionStepsReport = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-action-steps.json`
-    ));
-    let reports = Promise.all([rawReport, analyzedReport, actionStepsReport]);
-    return await reports;
+    const rawReport = await RawReport.query()
+      .where("name", params.filename)
+      .fetch();
+    const analyzedReport = await AnalyzedReport.query()
+      .where("name", params.filename)
+      .fetch();
+    const actionStepsList = await ActionStepsList.query()
+      .where("name", params.filename)
+      .fetch();
+    let reports = await Promise.all([
+      rawReport,
+      analyzedReport,
+      actionStepsList,
+    ]);
+    return reports;
   }
 
+  /*
+   **  Get a Raw Report by name
+   */
   async getRawReport({ params }) {
-    const report = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-lighthouse.json`
-    ));
-    return await report;
+    const rawReport = await RawReport.query()
+      .where("name", params.filename)
+      .fetch();
+    return rawReport;
   }
 
+  /*
+   **  Get an Analyzed Report by name
+   */
   async getAnalyzedReport({ params }) {
-    const report = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-analyzed.json`
-    ));
-    return await report;
+    const analyzedReport = await AnalyzedReport.query()
+      .where("name", params.filename)
+      .fetch();
+    return await analyzedReport;
   }
 
+  /*
+   **  Get an Action Steps List by name
+   */
   async getActionStepsReport({ params }) {
-    const report = require(Helpers.appRoot(
-      `/resources/${params.filename}/${params.filename}-action-steps.json`
-    ));
-    return await report;
+    const actionStepsList = await ActionStepsList.query()
+      .where("name", params.filename)
+      .fetch();
+    return await actionStepsList;
   }
 
   /*
@@ -75,9 +91,15 @@ class ReportController {
       )
     );
 
-    RawReport.findOrCreate({ report: rawReport });
-    AnalyzedReport.findOrCreate({ report: analyzedReport });
-    ActionStepsList.findOrCreate({ report: actionStepsList });
+    RawReport.findOrCreate({ name: rawReport.name, report: rawReport });
+    AnalyzedReport.findOrCreate({
+      name: rawReport.name,
+      report: analyzedReport,
+    });
+    ActionStepsList.findOrCreate({
+      name: rawReport.name,
+      report: actionStepsList,
+    });
 
     return;
   }

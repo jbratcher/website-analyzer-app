@@ -7,6 +7,7 @@ class AnalyzedReportSchema extends Schema {
   up() {
     this.create("analyzed_reports", (table) => {
       table.increments();
+      table.text("name");
       table.jsonb("report");
       table.timestamps();
     });

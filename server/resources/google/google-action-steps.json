@@ -1,170 +1,595 @@
-[
-    {
-        "refName": "serviceWorker",
-        "title": "Registers a service worker that controls page and `start_url`",
-        "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
-        "actionStep": "",
-        "matches": "service-worker"
-    },
-    {
-        "refName": "worksOffline",
-        "title": "Current page responds with a 200 when offline",
-        "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
-        "actionStep": "",
-        "matches": "works-offline"
-    },
-    {
-        "refName": "firstContentfulPaint",
-        "title": "First Contentful Paint",
-        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
-        "actionStep": "",
-        "matches": "first-contentful-paint"
-    },
-    {
-        "refName": "firstMeaningfulPaint",
-        "title": "First Meaningful Paint",
-        "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
-        "actionStep": "",
-        "matches": "first-meaningful-paint"
-    },
-    {
-        "refName": "speedIndex",
-        "title": "Speed Index",
-        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
-        "actionStep": "",
-        "matches": "speed-index"
-    },
-    {
-        "refName": "totalBlockingTime",
-        "title": "Total Blocking Time",
-        "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
-        "actionStep": "",
-        "matches": "total-blocking-time"
-    },
-    {
-        "refName": "maxPotentialFid",
-        "title": "Max Potential First Input Delay",
-        "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
-        "actionStep": "",
-        "matches": "max-potential-fid"
-    },
-    {
-        "refName": "firstCpuIdle",
-        "title": "First CPU Idle",
-        "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
-        "actionStep": "",
-        "matches": "first-cpu-idle"
-    },
-    {
-        "refName": "interactive",
-        "title": "Time to Interactive",
-        "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
-        "actionStep": "",
-        "matches": "interactive"
-    },
-    {
-        "refName": "installableManifest",
-        "title": "Web app manifest meets the installability requirements",
-        "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
-        "actionStep": "",
-        "matches": "installable-manifest"
-    },
-    {
-        "refName": "appleTouchIcon",
-        "title": "Provides a valid `apple-touch-icon`",
-        "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
-        "actionStep": "",
-        "matches": "apple-touch-icon"
-    },
-    {
-        "refName": "splashScreen",
-        "title": "Configured for a custom splash screen",
-        "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
-        "actionStep": "",
-        "matches": "splash-screen"
-    },
-    {
-        "refName": "themedOmnibox",
-        "title": "Sets a theme color for the address bar.",
-        "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
-        "actionStep": "",
-        "matches": "themed-omnibox"
-    },
-    {
-        "refName": "mainthreadWorkBreakdown",
-        "title": "Minimizes main-thread work",
-        "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
-        "actionStep": "",
-        "matches": "mainthread-work-breakdown"
-    },
-    {
-        "refName": "bootupTime",
-        "title": "JavaScript execution time",
-        "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
-        "actionStep": "",
-        "matches": "bootup-time"
-    },
-    {
-        "refName": "usesRelPreconnect",
-        "title": "Preconnect to required origins",
-        "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
-        "actionStep": "",
-        "matches": "uses-rel-preconnect"
-    },
-    {
-        "refName": "offlineStartUrl",
-        "title": "`start_url` responds with a 200 when offline",
-        "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
-        "actionStep": "",
-        "matches": "offline-start-url"
-    },
-    {
-        "refName": "ariaRequiredAttr",
-        "title": "`[role]`s have all required `[aria-*]` attributes",
-        "description": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://web.dev/aria-required-attr/).",
-        "actionStep": "",
-        "matches": "aria-required-attr"
-    },
-    {
-        "refName": "bypass",
-        "title": "The page contains a heading, skip link, or landmark region",
-        "description": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://web.dev/bypass/).",
-        "actionStep": "",
-        "matches": "bypass"
-    },
-    {
-        "refName": "colorContrast",
-        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
-        "description": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://web.dev/color-contrast/).",
-        "actionStep": "",
-        "matches": "color-contrast"
-    },
-    {
-        "refName": "linkName",
-        "title": "Links have a discernible name",
-        "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
-        "actionStep": "",
-        "matches": "link-name"
-    },
-    {
-        "refName": "usesPassiveEventListeners",
-        "title": "Uses passive listeners to improve scrolling performance",
-        "description": "Consider marking your touch and wheel event listeners as `passive` to improve your page's scroll performance. [Learn more](https://web.dev/uses-passive-event-listeners).",
-        "actionStep": "",
-        "matches": "uses-passive-event-listeners"
-    },
-    {
-        "refName": "metaDescription",
-        "title": "Document has a meta description",
-        "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more](https://web.dev/meta-description).",
-        "actionStep": "",
-        "matches": "meta-description"
-    },
-    {
-        "refName": "tapTargets",
-        "title": "Tap targets are sized appropriately",
-        "description": "Interactive elements like buttons and links should be large enough (48x48px), and have enough space around them, to be easy enough to tap without overlapping onto other elements. [Learn more](https://web.dev/tap-targets).",
-        "actionStep": "",
-        "matches": "tap-targets"
+{
+    "name": "google",
+    "auditsMatched": {
+        "service-worker": {
+            "id": "service-worker",
+            "title": "Does not register a service worker that controls page and `start_url`",
+            "description": "The service worker is the technology that enables your app to use many Progressive Web App features, such as offline, add to homescreen, and push notifications. [Learn more](https://web.dev/service-worker).",
+            "score": 0,
+            "scoreDisplayMode": "binary"
+        },
+        "works-offline": {
+            "id": "works-offline",
+            "title": "Current page does not respond with a 200 when offline",
+            "description": "If you're building a Progressive Web App, consider using a service worker so that your app can work offline. [Learn more](https://web.dev/works-offline).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "warnings": [
+                "The page may not be loading offline because your test URL (https://google.com/) was redirected to \"https://www.google.com/\". Try testing the second URL directly."
+            ]
+        },
+        "first-contentful-paint": {
+            "id": "first-contentful-paint",
+            "title": "First Contentful Paint",
+            "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more](https://web.dev/first-contentful-paint).",
+            "score": 0.94,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 2047.2470000000003,
+            "displayValue": "2.0 s"
+        },
+        "first-meaningful-paint": {
+            "id": "first-meaningful-paint",
+            "title": "First Meaningful Paint",
+            "description": "First Meaningful Paint measures when the primary content of a page is visible. [Learn more](https://web.dev/first-meaningful-paint).",
+            "score": 0.94,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 2047.2470000000003,
+            "displayValue": "2.0 s"
+        },
+        "speed-index": {
+            "id": "speed-index",
+            "title": "Speed Index",
+            "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more](https://web.dev/speed-index).",
+            "score": 0.95,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 2847.794778007109,
+            "displayValue": "2.8 s"
+        },
+        "estimated-input-latency": {
+            "id": "estimated-input-latency",
+            "title": "Estimated Input Latency",
+            "description": "Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. [Learn more](https://web.dev/estimated-input-latency).",
+            "score": 0.97,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 44,
+            "displayValue": "40 ms"
+        },
+        "total-blocking-time": {
+            "id": "total-blocking-time",
+            "title": "Total Blocking Time",
+            "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+            "score": 0.9,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 285.4845,
+            "displayValue": "290 ms"
+        },
+        "max-potential-fid": {
+            "id": "max-potential-fid",
+            "title": "Max Potential First Input Delay",
+            "description": "The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task. [Learn more](https://developers.google.com/web/updates/2018/05/first-input-delay).",
+            "score": 0.68,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 198,
+            "displayValue": "200 ms"
+        },
+        "first-cpu-idle": {
+            "id": "first-cpu-idle",
+            "title": "First CPU Idle",
+            "description": "First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.  [Learn more](https://web.dev/first-cpu-idle).",
+            "score": 0.81,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 4284.844,
+            "displayValue": "4.3 s"
+        },
+        "interactive": {
+            "id": "interactive",
+            "title": "Time to Interactive",
+            "description": "Time to interactive is the amount of time it takes for the page to become fully interactive. [Learn more](https://web.dev/interactive).",
+            "score": 0.82,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 4541.297500000001,
+            "displayValue": "4.5 s"
+        },
+        "installable-manifest": {
+            "id": "installable-manifest",
+            "title": "Web app manifest does not meet the installability requirements",
+            "description": "Browsers can proactively prompt users to add your app to their homescreen, which can lead to higher engagement. [Learn more](https://web.dev/installable-manifest).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched"
+                        ],
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
+                ]
+            }
+        },
+        "apple-touch-icon": {
+            "id": "apple-touch-icon",
+            "title": "Does not provide a valid `apple-touch-icon`",
+            "description": "For ideal appearance on iOS when users add a progressive web app to the home screen, define an `apple-touch-icon`. It must point to a non-transparent 192px (or 180px) square PNG. [Learn More](https://web.dev/apple-touch-icon/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "warnings": []
+        },
+        "splash-screen": {
+            "id": "splash-screen",
+            "title": "Is not configured for a custom splash screen",
+            "description": "A themed splash screen ensures a high-quality experience when users launch your app from their homescreens. [Learn more](https://web.dev/splash-screen).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched"
+                        ],
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
+                ]
+            }
+        },
+        "themed-omnibox": {
+            "id": "themed-omnibox",
+            "title": "Does not set a theme color for the address bar.",
+            "description": "The browser address bar can be themed to match your site. [Learn more](https://web.dev/themed-omnibox).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "Failures: No manifest was fetched,\nNo `<meta name=\"theme-color\">` tag found.",
+            "details": {
+                "type": "debugdata",
+                "items": [
+                    {
+                        "failures": [
+                            "No manifest was fetched",
+                            "No `<meta name=\"theme-color\">` tag found"
+                        ],
+                        "themeColor": null,
+                        "isParseFailure": true,
+                        "parseFailureReason": "No manifest was fetched"
+                    }
+                ]
+            }
+        },
+        "mainthread-work-breakdown": {
+            "id": "mainthread-work-breakdown",
+            "title": "Minimizes main-thread work",
+            "description": "Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/mainthread-work-breakdown)",
+            "score": 0.95,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 1697.9999999999984,
+            "displayValue": "1.7 s",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "groupLabel",
+                        "itemType": "text",
+                        "text": "Category"
+                    },
+                    {
+                        "key": "duration",
+                        "itemType": "ms",
+                        "granularity": 1,
+                        "text": "Time Spent"
+                    }
+                ],
+                "items": [
+                    {
+                        "group": "scriptEvaluation",
+                        "groupLabel": "Script Evaluation",
+                        "duration": 690.1159999999976
+                    },
+                    {
+                        "group": "other",
+                        "groupLabel": "Other",
+                        "duration": 462.4040000000006
+                    },
+                    {
+                        "group": "styleLayout",
+                        "groupLabel": "Style & Layout",
+                        "duration": 281.9760000000001
+                    },
+                    {
+                        "group": "scriptParseCompile",
+                        "groupLabel": "Script Parsing & Compilation",
+                        "duration": 127.31999999999996
+                    },
+                    {
+                        "group": "parseHTML",
+                        "groupLabel": "Parse HTML & CSS",
+                        "duration": 73.352
+                    },
+                    {
+                        "group": "paintCompositeRender",
+                        "groupLabel": "Rendering",
+                        "duration": 56.236000000000004
+                    },
+                    {
+                        "group": "garbageCollection",
+                        "groupLabel": "Garbage Collection",
+                        "duration": 6.596
+                    }
+                ]
+            }
+        },
+        "bootup-time": {
+            "id": "bootup-time",
+            "title": "JavaScript execution time",
+            "description": "Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. [Learn more](https://web.dev/bootup-time).",
+            "score": 0.97,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 778.7720000000003,
+            "displayValue": "0.8 s",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "total",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Total CPU Time"
+                    },
+                    {
+                        "key": "scripting",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Evaluation"
+                    },
+                    {
+                        "key": "scriptParseCompile",
+                        "granularity": 1,
+                        "itemType": "ms",
+                        "text": "Script Parse"
+                    }
+                ],
+                "items": [
+                    {
+                        "url": "Other",
+                        "total": 1020.1560000000007,
+                        "scripting": 133.44800000000006,
+                        "scriptParseCompile": 8.5
+                    },
+                    {
+                        "url": "https://www.google.com/xjs/_/js/k=xjs.qs.en_US.bCqZkPF87Lo.O/ck=xjs.qs.6eyANL1cflo.L.W.O/m=ByqdBd,CiVnBc,Fkg7bd,HcFEGb,OF7gzc,QfiAub,RMhBfe,T4BAC,Uox2uf,bct,cdos,czrJpf,hsm,if1iFc,jsa,kopZwe,lXXCK,qim,uz938c,vWNDde,ws9Tlc,xPR7tc,yQ43ff,d,csi/am=ggAKAACARRj5kxlGOaI4ALwEMOMAAABMwMFk-wugQjwBIAACELYSEg/d=1/dg=2/br=1/ct=zgms/rs=ACT90oGpLyNN2odWwmnPZZhjAclRB9BAEw",
+                        "total": 292.49999999999994,
+                        "scripting": 252.07199999999997,
+                        "scriptParseCompile": 40.36
+                    },
+                    {
+                        "url": "https://www.google.com/",
+                        "total": 215.33600000000024,
+                        "scripting": 156.06000000000026,
+                        "scriptParseCompile": 58.395999999999994
+                    },
+                    {
+                        "url": "https://www.google.com/xjs/_/js/k=xjs.qs.en_US.bCqZkPF87Lo.O/ck=xjs.qs.6eyANL1cflo.L.W.O/am=ggAKAACARRj5kxlGOaI4ALwEMOMAAABMwMFk-wugQjwBIAACELYSEg/d=1/exm=ByqdBd,CiVnBc,Fkg7bd,HcFEGb,OF7gzc,QfiAub,RMhBfe,T4BAC,Uox2uf,bct,cdos,csi,czrJpf,d,hsm,if1iFc,jsa,kopZwe,lXXCK,qim,uz938c,vWNDde,ws9Tlc,xPR7tc,yQ43ff/ed=1/dg=2/br=1/ct=zgms/rs=ACT90oGpLyNN2odWwmnPZZhjAclRB9BAEw/m=CHeGN,MkHyGd,NpD4ec,OG6ZHd,RqxLvf,T7XTS,URQPYc,aa,abd,async,dvl,eN4qad,fEVMic,foot,mUpTid,mu,o02Jie,pB6Zqd,rHjpXd,rQSi2,sb_wiz,sf,sonic,spch,uiNkee,xz7cCd,zbML3c?xjs=s1",
+                        "total": 130.216,
+                        "scripting": 114.68800000000002,
+                        "scriptParseCompile": 15.248
+                    }
+                ],
+                "summary": {
+                    "wastedMs": 778.7720000000003
+                }
+            }
+        },
+        "uses-rel-preconnect": {
+            "id": "uses-rel-preconnect",
+            "title": "Preconnect to required origins",
+            "description": "Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. [Learn more](https://web.dev/uses-rel-preconnect).",
+            "score": 0.72,
+            "scoreDisplayMode": "numeric",
+            "numericValue": 350.168,
+            "displayValue": "Potential savings of 350 ms",
+            "warnings": [],
+            "details": {
+                "type": "opportunity",
+                "headings": [
+                    {
+                        "key": "url",
+                        "valueType": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "key": "wastedMs",
+                        "valueType": "timespanMs",
+                        "label": "Potential Savings"
+                    }
+                ],
+                "items": [
+                    {
+                        "url": "https://googleads.g.doubleclick.net",
+                        "wastedMs": 350.168
+                    },
+                    {
+                        "url": "https://adservice.google.com",
+                        "wastedMs": 307.02
+                    },
+                    {
+                        "url": "https://www.gstatic.com",
+                        "wastedMs": 157.5689999936819
+                    }
+                ],
+                "overallSavingsMs": 350.168
+            }
+        },
+        "offline-start-url": {
+            "id": "offline-start-url",
+            "title": "`start_url` does not respond with a 200 when offline",
+            "description": "A service worker enables your web app to be reliable in unpredictable network conditions. [Learn more](https://web.dev/offline-start-url).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "explanation": "No usable web app manifest found on page.",
+            "warnings": []
+        },
+        "aria-required-attr": {
+            "id": "aria-required-attr",
+            "title": "`[role]`s do not have all required `[aria-*]` attributes",
+            "description": "Some ARIA roles have required attributes that describe the state of the element to screen readers. [Learn more](https://web.dev/aria-required-attr/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": ".gLFyf",
+                            "path": "1,HTML,1,BODY,7,DIV,2,DIV,1,DIV,2,DIV,0,FORM,1,DIV,0,DIV,1,DIV,2,DIV,0,DIV,1,INPUT",
+                            "snippet": "<input class=\"gLFyf\" jsaction=\"paste:puy29d\" maxlength=\"2048\" name=\"q\" type=\"search\" aria-autocomplete=\"both\" aria-haspopup=\"false\" autocapitalize=\"off\" autocomplete=\"off\" autocorrect=\"off\" role=\"combobox\" spellcheck=\"false\" title=\"\" value=\"\" aria-label=\"Search\" data-ved=\"0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQ39UDCBQ\">",
+                            "explanation": "Fix any of the following:\n  Required ARIA attribute not present: aria-expanded",
+                            "nodeLabel": "Search"
+                        }
+                    }
+                ],
+                "debugData": {
+                    "type": "debugdata",
+                    "impact": "critical",
+                    "tags": [
+                        "cat.aria",
+                        "wcag2a",
+                        "wcag412"
+                    ]
+                }
+            }
+        },
+        "bypass": {
+            "id": "bypass",
+            "title": "The page does not contain a heading, skip link, or landmark region",
+            "description": "Adding ways to bypass repetitive content lets keyboard users navigate the page more efficiently. [Learn more](https://web.dev/bypass/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "html",
+                            "path": "1,HTML",
+                            "snippet": "<html lang=\"en\">",
+                            "explanation": "Fix any of the following:\n  No valid skip link found\n  Page does not have a header\n  Page does not have a landmark region",
+                            "nodeLabel": "html"
+                        }
+                    }
+                ],
+                "debugData": {
+                    "type": "debugdata",
+                    "impact": "serious",
+                    "tags": [
+                        "cat.keyboard",
+                        "wcag2a",
+                        "wcag241",
+                        "section508",
+                        "section508.22.o"
+                    ]
+                }
+            }
+        },
+        "color-contrast": {
+            "id": "color-contrast",
+            "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+            "description": "Low-contrast text is difficult or impossible for many users to read. [Learn more](https://web.dev/color-contrast/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": ".active",
+                            "path": "1,HTML,1,BODY,7,DIV,1,HEADER,1,DIV,0,A",
+                            "snippet": "<a class=\"active\">All</a>",
+                            "explanation": "Fix any of the following:\n  Element has insufficient color contrast of 3.56 (foreground color: #4285f4, background color: #ffffff, font size: 9.0pt, font weight: bold). Expected contrast ratio of 4.5:1",
+                            "nodeLabel": "ALL"
+                        }
+                    }
+                ],
+                "debugData": {
+                    "type": "debugdata",
+                    "impact": "serious",
+                    "tags": [
+                        "cat.color",
+                        "wcag2aa",
+                        "wcag143"
+                    ]
+                }
+            }
+        },
+        "link-name": {
+            "id": "link-name",
+            "title": "Links do not have a discernible name",
+            "description": "Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more](https://web.dev/link-name/).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "node",
+                        "itemType": "node",
+                        "text": "Failing Elements"
+                    }
+                ],
+                "items": [
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "#asic",
+                            "path": "1,HTML,1,BODY,7,DIV,1,HEADER,3,A",
+                            "snippet": "<a class=\"epwVzc\" href=\"https://search.app.goo.gl/?link=https://assistant.google.com%3Futm_source%3Ddeeplink%26utm_campaign%3Dogb&amp;apn=com.google.android.googlequicksearchbox&amp;al=googleapp://deeplink/?data=CksBDb3mGzBEAiBUgjUKWJkXDP5ZR5_ludOAV1ZnfxH92DmHN9ogiHADLgIgJ2xrm2Q8dN3oA8dFS1ZG7MfUKUeuUgap-j6jJ7NfHf8SOQoCCAASAghwGhASDggEEgrqiqj0BAQIAUAAIh0KG2h0dHA6Ly9hc3Npc3RhbnQuZ29vZ2xlLmNvbQ&amp;afl=https://assistant.google.com/platforms/phones/\" id=\"asic\" data-ved=\"0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQ1MADCA8\" ping=\"/url?sa=t&amp;rct=j&amp;source=webhp&amp;url=https://search.app.goo.gl/%3Flink%3Dhttps://assistant.google.com%253Futm_source%253Ddeeplink%2526utm_campaign%253Dogb%26apn%3Dcom.google.android.googlequicksearchbox%26al%3Dgoogleapp://deeplink/%3Fdata%3DCksBDb3mGzBEAiBUgjUKWJkXDP5ZR5_ludOAV1ZnfxH92DmHN9ogiHADLgIgJ2xrm2Q8dN3oA8dFS1ZG7MfUKUeuUgap-j6jJ7NfHf8SOQoCCAASAghwGhASDggEEgrqiqj0BAQIAUAAIh0KG2h0dHA6Ly9hc3Npc3RhbnQuZ29vZ2xlLmNvbQ%26afl%3Dhttps://assistant.google.com/platforms/phones/&amp;ved=0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQ1MADCA8&amp;usg=AOvVaw0xFnALvrJA7AsdWD1MAhS6\" oncontextmenu=\"google.ctpacw.cm(this)\">",
+                            "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "a"
+                        }
+                    },
+                    {
+                        "node": {
+                            "type": "node",
+                            "selector": "a[data-async-trigger=\"ddlshare\"]",
+                            "path": "1,HTML,1,BODY,7,DIV,2,DIV,0,DIV,0,DIV,2,DIV,1,A",
+                            "snippet": "<a href=\"#\" data-async-trigger=\"ddlshare\" jsaction=\"async.u\" data-ved=\"0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQ4zgIEQ\">",
+                            "explanation": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"presentation\"\n  Element's default semantics were not overridden with role=\"none\"",
+                            "nodeLabel": "img"
+                        }
+                    }
+                ],
+                "debugData": {
+                    "type": "debugdata",
+                    "impact": "serious",
+                    "tags": [
+                        "cat.name-role-value",
+                        "wcag2a",
+                        "wcag412",
+                        "wcag244",
+                        "section508",
+                        "section508.22.a"
+                    ]
+                }
+            }
+        },
+        "uses-passive-event-listeners": {
+            "id": "uses-passive-event-listeners",
+            "title": "Does not use passive listeners to improve scrolling performance",
+            "description": "Consider marking your touch and wheel event listeners as `passive` to improve your page's scroll performance. [Learn more](https://web.dev/uses-passive-event-listeners).",
+            "score": 0,
+            "scoreDisplayMode": "binary",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "url",
+                        "itemType": "url",
+                        "text": "URL"
+                    },
+                    {
+                        "key": "label",
+                        "itemType": "text",
+                        "text": "Location"
+                    }
+                ],
+                "items": [
+                    {
+                        "label": "line: 123",
+                        "url": "https://www.google.com/"
+                    }
+                ]
+            }
+        },
+        "meta-description": {
+            "id": "meta-description",
+            "title": "Document does not have a meta description",
+            "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more](https://web.dev/meta-description).",
+            "score": 0,
+            "scoreDisplayMode": "binary"
+        },
+        "tap-targets": {
+            "id": "tap-targets",
+            "title": "Tap targets are not sized appropriately",
+            "description": "Interactive elements like buttons and links should be large enough (48x48px), and have enough space around them, to be easy enough to tap without overlapping onto other elements. [Learn more](https://web.dev/tap-targets).",
+            "score": 0.85,
+            "scoreDisplayMode": "binary",
+            "displayValue": "95% appropriately sized tap targets",
+            "details": {
+                "type": "table",
+                "headings": [
+                    {
+                        "key": "tapTarget",
+                        "itemType": "node",
+                        "text": "Tap Target"
+                    },
+                    {
+                        "key": "size",
+                        "itemType": "text",
+                        "text": "Size"
+                    },
+                    {
+                        "key": "overlappingTarget",
+                        "itemType": "node",
+                        "text": "Overlapping Target"
+                    }
+                ],
+                "items": [
+                    {
+                        "tapTarget": {
+                            "type": "node",
+                            "snippet": "<a href=\"#\" data-async-trigger=\"ddlshare\" jsaction=\"async.u\" data-ved=\"0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQ4zgIEQ\"><div class=\"fOwUFe\" style=\"right:11px;bottom:21px\"><div class=\"dnNgC\" style=\"background-color:#ffffff;opacity:0.800000011920929\"></div><input value=\"//g.co/doodle/dh27s\" class=\"ddl-shortl…",
+                            "path": "1,HTML,1,BODY,7,DIV,2,DIV,0,DIV,0,DIV,2,DIV,1,A",
+                            "selector": "div#hplogoo > div > div > a",
+                            "nodeLabel": "img"
+                        },
+                        "overlappingTarget": {
+                            "type": "node",
+                            "snippet": "<a style=\"background-image:none\" href=\"/search?q=coronavirus+tips&amp;oi=ddle&amp;ct=153607377&amp;hl=en&amp;ictx=1&amp;sa=X&amp;ved=0ahUKEwjk9MqZp__oAhVHAqwKHd_gAagQPQgQ\" data-hveid=\"16\"><img style=\"border:none;max-width:100%;margin:8px 0\" alt=\"Stay Home. Save Lives : Help Stop Coronavirus\" id=\"hp…",
+                            "path": "1,HTML,1,BODY,7,DIV,2,DIV,0,DIV,0,DIV,0,A",
+                            "selector": "div#outer > div#hplogoo > div > a",
+                            "nodeLabel": "Stay Home. Save Lives : Help Stop Coronavirus"
+                        },
+                        "tapTargetScore": 1444,
+                        "overlappingTargetScore": 2304,
+                        "overlapScoreRatio": 1.5955678670360112,
+                        "size": "38x38",
+                        "width": 38,
+                        "height": 38
+                    }
+                ]
+            }
+        }
     }
-]
+}
