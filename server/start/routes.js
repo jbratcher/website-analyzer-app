@@ -25,4 +25,5 @@ Route.group(() => {
   Route.get("/analyzed/:filename", "ReportController.getAnalyzedReport");
   Route.get("/action-steps/:filename", "ReportController.getActionStepsReport");
   Route.get("/generate/:name/:url", "ReportController.generateReport");
+  Route.get("/save/:name", "ReportController.saveReports");
 }).prefix("/reports");

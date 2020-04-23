@@ -1,7 +1,13 @@
 "use strict";
 
 const Helpers = use("Helpers");
+const RawReport = use("App/Models/RawReport");
+const AnalyzedReport = use("App/Models/AnalyzedReport");
+const ActionStepsList = use("App/Models/ActionStepsList");
 const execSync = require("child_process").execSync;
+
+// read lighthouse report and convert to business report
+const json = require(Helpers.appRoot("/scripts/utility/json.js"));
 
 class ReportController {
   index() {
@@ -50,6 +56,30 @@ class ReportController {
     execSync(
       `npm run fetch ${params.name} https://${params.url} && npm run analyze ${params.name}`
     );
+    this.saveReports({ params });
+  }
+
+  /*
+   ** save a generated report to the database
+   */
+  async saveReports({ params }) {
+    let rawReport = await json.read(
+      Helpers.appRoot(`resources/${params.name}/${params.name}-lighthouse.json`)
+    );
+    let analyzedReport = await json.read(
+      Helpers.appRoot(`resources/${params.name}/${params.name}-analyzed.json`)
+    );
+    let actionStepsList = await json.read(
+      Helpers.appRoot(
+        `resources/${params.name}/${params.name}-action-steps.json`
+      )
+    );
+
+    RawReport.findOrCreate({ report: rawReport });
+    AnalyzedReport.findOrCreate({ report: analyzedReport });
+    ActionStepsList.findOrCreate({ report: actionStepsList });
+
+    return;
   }
 }
 

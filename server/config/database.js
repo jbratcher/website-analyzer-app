@@ -75,7 +75,7 @@ module.exports = {
     connection: {
       host: Env.get("DB_HOST", "localhost"),
       port: Env.get("DB_PORT", "5432"),
-      user: Env.get("DB_USER", ""),
+      user: Env.get("DB_USER", "postgres"),
       password: Env.get("DB_PASSWORD", "Prog1981"),
       database: Env.get("DB_DATABASE", "website_analyzer"),
     },
