@@ -11,7 +11,7 @@ export default {
       return score;
     },
     calcScoreColor(score) {
-      let scoreColor = "white";
+      let scoreColor = "black";
       let normalizedScore = this.normalizedScore(score);
       if (normalizedScore === 100) {
         scoreColor = "green";
@@ -27,10 +27,8 @@ export default {
         scoreColor = "orange";
       } else if (normalizedScore < 75 && normalizedScore >= 70) {
         scoreColor = "deep-orange";
-      } else if (normalizedScore < 70 && normalizedScore >= 65) {
-        scoreColor = "red";
       } else {
-        scoreColor = "white";
+        scoreColor = "red";
       }
       return scoreColor;
     }

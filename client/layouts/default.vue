@@ -8,7 +8,11 @@ i<template>
         @click.stop="drawer = !drawer"
         name="menuopen"
         x-large
-      />
+      >
+        <i aria-hidden="true" class="v-icon notranslate theme--dark"
+          ><v-icon>{{ menuIcon }}</v-icon></i
+        >
+      </v-app-bar-nav-icon>
       <MenuLinks
         :general-links="generalLinks"
         list-class="d-md-flex hidden-md-and-down"
@@ -37,12 +41,26 @@ i<template>
       :mini-variant="sidedrawer"
       :permanent="$breakpoint.smAndUp ? true : false"
     >
-      <v-app-bar-nav-icon @click.stop="sidedrawer = !sidedrawer" name="sidemenu" x-large />
-
-      <v-divider></v-divider>
+      <v-app-bar-nav-icon
+        @click.stop="sidedrawer = !sidedrawer"
+        class="mb-1"
+        name="sidemenu"
+        x-large
+      >
+        <i aria-hidden="true" class="v-icon notranslate theme--dark"
+          ><v-icon>{{
+            sidedrawer ? arrowExpandRight : arrowExpandLeft
+          }}</v-icon></i
+        >
+      </v-app-bar-nav-icon>
 
       <v-list dense nav>
-        <v-list-item v-for="item in dashboardLinks" :key="item.title" link :to="item.to">
+        <v-list-item
+          v-for="item in dashboardLinks"
+          :key="item.title"
+          link
+          :to="item.to"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -60,25 +78,34 @@ i<template>
     <!-- Footer Area -->
     <v-divider />
     <v-lazy>
-      <v-footer class="d-flex flex-column align-center my-12 pt-12 py-6 px-5" color="transparent">
+      <v-footer
+        class="d-flex flex-column align-center my-12 pt-12 py-6 px-5"
+        color="transparent"
+      >
         <h2
           class="mb-3"
           :class="{
             'display-1': $breakpoint.mdAndUp,
             headline: $breakpoint.smAndDown
           }"
-        >{{ appTitle }}</h2>
+        >
+          {{ appTitle }}
+        </h2>
         <p
           class="px-6 text-align-center"
           :class="{
             headline: $breakpoint.mdAndUp,
             'subtitle-1': $breakpoint.smAndDown
           }"
-        >{{ appDescription }}</p>
+        >
+          {{ appDescription }}
+        </p>
         <nav>
           <ul class="d-flex flex-wrap py-3 px-0">
             <li v-for="(link, i) in generalLinks" :key="i + link.title">
-              <v-btn :href="link.to" :name="link.title" text rounded>{{ link.title }}</v-btn>
+              <v-btn :href="link.to" :name="link.title" text rounded>{{
+                link.title
+              }}</v-btn>
             </li>
           </ul>
         </nav>
@@ -93,29 +120,38 @@ i<template>
 
 <script>
 import MenuLinks from "../components/MenuLinks.vue";
-
+import {
+  mdiMenu,
+  mdiViewDashboard,
+  mdiFormatListBulleted,
+  mdiMagnify,
+  mdiClipboardList,
+  mdiMenuOpen,
+  mdiArrowExpandLeft,
+  mdiArrowExpandRight
+} from "@mdi/js";
 export default {
   components: {
     MenuLinks
   },
   data() {
     return {
+      appTitle: process.env.title,
+      appDescription: process.env.description,
+      arrowExpandRight: mdiArrowExpandRight,
+      arrowExpandLeft: mdiArrowExpandLeft,
+
       dashboardLinks: [
-        { title: "All Reports", icon: "mdi-view-dashboard", to: "/reports" },
-        { title: "Raw", icon: "mdi-format-list-bulleted", to: "/reports/raw" },
-        { title: "Analyzed", icon: "mdi-magnify", to: "/reports/analyzed" },
+        { title: "All Reports", icon: mdiViewDashboard, to: "/reports" },
+        { title: "Raw", icon: mdiFormatListBulleted, to: "/reports/raw" },
+        { title: "Analyzed", icon: mdiMagnify, to: "/reports/analyzed" },
         {
           title: "Action Steps",
-          icon: "mdi-clipboard-list",
+          icon: mdiClipboardList,
           to: "/reports/action-steps"
         }
       ],
-      mini: true,
-      right: null,
-      appTitle: process.env.title,
-      appDescription: process.env.description,
       drawer: false,
-      sidedrawer: true,
       generalLinks: [
         {
           title: "Reports",
@@ -138,8 +174,12 @@ export default {
           to: "/about"
         }
       ],
+      navBelowFold: false,
+      menuIcon: mdiMenu,
+      mini: true,
       miniVariant: false,
-      navBelowFold: false
+      right: null,
+      sidedrawer: true
     };
   },
   computed: {
@@ -199,6 +239,13 @@ a {
     align-content: baseline;
     padding: 0.25rem 0.75rem;
   }
+}
+
+// side menu
+.v-navigation-drawer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 // footer

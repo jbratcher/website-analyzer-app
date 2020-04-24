@@ -2,7 +2,10 @@ export const state = () => ({
   actionStepsList: {},
   allReports: [],
   analyzedReport: {},
-  rawReport: {}
+  rawReport: {},
+  categories: [],
+  allAudits: [],
+  failingAudits: []
 });
 
 export const actions = {
@@ -25,6 +28,7 @@ export const actions = {
       .$get(`/api/reports/analyzed/${websiteName}`)
       .then(data => {
         commit("setAnalyzedReport", data[0]);
+        commit("setFailingAudits", data[0].report.audits);
       })
       .catch(error => {
         console.log(`Fetch analyzed report error: ${error}`);
@@ -37,6 +41,8 @@ export const actions = {
       .$get(`/api/reports/raw/${websiteName}`)
       .then(data => {
         commit("setRawReport", data[0]);
+        commit("setCategories", data[0].report.categories);
+        commit("setAllAudits", data[0].report.audits);
       })
       .catch(error => {
         console.log(`Fetch raw report error: ${error}`);
@@ -68,5 +74,17 @@ export const mutations = {
   },
   setActionStepsList(state, actionStepsList) {
     state.actionStepsList = actionStepsList;
+  },
+  setCategories(state, rawReportCategories) {
+    state.categories = rawReportCategories;
+  },
+  setAllAudits(state, rawReportAudits) {
+    state.allAudits = rawReportAudits;
+  },
+  setFailingAudits(state, analyzedReportAudits) {
+    // Object.entries(analyzedReportAudits).map(entry => {
+    //   entry[1].isOpen = false;
+    // });
+    state.failingAudits = Object.values(analyzedReportAudits);
   }
 };
