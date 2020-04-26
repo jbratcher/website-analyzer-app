@@ -101,6 +101,8 @@ class ReportController {
       report: actionStepsList,
     });
 
+    execSync(`npm run remove ${params.name}`);
+
     return;
   }
 }

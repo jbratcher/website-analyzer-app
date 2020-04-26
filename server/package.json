@@ -8,7 +8,8 @@
     "start": "node server.js",
     "test": "node ace test",
     "fetch": "node ./scripts/reporting/fetch-report.js",
-    "analyze": "node ./scripts/reporting/analyze-report.js"
+    "analyze": "node ./scripts/reporting/analyze-report.js",
+    "remove": "node ./scripts/reporting/delete-report.js"
   },
   "author": "Jeremy Bratcher",
   "license": "UNLICENSED",

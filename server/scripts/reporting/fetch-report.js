@@ -16,6 +16,7 @@ const storeData = (data, path) => {
 const website_name = process.argv[2];
 const website_url = process.argv[3];
 
+// def
 function launchChromeAndRunLighthouse(url, opts, config = null) {
   return chromeLauncher
     .launch({ chromeFlags: opts.chromeFlags })
@@ -54,6 +55,7 @@ launchChromeAndRunLighthouse(website_url, opts).then((results) => {
     name: website_name,
     ...results,
   };
+  // TODO: make json 'requestable' by adonis controller
   storeData(
     results,
     `resources/${website_name}/${website_name}-lighthouse.json`
