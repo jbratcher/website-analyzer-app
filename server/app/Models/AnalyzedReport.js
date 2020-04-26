@@ -6,6 +6,7 @@ const Model = use("Model");
 class AnalyzedReport extends Model {
   static boot() {
     super.boot();
+    this.addTrait("@provider:Lucid/UpdateOrCreate");
   }
 }
 

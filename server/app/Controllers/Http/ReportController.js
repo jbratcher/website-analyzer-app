@@ -91,15 +91,24 @@ class ReportController {
       )
     );
 
-    RawReport.findOrCreate({ name: rawReport.name, report: rawReport });
-    AnalyzedReport.findOrCreate({
-      name: rawReport.name,
-      report: analyzedReport,
-    });
-    ActionStepsList.findOrCreate({
-      name: rawReport.name,
-      report: actionStepsList,
-    });
+    RawReport.updateOrCreate(
+      { name: rawReport.name },
+      { name: rawReport.name, report: rawReport }
+    );
+    AnalyzedReport.updateOrCreate(
+      { name: rawReport.name },
+      {
+        name: rawReport.name,
+        report: analyzedReport,
+      }
+    );
+    ActionStepsList.updateOrCreate(
+      { name: rawReport.name },
+      {
+        name: rawReport.name,
+        report: actionStepsList,
+      }
+    );
 
     execSync(`npm run remove ${params.name}`);
 
