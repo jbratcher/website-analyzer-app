@@ -268,10 +268,6 @@ a {
   }
 }
 
-#dashboard.v-list-item--link:before {
-  background-color: transparent;
-}
-
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -282,26 +278,9 @@ a {
   }
 }
 
-// global shaped sections
-
-.diagonal-upper-right {
-  position: relative;
-  background-color: transparent;
-
-  &::before {
-    content: "";
-    background-color: #f6f9fc;
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 100px);
-    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
-  }
-
-  & > .row {
-    position: relative;
-    z-index: 1;
-  }
+// global classes
+.full-height {
+  min-height: 100%;
+  height: 100%;
 }
 </style>
