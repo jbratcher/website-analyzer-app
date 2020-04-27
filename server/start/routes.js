@@ -18,6 +18,15 @@ const Route = use("Route");
 
 Route.get("/", () => "Root Route");
 
+// Users
+Route.post("auth/register", "UserController.register");
+Route.post("auth/login", "UserController.login");
+Route.post("auth/logout", "UserController.logout");
+Route.get("current-user", "UserController.getCurrentUser");
+Route.get("users/:id", "UserController.show");
+Route.get("users/:id/reports", "UserController.getReports");
+
+// Reports
 Route.group(() => {
   Route.get("/", "ReportController.index");
   Route.get("/:filename", "ReportController.getReports");

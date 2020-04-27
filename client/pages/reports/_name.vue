@@ -2,24 +2,28 @@
   <v-container class="py-0">
     <v-row>
       <v-col class="py-0">
+        <!-- Main Dashboard View -->
         <v-container class="pa-0" fluid>
+          <!-- Report Score Header View-->
           <v-row align="stretch">
             <v-col cols="12" sm="3" align-self="stretch">
-              <!-- Report Score Header View-->
               <!-- Overall Score -->
               <OverallScore :data="analyzedReport" />
             </v-col>
             <v-col cols="12" sm="9" align-self="stretch">
-              <!-- Categories Score -->
+              <!-- Scores by Category -->
               <ScoresDisplay :data="categories" />
             </v-col>
           </v-row>
-          <!-- Failing Audits  -->
+
+          <!-- Failing Audits Row  -->
           <SectionHeader sectionName="Failing Audits" />
           <ExpandingCards :data="failingAudits" />
-          <!-- Action Steps -->
+
+          <!-- Action Steps Row -->
           <SectionHeader sectionName="Action Steps" />
           <ExpandingCards :data="actionSteps" />
+
           <!-- End Main Container -->
         </v-container>
       </v-col>
@@ -82,7 +86,6 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params.name);
     this.fetchRawReport(this.$route.params.name);
     this.fetchAnalyzedReport(this.$route.params.name);
     this.fetchActionStepsList(this.$route.params.name);

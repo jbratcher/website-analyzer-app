@@ -80,8 +80,28 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
+    "@nuxtjs/auth",
     "nuxt-webfontloader"
   ],
+  /*
+   ** Nuxtjs auth module
+   */
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "api/auth/login",
+            method: "post",
+            propertyName: "token"
+          },
+          logout: { url: "api/auth/logout", method: "post" }
+        }
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      }
+    }
+  },
   markdownit: {
     injected: true
   },

@@ -9,13 +9,14 @@ i<template>
         name="menuopen"
         x-large
       >
-        <i aria-hidden="true" class="v-icon notranslate theme--dark"
-          ><v-icon>{{ menuIcon }}</v-icon></i
-        >
+        <i aria-hidden="true" class="v-icon notranslate theme--dark">
+          <v-icon>{{ menuIcon }}</v-icon>
+        </i>
       </v-app-bar-nav-icon>
       <MenuLinks
         :general-links="generalLinks"
-        list-class="d-md-flex hidden-md-and-down"
+        :logged-out-links="loggedOutLinks"
+        list-class="d-md-flex justify-end hidden-md-and-down"
         list-item-class="mx-1"
       />
     </v-app-bar>
@@ -30,6 +31,7 @@ i<template>
     >
       <MenuLinks
         :general-links="generalLinks"
+        :logged-out-links="loggedOutLinks"
         list-class="d-flex flex-column my-6 mx-3"
         list-item-class="my-3"
         listItemTitleClass="title"
@@ -47,11 +49,11 @@ i<template>
         name="sidemenu"
         x-large
       >
-        <i aria-hidden="true" class="v-icon notranslate theme--dark"
-          ><v-icon>{{
-            sidedrawer ? arrowExpandRight : arrowExpandLeft
-          }}</v-icon></i
-        >
+        <i aria-hidden="true" class="v-icon notranslate theme--dark">
+          <v-icon>
+            {{ sidedrawer ? arrowExpandRight : arrowExpandLeft }}
+          </v-icon>
+        </i>
       </v-app-bar-nav-icon>
 
       <v-list dense nav>
@@ -103,9 +105,9 @@ i<template>
         <nav>
           <ul class="d-flex flex-wrap py-3 px-0">
             <li v-for="(link, i) in generalLinks" :key="i + link.title">
-              <v-btn :href="link.to" :name="link.title" text rounded>{{
-                link.title
-              }}</v-btn>
+              <v-btn :href="link.to" :name="link.title" text rounded>
+                {{ link.title }}
+              </v-btn>
             </li>
           </ul>
         </nav>
@@ -121,14 +123,16 @@ i<template>
 <script>
 import MenuLinks from "../components/MenuLinks.vue";
 import {
-  mdiMenu,
-  mdiViewDashboard,
-  mdiFormatListBulleted,
-  mdiMagnify,
-  mdiClipboardList,
-  mdiMenuOpen,
+  mdiAccountPlus,
   mdiArrowExpandLeft,
-  mdiArrowExpandRight
+  mdiArrowExpandRight,
+  mdiClipboardList,
+  mdiFormatListBulleted,
+  mdiLogin,
+  mdiMagnify,
+  mdiMenu,
+  mdiMenuOpen,
+  mdiViewDashboard
 } from "@mdi/js";
 export default {
   components: {
@@ -140,7 +144,6 @@ export default {
       appDescription: process.env.description,
       arrowExpandRight: mdiArrowExpandRight,
       arrowExpandLeft: mdiArrowExpandLeft,
-
       dashboardLinks: [
         { title: "All Reports", icon: mdiViewDashboard, to: "/reports" },
         { title: "Raw", icon: mdiFormatListBulleted, to: "/reports/raw" },
@@ -172,6 +175,18 @@ export default {
         {
           title: "About",
           to: "/about"
+        }
+      ],
+      loggedOutLinks: [
+        {
+          icon: mdiLogin,
+          title: "Login",
+          to: "/login"
+        },
+        {
+          icon: mdiAccountPlus,
+          title: "Register",
+          to: "/register"
         }
       ],
       navBelowFold: false,
@@ -231,6 +246,10 @@ a {
 // main nav
 #brand {
   text-decoration: none;
+}
+
+.v-toolbar__content {
+  flex: 1 1 auto;
 }
 
 .v-toolbar.v-toolbar--prominent {
