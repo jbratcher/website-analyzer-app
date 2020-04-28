@@ -18,7 +18,6 @@ class UserController {
 
   async getCurrentUser({ auth }) {
     const user = await auth.user;
-    console.log(user);
     return user;
   }
 

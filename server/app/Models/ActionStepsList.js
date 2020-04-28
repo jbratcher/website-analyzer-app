@@ -8,6 +8,10 @@ class ActionStepsList extends Model {
     super.boot();
     this.addTrait("@provider:Lucid/UpdateOrCreate");
   }
+
+  user() {
+    return this.belongsTo("App/Models/User");
+  }
 }
 
 module.exports = ActionStepsList;

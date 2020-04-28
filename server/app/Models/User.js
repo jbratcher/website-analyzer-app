@@ -35,6 +35,14 @@ class User extends Model {
     return this.hasMany("App/Models/Token");
   }
 
+  actionStepsLists() {
+    return this.hasMany("App/Models/ActionStepsList");
+  }
+
+  analyzedReports() {
+    return this.hasMany("App/Models/AnalyzedReport");
+  }
+
   rawReports() {
     return this.hasMany("App/Models/RawReport");
   }

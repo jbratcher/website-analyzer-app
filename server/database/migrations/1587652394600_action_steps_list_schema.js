@@ -7,6 +7,7 @@ class ActionStepsListSchema extends Schema {
   up() {
     this.create("action_steps_lists", (table) => {
       table.increments();
+      table.integer("user_id").unsigned().references("id").inTable("users");
       table.text("name");
       table.jsonb("report");
       table.timestamps();

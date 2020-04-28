@@ -33,7 +33,7 @@ function launchChromeAndRunLighthouse(url, opts, config = null) {
 }
 
 const opts = {
-  chromeFlags: ["--show-paint-rects"],
+  chromeFlags: ["--headless"],
 };
 
 if (process.argv.some((arg) => arg === "--help" || arg === "-h")) {

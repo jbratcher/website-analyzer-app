@@ -18,10 +18,14 @@ const Route = use("Route");
 
 Route.get("/", () => "Root Route");
 
+//Users
+Route.group(() => {
+  Route.post("register", "UserController.register");
+  Route.post("login", "UserController.login");
+  Route.post("logout", "UserController.logout");
+}).prefix("/auth");
 // Users
-Route.post("auth/register", "UserController.register");
-Route.post("auth/login", "UserController.login");
-Route.post("auth/logout", "UserController.logout");
+
 Route.get("current-user", "UserController.getCurrentUser");
 Route.get("users/:id", "UserController.show");
 Route.get("users/:id/reports", "UserController.getReports");
@@ -35,4 +39,9 @@ Route.group(() => {
   Route.get("/action-steps/:filename", "ReportController.getActionStepsReport");
   Route.get("/generate/:name/:url", "ReportController.generateReport");
   Route.get("/save/:name", "ReportController.saveReports");
+  Route.post(
+    "/generate/user/:name/:url",
+    "ReportController.generateReportByUser"
+  );
+  Route.get("/save/user/:name", "ReportController.saveReportsByUser");
 }).prefix("/reports");

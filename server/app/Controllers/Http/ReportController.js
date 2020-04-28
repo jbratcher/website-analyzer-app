@@ -1,10 +1,13 @@
 "use strict";
 
+const execSync = require("child_process").execSync;
+
+const ActionStepsList = use("App/Models/ActionStepsList");
+const AnalyzedReport = use("App/Models/AnalyzedReport");
+const Database = use("Database");
 const Helpers = use("Helpers");
 const RawReport = use("App/Models/RawReport");
-const AnalyzedReport = use("App/Models/AnalyzedReport");
-const ActionStepsList = use("App/Models/ActionStepsList");
-const execSync = require("child_process").execSync;
+const User = use("App/Models/User");
 
 // read lighthouse report and convert to business report
 const json = require(Helpers.appRoot("/scripts/utility/json.js"));
@@ -68,17 +71,18 @@ class ReportController {
   /*
    **  Fetch and analyze report by name and url then save to resources/<name> folder
    */
-  generateReport({ params }) {
+  async generateReportByUser({ params, auth }) {
+    const user = await auth.getUser();
     execSync(
       `npm run fetch ${params.name} https://${params.url} && npm run analyze ${params.name}`
     );
-    this.saveReports({ params });
+    this.saveReportsByUser({ params }, user);
   }
 
   /*
    ** save a generated report to the database
    */
-  async saveReports({ params }) {
+  async saveReportsByUser({ params }, user) {
     let rawReport = await json.read(
       Helpers.appRoot(`resources/${params.name}/${params.name}-lighthouse.json`)
     );
@@ -91,28 +95,60 @@ class ReportController {
       )
     );
 
-    RawReport.updateOrCreate(
-      { name: rawReport.name },
-      { name: rawReport.name, report: rawReport }
-    );
-    AnalyzedReport.updateOrCreate(
-      { name: rawReport.name },
-      {
-        name: rawReport.name,
-        report: analyzedReport,
-      }
-    );
-    ActionStepsList.updateOrCreate(
-      { name: rawReport.name },
-      {
-        name: rawReport.name,
-        report: actionStepsList,
-      }
-    );
+    this.createOrUpdateReportByUser(ActionStepsList, user, actionStepsList);
+    this.createOrUpdateReportByUser(AnalyzedReport, user, analyzedReport);
+    this.createOrUpdateReportByUser(RawReport, user, rawReport);
 
     execSync(`npm run remove ${params.name}`);
+  }
 
-    return;
+  /*
+   ** Create or update a report owned by a specific user
+   ** @params:
+   ** String model: the model to create/update
+   ** Lucid Model user: the current user object
+   ** JSON report: the JSON of the report to be stored
+   ** String relation: the relation name property of the model
+   */
+  async createOrUpdateReportByUser(model, user, report, relation) {
+    // fetch all reports owned by user
+    const userReports = await model.query().where("user_id", user.id).fetch();
+
+    // fetch matching report from database
+    const reportsOwnedByUser = await model
+      .query()
+      .where("user_id", user.id)
+      .where("name", report.name)
+      .first();
+
+    // transform userReports object to array of reports
+    let reportsMap = Object.values(userReports)[0];
+
+    // if new report, create report
+    if (!reportsMap.some((userReport) => userReport.name === report.name)) {
+      console.log("Report not found, creating...");
+      // todo: map model name to relation method (only 3 but may expand report types later)
+      if (model === ActionStepsList) {
+        await user
+          .actionStepsLists()
+          .create({ name: report.name, report: report });
+      } else if (model === AnalyzedReport) {
+        await user
+          .analyzedReports()
+          .create({ name: report.name, report: report });
+      } else if (model === RawReport) {
+        await user.rawReports().create({ name: report.name, report: report });
+      } else {
+        console.log(`Report type: ${model} : not found`);
+        return null;
+      }
+    } else {
+      // if report exists, update report
+      console.log(`Report already owned by user, updating...`);
+      await reportsOwnedByUser.merge({ report: report });
+      await reportsOwnedByUser.save();
+    }
+    return report;
   }
 }
 

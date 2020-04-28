@@ -50,6 +50,16 @@ export const actions = {
       .catch(error => {
         console.log(`Fetch action steps report error: ${error}`);
       });
+  },
+  generateNewWebsiteReports({ commit }, { websiteName, websiteUrl }) {
+    return this.$axios
+      .$post(`/api/reports/generate/user/${websiteName}/${websiteUrl}`)
+      .then(data => {
+        console.log(data[0]);
+      })
+      .catch(error => {
+        console.log(`Fetch new website reports error: ${error}`);
+      });
   }
 };
 

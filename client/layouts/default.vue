@@ -205,6 +205,9 @@ export default {
         return this.appTitle;
       }
     }
+  },
+  mounted() {
+    console.log(`User: ${this.$auth.user}`);
   }
 };
 </script>
