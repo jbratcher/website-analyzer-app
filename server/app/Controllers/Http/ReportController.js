@@ -13,14 +13,33 @@ const User = use("App/Models/User");
 const json = require(Helpers.appRoot("/scripts/utility/json.js"));
 
 class ReportController {
-  index() {
-    return "Report Index Route";
+  async index({ auth }) {
+    const user = await auth.getUser();
+
+    const userActionStepsList = await ActionStepsList.query()
+      .where("user_id", user.id)
+      .fetch();
+    const userAnalyzedReports = await Analyzed.query()
+      .where("user_id", user.id)
+      .fetch();
+    const userRawReports = await RawReports.query()
+      .where("user_id", user.id)
+      .fetch();
+
+    let userReports = await Promise.all([
+      userActionStepsList,
+      userAnalyzedReports,
+      userRawReports,
+    ]);
+    return userReports;
   }
 
   /*
    **  Get all reports by name
    */
-  async getReports({ params }) {
+  async getReports({ params, auth }) {
+    const user = await auth.getUser();
+
     const rawReport = await RawReport.query()
       .where("name", params.filename)
       .fetch();

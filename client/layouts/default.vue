@@ -121,6 +121,7 @@ i<template>
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from "vuex";
 import MenuLinks from "../components/MenuLinks.vue";
 import {
   mdiAccountPlus,
@@ -198,6 +199,7 @@ export default {
     };
   },
   computed: {
+    ...mapState("authentication", ["user"]),
     formattedAppTitle() {
       if (this.appTitle.length > 10) {
         return this.appTitle.substring(0, 10) + "...";
@@ -206,8 +208,12 @@ export default {
       }
     }
   },
+  methods: {
+    ...mapActions("authentication", ["fetchLoggedInUser"]),
+    ...mapMutations("authentication", ["setUser"])
+  },
   mounted() {
-    console.log(`User: ${this.$auth.user}`);
+    console.log(`User: ${JSON.stringify(this.user)}`);
   }
 };
 </script>

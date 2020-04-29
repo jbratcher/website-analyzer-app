@@ -17,14 +17,14 @@ class UserController {
   }
 
   async getCurrentUser({ auth }) {
-    const user = await auth.user;
+    const user = await auth.getUser();
     return user;
   }
 
   async login({ request, auth }) {
     const { email, password } = request.all();
-    const token = await auth.attempt(email, password);
-    return token;
+    const user = await auth.remember(true).attempt(email, password);
+    return user;
   }
 
   async logout({ auth }) {

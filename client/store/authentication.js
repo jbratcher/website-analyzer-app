@@ -3,21 +3,19 @@ export const state = () => ({
   firstName: null,
   lastName: null,
   loginEmail: null,
-  loginPassword: null,
   loginError: null,
+  loginPassword: null,
   registerEmail: null,
-  registerPassword: null,
   registerError: null,
-  token: null,
-  user: {}
+  registerPassword: null,
+  user: null
 });
 
 export const actions = {
   async logout({ commit }) {
     await this.$axios.$post("/api/auth/logout");
-    commit("setToken", null);
     commit("setLoggedIn", false);
-    commit("setUser", {});
+    commit("setUser", null);
     if (this.$router.currentRoute !== "/") {
       this.$router.push("/");
     }
@@ -29,21 +27,17 @@ export const actions = {
         email: state.loginEmail,
         password: state.loginPassword
       })
-      .then(data => {
-        commit("setToken", data.token);
+      .then(response => {
+        console.log(`logging in: ${response.username}`);
+        console.log(response);
+        commit("setUser", response);
         commit("setLoggedIn", true);
+        commit("setLoginEmail", null);
+        commit("setLoginError", null);
+        commit("setLoginPassword", null);
         if (this.$router.currentRoute !== "/") {
           this.$router.push("/");
         }
-      })
-      .then(() => {
-        this.$axios.setHeader(
-          "Authorization",
-          `Bearer ${rootState.auth.token}`
-        );
-        this.$axios.$get("/api/current-user").then(response => {
-          commit("setUser", response);
-        });
       })
       .catch(error => {
         console.log(`Login Error: ${error}`);
@@ -51,37 +45,31 @@ export const actions = {
   },
   async register({ commit, state, rootState }) {
     commit("setRegisterError", null);
+    const newUser = {
+      email: state.registerEmail,
+      password: state.registerPassword,
+      firstName: state.firstName,
+      lastName: state.lastName
+    };
     await this.$axios
-      .$post("/api/auth/register", {
-        email: state.registerEmail,
-        password: state.registerPassword,
-        firstName: state.firstName,
-        lastName: state.lastName
-      })
-      .then(data => {
-        commit("setToken", data.token);
+      .$post("/api/auth/register", newUser)
+      .then(response => {
+        commit("setUser", response);
         commit("setLoggedIn", true);
+        commit("setRegisterEmail", null);
+        commit("setRegisterError", null);
+        commit("setRegisterPassword", null);
         if (this.$router.currentRoute !== "/") {
           this.$router.push("/");
         }
-      })
-      .then(() => {
-        this.$axios.setHeader(
-          "Authorization",
-          `Bearer ${rootState.auth.token}`
-        );
-        this.$axios.$get("/api/current-user").then(response => {
-          commit("setUser", response);
-        });
       })
       .catch(error => {
         console.log(`Registration error: ${error}`);
       });
   },
-  async fetchUserById({ commit, state, rootState }) {
-    this.$axios.setHeader("Authorization", `Bearer ${rootState.auth.token}`);
+  async fetchLoggedInUser({ commit, state, rootState }) {
     await this.$axios
-      .$get(`/api/users/${rootState.auth.user.id}`)
+      .$get(`/api/users/${rootState.authentication.user.id}`)
       .then(response => {
         commit("setUser", response);
       })
@@ -90,10 +78,10 @@ export const actions = {
       });
   },
   async fetchOwnedReports({ commit, state, rootState }) {
-    this.$axios.setHeader("Authorization", `Bearer ${rootState.auth.token}`);
     await this.$axios
-      .$get(`/api/users/${rootState.auth.user.id}/reports/`)
+      .$get(`/api/users/${rootState.authentication.user.id}/reports/`)
       .then(response => {
+        console.log(`Response: ${JSON.stringify(response)}`);
         commit("setOwnedReports", response);
       })
       .catch(error => {
@@ -102,11 +90,11 @@ export const actions = {
   }
 };
 
-export const getters = {
-  isLoggedIn(state) {
-    return !!state.token;
-  }
-};
+// export const getters = {
+//   isLoggedIn(state) {
+//     return !!state.token;
+//   }
+// };
 
 export const mutations = {
   setFirstName(state, firstName) {
@@ -115,34 +103,31 @@ export const mutations = {
   setLastName(state, lastName) {
     state.lastName = lastName;
   },
-  setLoggedIn(state, loggedIn) {
-    state.isLoggedIn = loggedIn;
-  },
-  setToken(state, token) {
-    state.token = token;
-  },
-  setRegisterError(state, error) {
-    state.registerError = error;
-  },
-  setRegisterEmail(state, email) {
-    state.registerEmail = email;
-  },
-  setRegisterPassword(state, password) {
-    state.registerPassword = password;
+  setLoginEmail(state, email) {
+    state.loginEmail = email;
   },
   setLoginError(state, error) {
     state.loginError = error;
   },
-  setLoginEmail(state, email) {
-    state.loginEmail = email;
+  setLoggedIn(state, loggedIn) {
+    state.isLoggedIn = loggedIn;
   },
   setLoginPassword(state, password) {
     state.loginPassword = password;
   },
-  setUser(state, user) {
-    state.user = user;
-  },
   setOwnedReports(state, ownedReports) {
     state.user.ownedReports = ownedReports;
+  },
+  setRegisterEmail(state, email) {
+    state.registerEmail = email;
+  },
+  setRegisterError(state, error) {
+    state.registerError = error;
+  },
+  setRegisterPassword(state, password) {
+    state.registerPassword = password;
+  },
+  setUser(state, user) {
+    state.user = user;
   }
 };

@@ -2,7 +2,6 @@ export const state = () => ({
   actionSteps: [],
   actionStepsList: {},
   allAudits: [],
-  allReports: [],
   analyzedReport: {},
   analyzedReportMeta: {},
   categories: [],
@@ -12,6 +11,18 @@ export const state = () => ({
 });
 
 export const actions = {
+  // fetch action steps list by name
+  fetchActionStepsList({ commit }, websiteName) {
+    return this.$axios
+      .$get(`/api/reports/action-steps/${websiteName}`)
+      .then(data => {
+        commit("setActionStepsList", data[0]);
+        commit("setActionSteps", data[0].report.auditsMatched);
+      })
+      .catch(error => {
+        console.log(`Fetch action steps report error: ${error}`);
+      });
+  },
   // fetch analyzed report by name
   fetchAnalyzedReport({ commit }, websiteName) {
     return this.$axios
@@ -39,24 +50,10 @@ export const actions = {
         console.log(`Fetch raw report error: ${error}`);
       });
   },
-  // fetch action steps list by name
-  fetchActionStepsList({ commit }, websiteName) {
-    return this.$axios
-      .$get(`/api/reports/action-steps/${websiteName}`)
-      .then(data => {
-        commit("setActionStepsList", data[0]);
-        commit("setActionSteps", data[0].report.auditsMatched);
-      })
-      .catch(error => {
-        console.log(`Fetch action steps report error: ${error}`);
-      });
-  },
   generateNewWebsiteReports({ commit }, { websiteName, websiteUrl }) {
     return this.$axios
       .$post(`/api/reports/generate/user/${websiteName}/${websiteUrl}`)
-      .then(data => {
-        console.log(data[0]);
-      })
+      .then()
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);
       });
@@ -72,9 +69,6 @@ export const mutations = {
   },
   setAllAudits(state, rawReportAudits) {
     state.allAudits = rawReportAudits;
-  },
-  setAllReports(state, reports) {
-    state.allReports = reports;
   },
   setAnalyzedReport(state, analyzedReport) {
     state.analyzedReport = analyzedReport;

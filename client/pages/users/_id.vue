@@ -53,11 +53,11 @@ export default {
     ...mapState("authentication", ["isLoggedIn", "user"])
   },
   mounted() {
-    this.fetchUserById();
+    this.fetchLoggedInUser();
     this.fetchOwnedReports();
   },
   methods: {
-    ...mapActions("authentication", ["fetchUserById", "fetchOwnedReports"])
+    ...mapActions("authentication", ["fetchLoggedInUser", "fetchOwnedReports"])
   }
 };
 </script>

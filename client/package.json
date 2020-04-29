@@ -21,7 +21,8 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/proxy": "^1.3.3",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.12.2"
+    "nuxt": "^2.12.2",
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.0",

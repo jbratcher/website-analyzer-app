@@ -33,7 +33,7 @@ function launchChromeAndRunLighthouse(url, opts, config = null) {
 }
 
 const opts = {
-  chromeFlags: ["--headless"],
+  chromeFlags: [],
 };
 
 if (process.argv.some((arg) => arg === "--help" || arg === "-h")) {
