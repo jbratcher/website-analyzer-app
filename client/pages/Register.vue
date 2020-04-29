@@ -51,33 +51,40 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
 import { mdiAccountPlus } from "@mdi/js";
 export default {
   data() {
     return {
-      accountPlusIcon: mdiAccountPlus
+      accountPlusIcon: mdiAccountPlus,
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      error: null
     };
   },
-  computed: {
-    ...mapState("authentication", [
-      "firstName",
-      "lastName",
-      "loggedIn",
-      "registerEmail",
-      "registerPassword",
-      "registerError"
-    ])
-  },
   methods: {
-    ...mapMutations("authentication", [
-      "setLoggedIn",
-      "setFirstName",
-      "setLastName",
-      "setRegisterEmail",
-      "setRegisterPassword"
-    ]),
-    ...mapActions("authentication", ["register"])
+    async register() {
+      try {
+        const newUser = {
+          email: state.registerEmail,
+          password: state.registerPassword,
+          firstName: state.firstName,
+          lastName: state.lastName
+        };
+        await this.$axios.post("register", newUser);
+
+        await this.$auth.loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        });
+        this.$router.push("/");
+      } catch (e) {
+        this.error = e.response.data.message;
+      }
+    }
   }
 };
 </script>

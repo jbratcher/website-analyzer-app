@@ -1,17 +1,32 @@
 <template>
-  <v-container class="pa-0" fluid>
+  <v-container>
     <v-row>
       <v-col class="pa-0">
-        <h1 class="display-2">Report Index Page</h1>
-        <template v-if="user.ownedReports">
-          <ul
-            v-for="(report, index) in user.ownedReports"
-            :key="`${report.name}-${index}`"
+        <h1 class="display-1 mb-3">
+          Website Reports for
+          <span v-if="this.$auth.user">{{ this.$auth.user.full_name }}</span>
+        </h1>
+        <template v-if="ownedReports">
+          <v-list
+            flat
+            :width="$breakpoint.mdAndUp ? '200px' : '100%'"
+            :max-width="$breakpoint.mdAndUp ? '300px' : '100%'"
           >
-            <li>
-              <v-btn :to="`/reports/${report.name}`">{{ report.name }}</v-btn>
-            </li>
-          </ul>
+            <v-list-item
+              v-for="(report, index) in ownedReports"
+              :key="`${report.name}-${index}`"
+            >
+              <v-list-item-content>
+                <v-btn
+                  class="my-3"
+                  color="primary lighten-1"
+                  :to="`/reports/${report.name}`"
+                  width="100%"
+                  >{{ report.name }}</v-btn
+                >
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </template>
       </v-col>
     </v-row>
@@ -22,13 +37,13 @@
 import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   computed: {
-    ...mapState("authentication", ["user"])
+    ...mapState("reports", ["ownedReports"])
   },
   methods: {
-    ...mapActions("authentication", ["fetchOwnedReports"]),
-    ...mapMutations("authentication", ["setOwnedReports"])
+    ...mapActions("reports", ["fetchOwnedReports"]),
+    ...mapMutations("reports", ["setOwnedReports"])
   },
-  mounted() {
+  created() {
     this.fetchOwnedReports();
   }
 };

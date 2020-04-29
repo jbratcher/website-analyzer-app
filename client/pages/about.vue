@@ -1,12 +1,13 @@
 <template>
-  <v-container class="pa-0" fluid>
+  <v-container>
     <v-row>
-      <v-col class="pa-0">
-        <h1 class="display-2">About Page</h1>
-        <h2 class="headline">Website Analyzer Dashboard</h2>
-        <p
-          class="body-1"
-        >This application is a dashboard to serve as the front end of the Lighthouse</p>
+      <v-col>
+        <h1 class="display-2">About Website Analyzer Dashboard</h1>
+        <h2 class="headline">Full control of your Google Lighthouse reports</h2>
+        <p class="body-1">
+          View and manage your website analysis reports all in one place. Get
+          low-tech action step description for how to fix issues.
+        </p>
       </v-col>
     </v-row>
   </v-container>

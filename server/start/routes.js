@@ -18,14 +18,15 @@ const Route = use("Route");
 
 Route.get("/", () => "Root Route");
 
-//Users
+// Auth
 Route.group(() => {
   Route.post("register", "UserController.register");
   Route.post("login", "UserController.login");
   Route.post("logout", "UserController.logout");
+  Route.get("user", "UserController.getCurrentUser");
 }).prefix("/auth");
-// Users
 
+// Users
 Route.get("current-user", "UserController.getCurrentUser");
 Route.get("users/:id", "UserController.show");
 Route.get("users/:id/reports", "UserController.getReports");

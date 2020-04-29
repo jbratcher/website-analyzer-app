@@ -43,6 +43,23 @@ i<template>
       :mini-variant="sidedrawer"
       :permanent="$breakpoint.smAndUp ? true : false"
     >
+      <v-list nav>
+        <v-list-item
+          v-if="isAuthenticated"
+          exact
+          router
+          :to="`/users/${this.$auth.user.id}`"
+        >
+          <v-avatar size="36">
+            <img
+              v-if="this.$auth.user"
+              alt="Avatar"
+              :src="this.$auth.user.profile_image_source"
+            />
+          </v-avatar>
+        </v-list-item>
+      </v-list>
+
       <v-app-bar-nav-icon
         @click.stop="sidedrawer = !sidedrawer"
         class="mb-1"
@@ -56,12 +73,13 @@ i<template>
         </i>
       </v-app-bar-nav-icon>
 
-      <v-list dense nav>
+      <v-list nav>
         <v-list-item
           v-for="item in dashboardLinks"
           :key="item.title"
-          link
           :to="item.to"
+          router
+          exact
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -121,16 +139,14 @@ i<template>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import MenuLinks from "../components/MenuLinks.vue";
 import {
   mdiAccountPlus,
   mdiArrowExpandLeft,
   mdiArrowExpandRight,
-  mdiClipboardList,
-  mdiFormatListBulleted,
+  mdiFolderPlus,
   mdiLogin,
-  mdiMagnify,
   mdiMenu,
   mdiMenuOpen,
   mdiViewDashboard
@@ -147,31 +163,21 @@ export default {
       arrowExpandLeft: mdiArrowExpandLeft,
       dashboardLinks: [
         { title: "All Reports", icon: mdiViewDashboard, to: "/reports" },
-        { title: "Raw", icon: mdiFormatListBulleted, to: "/reports/raw" },
-        { title: "Analyzed", icon: mdiMagnify, to: "/reports/analyzed" },
         {
-          title: "Action Steps",
-          icon: mdiClipboardList,
-          to: "/reports/action-steps"
+          title: "Create New Report",
+          icon: mdiFolderPlus,
+          to: "/reports/create-new"
         }
       ],
       drawer: false,
       generalLinks: [
         {
-          title: "Reports",
+          title: "All Reports",
           to: "/reports"
         },
         {
-          title: "Raw",
-          to: "/reports/raw"
-        },
-        {
-          title: "Analyzed",
-          to: "/reports/analyzed"
-        },
-        {
-          title: "Action Steps",
-          to: "/reports/action-steps"
+          title: "Create New Report",
+          to: "/reports/create-new"
         },
         {
           title: "About",
@@ -199,7 +205,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("authentication", ["user"]),
+    ...mapGetters(["isAuthenticated", "loggedInUser"]),
     formattedAppTitle() {
       if (this.appTitle.length > 10) {
         return this.appTitle.substring(0, 10) + "...";
@@ -207,13 +213,6 @@ export default {
         return this.appTitle;
       }
     }
-  },
-  methods: {
-    ...mapActions("authentication", ["fetchLoggedInUser"]),
-    ...mapMutations("authentication", ["setUser"])
-  },
-  mounted() {
-    console.log(`User: ${JSON.stringify(this.user)}`);
   }
 };
 </script>
@@ -250,6 +249,11 @@ body,
 
 a {
   text-decoration: none;
+}
+
+ol,
+ul {
+  list-style-type: none;
 }
 
 // main nav

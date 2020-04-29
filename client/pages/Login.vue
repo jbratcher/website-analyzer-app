@@ -12,23 +12,15 @@
           Login
         </h1>
 
+        <v-text-field v-model="email" label="Email" placeholder="Email" />
         <v-text-field
-          :value="loginEmail"
-          @input="setLoginEmail"
-          label="Email"
-          placeholder="Email"
-        />
-        <v-text-field
-          :value="loginPassword"
-          @input="setLoginPassword"
+          v-model="password"
           label="Password"
           placeholder="Password"
           type="password"
           autocomplete="new-password"
         />
-        <v-alert :value="Boolean(loginError)" type="error">{{
-          loginError
-        }}</v-alert>
+        <v-alert :value="Boolean(error)" type="error">{{ error }}</v-alert>
         <v-btn @click="login" dark>
           <v-icon class="mr-3">{{ loginIcon }}</v-icon
           >Login
@@ -44,25 +36,28 @@ import { mdiLogin } from "@mdi/js";
 export default {
   data() {
     return {
-      loginIcon: mdiLogin
+      loginIcon: mdiLogin,
+      email: "",
+      password: "",
+      error: null
     };
   },
-  computed: {
-    ...mapState("authentication", [
-      "loggedIn",
-      "loginEmail",
-      "loginPassword",
-      "loginError",
-      "user"
-    ])
-  },
   methods: {
-    ...mapMutations("authentication", [
-      "setLoggedIn",
-      "setLoginEmail",
-      "setLoginPassword"
-    ]),
-    ...mapActions("authentication", ["login"])
+    async login() {
+      try {
+        await this.$auth
+          .loginWith("local", {
+            data: {
+              email: this.email,
+              password: this.password
+            }
+          })
+          .then(response => console.log(response))
+          .then(() => this.$router.push("/"));
+      } catch (e) {
+        this.error = e.response.data.message;
+      }
+    }
   }
 };
 </script>

@@ -16,12 +16,14 @@
         <v-icon>{{ item.icon }}</v-icon>
       </v-list-item-action>
       <v-list-item-content>
-        <v-list-item-title v-text="item.title" :class="listItemTitleClass" />
+        <v-list-item-title :class="listItemTitleClass">{{
+          item.title
+        }}</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
 
     <!-- login/register links -->
-    <template v-if="!isLoggedIn">
+    <template v-if="!isAuthenticated">
       <v-list-item
         v-for="(item, j) in loggedOutLinks"
         :key="j + `-${item.title}`"
@@ -35,14 +37,16 @@
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="item.title" :class="listItemTitleClass" />
+          <v-list-item-title :class="listItemTitleClass">{{
+            item.title
+          }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </template>
 
     <!-- logout link -->
     <v-list-item
-      v-if="isLoggedIn"
+      v-if="isAuthenticated"
       class="mb-0"
       :class="listItemClass"
       @click="logout"
@@ -59,8 +63,8 @@
 
     <!-- Profile link -->
     <v-list-item
-      v-if="isLoggedIn && user"
-      :to="`/users/${user.id}`"
+      v-if="isAuthenticated"
+      :to="`/users/${$auth.user.id}`"
       class="mb-0"
       :class="listItemClass"
       dark
@@ -80,7 +84,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { mdiAccount, mdiLogout } from "@mdi/js";
 export default {
   name: "MenuLinks",
@@ -110,17 +114,20 @@ export default {
       default: ""
     }
   },
+  computed: {
+    ...mapGetters(["isAuthenticated", "loggedInUser"])
+  },
   data() {
     return {
       accountIcon: mdiAccount,
       logoutIcon: mdiLogout
     };
   },
-  computed: {
-    ...mapState("authentication", ["isLoggedIn", "user"])
-  },
   methods: {
-    ...mapActions("authentication", ["logout", "setLoggedIn", "setUser"])
+    async logout() {
+      await this.$auth.logout();
+      this.$router.push("/login");
+    }
   }
 };
 </script>

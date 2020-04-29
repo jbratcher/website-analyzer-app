@@ -1,15 +1,15 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-container>
-        <v-container class="profile-card">
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-container v-if="this.$auth.user" class="profile-card">
           <v-avatar size="128">
-            <v-img :src="user.profile_image_source" />
+            <v-img :src="this.$auth.user.profile_image_source" />
           </v-avatar>
 
-          <p>{{ user.full_name }}</p>
+          <p>{{ this.$auth.user.full_name }}</p>
 
-          <p>{{ user.email }}</p>
+          <p>{{ this.$auth.user.email }}</p>
 
           <v-file-input
             :rules="profileImageRules"
@@ -19,25 +19,25 @@
             label="Profile Picture"
           />
         </v-container>
-      </v-container>
 
-      <v-container>
-        <h3 class="mb-6">Websites</h3>
-        <ul v-if="user.attending">
-          <li
-            v-for="(report, index) in user.ownedReports"
-            :key="`${report.name}-${index}`"
-          >
-            {{ report.name }}
-          </li>
-        </ul>
-      </v-container>
-    </v-col>
-  </v-row>
+        <v-container>
+          <h3 class="mb-6">Websites</h3>
+          <ul v-if="ownedReports">
+            <li
+              v-for="(report, index) in ownedReports"
+              :key="`${report.name}-${index}`"
+            >
+              {{ report.name }}
+            </li>
+          </ul>
+        </v-container>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { mdiCamera } from "@mdi/js";
 export default {
   data: () => ({
@@ -50,14 +50,13 @@ export default {
     ]
   }),
   computed: {
-    ...mapState("authentication", ["isLoggedIn", "user"])
+    ...mapGetters(["isAuthenticated", "loggedInUser"])
   },
-  mounted() {
-    this.fetchLoggedInUser();
+  crated() {
     this.fetchOwnedReports();
   },
   methods: {
-    ...mapActions("authentication", ["fetchLoggedInUser", "fetchOwnedReports"])
+    ...mapActions("reports", ["fetchOwnedReports"])
   }
 };
 </script>
