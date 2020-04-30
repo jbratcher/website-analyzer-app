@@ -28,13 +28,16 @@ class UserController {
   }
 
   async logout({ auth }) {
-    const token = await auth.logout();
-    return token;
+    try {
+      await auth.logout();
+    } catch (e) {
+      console.log(e.response.data[0].message);
+    }
   }
 
   async register({ request }) {
     const { email, firstName, lastName, password } = request.all();
-    const user = await User.create({
+    await User.create({
       email,
       full_name: `${firstName} ${lastName}`,
       password,

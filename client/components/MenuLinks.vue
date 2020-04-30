@@ -60,26 +60,6 @@
         >
       </v-list-item-content>
     </v-list-item>
-
-    <!-- Profile link -->
-    <v-list-item
-      v-if="isAuthenticated"
-      :to="`/users/${$auth.user.id}`"
-      class="mb-0"
-      :class="listItemClass"
-      dark
-      router
-      exact
-    >
-      <v-list-item-action class="mr-2">
-        <v-icon>{{ accountIcon }}</v-icon>
-      </v-list-item-action>
-      <v-list-item-content>
-        <v-list-item-title :class="listItemTitleClass"
-          >Profile</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
   </v-list>
 </template>
 
@@ -126,6 +106,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout();
+      await this.$axios.$post("/api/auth/logout");
       this.$router.push("/login");
     }
   }

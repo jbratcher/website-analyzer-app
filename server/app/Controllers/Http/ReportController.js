@@ -14,83 +14,58 @@ const json = require(Helpers.appRoot("/scripts/utility/json.js"));
 
 class ReportController {
   async index({ auth }) {
-    const user = await auth.getUser();
-
-    const userActionStepsList = await ActionStepsList.query()
-      .where("user_id", user.id)
-      .fetch();
-    const userAnalyzedReports = await Analyzed.query()
-      .where("user_id", user.id)
-      .fetch();
-    const userRawReports = await RawReports.query()
-      .where("user_id", user.id)
-      .fetch();
-
-    let userReports = await Promise.all([
-      userActionStepsList,
-      userAnalyzedReports,
-      userRawReports,
-    ]);
-    return userReports;
+    return await this.getReports({ params, auth });
   }
 
   /*
    **  Get all reports by name
    */
-  async getReports({ params, auth }) {
+  async getReports({ auth }) {
     const user = await auth.getUser();
-
-    const rawReport = await RawReport.query()
-      .where("name", params.filename)
-      .fetch();
-    const analyzedReport = await AnalyzedReport.query()
-      .where("name", params.filename)
-      .fetch();
-    const actionStepsList = await ActionStepsList.query()
-      .where("name", params.filename)
-      .fetch();
-    let reports = await Promise.all([
-      rawReport,
-      analyzedReport,
-      actionStepsList,
-    ]);
+    const reports = await user.rawReports().fetch();
     return reports;
-  }
-
-  /*
-   **  Get a Raw Report by name
-   */
-  async getRawReport({ params }) {
-    const rawReport = await RawReport.query()
-      .where("name", params.filename)
-      .fetch();
-    return rawReport;
-  }
-
-  /*
-   **  Get an Analyzed Report by name
-   */
-  async getAnalyzedReport({ params }) {
-    const analyzedReport = await AnalyzedReport.query()
-      .where("name", params.filename)
-      .fetch();
-    return await analyzedReport;
   }
 
   /*
    **  Get an Action Steps List by name
    */
   async getActionStepsReport({ params }) {
+    const user = await auth.getUser();
     const actionStepsList = await ActionStepsList.query()
+      .where("user_id", user.id)
       .where("name", params.filename)
       .fetch();
     return await actionStepsList;
   }
 
   /*
+   **  Get an Analyzed Report by name
+   */
+  async getAnalyzedReport({ params }) {
+    const user = await auth.getUser();
+    const analyzedReport = await AnalyzedReport.query()
+      .where("user_id", user.id)
+      .where("name", params.filename)
+      .fetch();
+    return await analyzedReport;
+  }
+
+  /*
+   **  Get a Raw Report by name
+   */
+  async getRawReport({ params }) {
+    const user = await auth.getUser();
+    const rawReport = await RawReport.query()
+      .where("user_id", user.id)
+      .where("name", params.filename)
+      .fetch();
+    return rawReport;
+  }
+
+  /*
    **  Fetch and analyze report by name and url then save to resources/<name> folder
    */
-  async generateReportByUser({ params, auth }) {
+  async generateReport({ params, auth }) {
     const user = await auth.getUser();
     execSync(
       `npm run fetch ${params.name} https://${params.url} && npm run analyze ${params.name}`
@@ -127,9 +102,8 @@ class ReportController {
    ** String model: the model to create/update
    ** Lucid Model user: the current user object
    ** JSON report: the JSON of the report to be stored
-   ** String relation: the relation name property of the model
    */
-  async createOrUpdateReportByUser(model, user, report, relation) {
+  async createOrUpdateReportByUser(model, user, report) {
     // fetch all reports owned by user
     const userReports = await model.query().where("user_id", user.id).fetch();
 
@@ -168,6 +142,26 @@ class ReportController {
       await reportsOwnedByUser.save();
     }
     return report;
+  }
+
+  async deleteReportsByUser({ params, auth }) {
+    const user = await auth.getUser();
+    const { filename } = params;
+
+    await ActionStepsList.query()
+      .where("user_id", user.id)
+      .where("name", filename)
+      .delete();
+    await AnalyzedReport.query()
+      .where("user_id", user.id)
+      .where("name", filename)
+      .delete();
+    await RawReport.query()
+      .where("user_id", user.id)
+      .where("name", filename)
+      .delete();
+
+    return await this.getReports({ params, auth });
   }
 }
 

@@ -8,11 +8,13 @@
             <v-text-field
               v-model="websiteName"
               label="Name"
+              placeholder="(ex. google)"
               required
             ></v-text-field>
             <v-text-field
               v-model="websiteUrl"
               label="URL"
+              placeholder="(ex. google.com)"
               required
             ></v-text-field>
             <v-btn @click="submit" color="primary">Create Report</v-btn>
@@ -38,8 +40,8 @@ export default {
         `Creating report for ${this.websiteName} using ${this.websiteUrl}`
       );
       this.generateNewWebsiteReports({
-        websiteName: this.websiteName,
-        websiteUrl: this.websiteUrl
+        websiteName: this.websiteName.toLowerCase(),
+        websiteUrl: this.websiteUrl.toLowerCase()
       });
     }
   }

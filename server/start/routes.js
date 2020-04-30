@@ -20,29 +20,22 @@ Route.get("/", () => "Root Route");
 
 // Auth
 Route.group(() => {
-  Route.post("register", "UserController.register");
-  Route.post("login", "UserController.login");
-  Route.post("logout", "UserController.logout");
-  Route.get("user", "UserController.getCurrentUser");
+  Route.post("/register", "UserController.register");
+  Route.post("/login", "UserController.login");
+  Route.post("/logout", "UserController.logout");
+  Route.get("/user", "UserController.getCurrentUser");
 }).prefix("/auth");
 
-// Users
-Route.get("current-user", "UserController.getCurrentUser");
+// Profile
 Route.get("users/:id", "UserController.show");
-Route.get("users/:id/reports", "UserController.getReports");
 
 // Reports
 Route.group(() => {
-  Route.get("/", "ReportController.index");
-  Route.get("/:filename", "ReportController.getReports");
-  Route.get("/raw/:filename", "ReportController.getRawReport");
-  Route.get("/analyzed/:filename", "ReportController.getAnalyzedReport");
-  Route.get("/action-steps/:filename", "ReportController.getActionStepsReport");
-  Route.get("/generate/:name/:url", "ReportController.generateReport");
-  Route.get("/save/:name", "ReportController.saveReports");
-  Route.post(
-    "/generate/user/:name/:url",
-    "ReportController.generateReportByUser"
-  );
-  Route.get("/save/user/:name", "ReportController.saveReportsByUser");
+  Route.get("/", "ReportController.getReports");
+  Route.delete("/:filename", "ReportController.deleteReportsByUser");
+  Route.get("/:filename/action-steps", "ReportController.getActionStepsReport");
+  Route.get("/:filename/analyzed", "ReportController.getAnalyzedReport");
+  Route.get("/:filename/raw", "ReportController.getRawReport");
+  // generate new lighthouse report
+  Route.post("/generate/:name/:url", "ReportController.generateReport");
 }).prefix("/reports");

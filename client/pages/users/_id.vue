@@ -21,15 +21,23 @@
         </v-container>
 
         <v-container>
-          <h3 class="mb-6">Websites</h3>
-          <ul v-if="ownedReports">
-            <li
+          <h3 class="mb-6">Website Reports</h3>
+          <v-list
+            v-if="ownedReports"
+            :width="$breakpoint.mdAndUp ? '200px' : '100%'"
+          >
+            <v-list-item
               v-for="(report, index) in ownedReports"
               :key="`${report.name}-${index}`"
+              :to="`/reports/${report.name}`"
+              router
+              exact
             >
-              {{ report.name }}
-            </li>
-          </ul>
+              <v-btn class="my-3" color="primary lighten-1" width="100%">
+                {{ titleCase(report.name) }}
+              </v-btn>
+            </v-list-item>
+          </v-list>
         </v-container>
       </v-col>
     </v-row>
@@ -37,7 +45,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { titleCase } from "../../utils/str-utils";
+import { mapActions, mapGetters, mapState } from "vuex";
 import { mdiCamera } from "@mdi/js";
 export default {
   data: () => ({
@@ -50,13 +59,17 @@ export default {
     ]
   }),
   computed: {
-    ...mapGetters(["isAuthenticated", "loggedInUser"])
+    ...mapGetters(["isAuthenticated", "loggedInUser"]),
+    ...mapState("reports", ["ownedReports"])
   },
   crated() {
     this.fetchOwnedReports();
   },
   methods: {
-    ...mapActions("reports", ["fetchOwnedReports"])
+    ...mapActions("reports", ["fetchOwnedReports"]),
+    titleCase(string) {
+      return titleCase(string);
+    }
   }
 };
 </script>

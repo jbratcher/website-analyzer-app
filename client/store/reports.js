@@ -12,10 +12,20 @@ export const state = () => ({
 });
 
 export const actions = {
-  // fetch action steps list by name
-  async fetchActionStepsList({ commit }, websiteName) {
+  // delete a report
+  async deleteReports({ commit, rootState }, reportName) {
     await this.$axios
-      .$get(`/api/reports/action-steps/${websiteName}`)
+      .$delete(`/api/reports/${reportName}`)
+      .then(data => {
+        console.log(data);
+        commit("setOwnedReports", data);
+      })
+      .catch(error => console.warn(`Delete report error: ${error}`));
+  },
+  // fetch action steps list by name
+  async fetchActionStepsList({ commit, rootState }, websiteName) {
+    await this.$axios
+      .$get(`/api/reports/${websiteName}/action-steps`)
       .then(data => {
         commit("setActionStepsList", data[0]);
         commit("setActionSteps", data[0].report.auditsMatched);
@@ -25,9 +35,9 @@ export const actions = {
       });
   },
   // fetch analyzed report by name
-  async fetchAnalyzedReport({ commit }, websiteName) {
+  async fetchAnalyzedReport({ commit, rootState }, websiteName) {
     await this.$axios
-      .$get(`/api/reports/analyzed/${websiteName}`)
+      .$get(`/api/reports/${websiteName}/analyzed`)
       .then(data => {
         commit("setAnalyzedReportMeta", data[0]);
         commit("setAnalyzedReport", data[0].report);
@@ -38,11 +48,11 @@ export const actions = {
       });
   },
   // fetch reports owned by a specific user
-  async fetchOwnedReports({ commit, state, rootState }) {
+  async fetchOwnedReports({ commit }) {
     await this.$axios
-      .$get(`/api/users/${rootState.auth.user.id}/reports/`)
-      .then(response => {
-        commit("setOwnedReports", response);
+      .$get(`/api/reports`)
+      .then(data => {
+        commit("setOwnedReports", data);
       })
       .catch(error => {
         console.log(`Fetch user error: ${error}`);
@@ -51,7 +61,7 @@ export const actions = {
   // fetch raw report by name
   async fetchRawReport({ commit }, websiteName) {
     await this.$axios
-      .$get(`/api/reports/raw/${websiteName}`)
+      .$get(`/api/reports/${websiteName}/raw`)
       .then(data => {
         commit("setRawReportMeta", data[0]);
         commit("setRawReport", data[0].report);
@@ -64,7 +74,7 @@ export const actions = {
   },
   async generateNewWebsiteReports({ commit }, { websiteName, websiteUrl }) {
     await this.$axios
-      .$post(`/api/reports/generate/user/${websiteName}/${websiteUrl}`)
+      .$post(`/api/reports/generate/${websiteName}/${websiteUrl}`)
       .then(this.$router.push(`/reports/${websiteName}`))
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);

@@ -52,7 +52,6 @@ export default {
               password: this.password
             }
           })
-          .then(response => console.log(response))
           .then(() => this.$router.push("/"));
       } catch (e) {
         this.error = e.response.data.message;

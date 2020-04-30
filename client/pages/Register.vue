@@ -13,34 +13,24 @@
         </h1>
 
         <v-text-field
-          :value="firstName"
-          @input="setFirstName"
+          v-model="firstName"
           label="First Name"
           placeholder="First Name"
         />
         <v-text-field
-          :value="lastName"
-          @input="setLastName"
+          v-model="lastName"
           label="Last Name"
           placeholder="Last Name"
         />
+        <v-text-field v-model="email" label="Email" placeholder="Email" />
         <v-text-field
-          :value="registerEmail"
-          @input="setRegisterEmail"
-          label="Email"
-          placeholder="Email"
-        />
-        <v-text-field
-          :value="registerPassword"
-          @input="setRegisterPassword"
+          v-model="password"
           label="Password"
           placeholder="Password"
           type="password"
           autocomplete="new-password"
         />
-        <v-alert :value="registerError" type="error">{{
-          registerError
-        }}</v-alert>
+        <v-alert v-model="error" type="error">{{ errorMessage }}</v-alert>
         <v-btn @click="register" dark>
           <v-icon class="mr-3">{{ accountPlusIcon }}</v-icon
           >Register
@@ -60,29 +50,32 @@ export default {
       lastName: "",
       email: "",
       password: "",
-      error: null
+      error: false,
+      errorMessage: ""
     };
   },
   methods: {
-    async register() {
+    register() {
       try {
         const newUser = {
-          email: state.registerEmail,
-          password: state.registerPassword,
-          firstName: state.firstName,
-          lastName: state.lastName
+          email: this.email,
+          password: this.password,
+          firstName: this.firstName,
+          lastName: this.lastName
         };
-        await this.$axios.post("register", newUser);
+        this.$axios.post("/api/auth/register", newUser);
 
-        await this.$auth.loginWith("local", {
+        this.$auth.loginWith("local", {
           data: {
             email: this.email,
             password: this.password
           }
         });
+
         this.$router.push("/");
       } catch (e) {
-        this.error = e.response.data.message;
+        this.error = true;
+        this.errorMessage = e.response.data[0].message;
       }
     }
   }
