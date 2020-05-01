@@ -1,50 +1,17 @@
 <template>
   <v-container class="px-12">
     <v-row>
-      <v-col>
-        <h2>Create a new website report:</h2>
-        <v-col class="pa-0" md="3">
-          <form>
-            <v-text-field
-              v-model="websiteName"
-              label="Name"
-              placeholder="(ex. google)"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="websiteUrl"
-              label="URL"
-              placeholder="(ex. google.com)"
-              required
-            ></v-text-field>
-            <v-btn @click="submit" color="primary">Create Report</v-btn>
-          </form>
-        </v-col>
+      <v-col md="4">
+        <h2 class="headline mb-6">New website report</h2>
+        <CreateNewReport />
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-import { mapActions } from "vuex";
+import CreateNewReport from "../../components/widgets/CreateNewReport";
 export default {
-  data() {
-    return {
-      websiteName: "",
-      websiteUrl: ""
-    };
-  },
-  methods: {
-    ...mapActions("reports", ["generateNewWebsiteReports"]),
-    submit() {
-      console.log(
-        `Creating report for ${this.websiteName} using ${this.websiteUrl}`
-      );
-      this.generateNewWebsiteReports({
-        websiteName: this.websiteName.toLowerCase(),
-        websiteUrl: this.websiteUrl.toLowerCase()
-      });
-    }
-  }
+  components: { CreateNewReport }
 };
 </script>
 <style lang="scss"></style>

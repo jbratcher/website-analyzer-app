@@ -162,22 +162,13 @@ export default {
       arrowExpandRight: mdiArrowExpandRight,
       arrowExpandLeft: mdiArrowExpandLeft,
       dashboardLinks: [
-        { title: "All Reports", icon: mdiViewDashboard, to: "/reports" },
-        {
-          title: "Create New Report",
-          icon: mdiFolderPlus,
-          to: "/reports/create-new"
-        }
+        { title: "Dashboard", icon: mdiViewDashboard, to: "/reports" }
       ],
       drawer: false,
       generalLinks: [
         {
-          title: "All Reports",
+          title: "Dashboard",
           to: "/reports"
-        },
-        {
-          title: "Create New Report",
-          to: "/reports/create-new"
         },
         {
           title: "About",

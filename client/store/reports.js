@@ -13,17 +13,17 @@ export const state = () => ({
 
 export const actions = {
   // delete a report
-  async deleteReports({ commit, rootState }, reportName) {
+  async deleteReports({ commit }, reportName) {
     await this.$axios
       .$delete(`/api/reports/${reportName}`)
       .then(data => {
-        console.log(data);
+        console.log(`Deleting report: ${reportName}`);
         commit("setOwnedReports", data);
       })
       .catch(error => console.warn(`Delete report error: ${error}`));
   },
   // fetch action steps list by name
-  async fetchActionStepsList({ commit, rootState }, websiteName) {
+  async fetchActionStepsList({ commit }, websiteName) {
     await this.$axios
       .$get(`/api/reports/${websiteName}/action-steps`)
       .then(data => {
@@ -35,10 +35,11 @@ export const actions = {
       });
   },
   // fetch analyzed report by name
-  async fetchAnalyzedReport({ commit, rootState }, websiteName) {
+  async fetchAnalyzedReport({ commit }, websiteName) {
     await this.$axios
       .$get(`/api/reports/${websiteName}/analyzed`)
       .then(data => {
+        console.log(data);
         commit("setAnalyzedReportMeta", data[0]);
         commit("setAnalyzedReport", data[0].report);
         commit("setFailingAudits", data[0].report.audits);
@@ -72,10 +73,15 @@ export const actions = {
         console.log(`Fetch raw report error: ${error}`);
       });
   },
-  async generateNewWebsiteReports({ commit }, { websiteName, websiteUrl }) {
+  async generateNewWebsiteReports(
+    { commit, dispatch },
+    { reportName, websiteUrl }
+  ) {
     await this.$axios
-      .$post(`/api/reports/generate/${websiteName}/${websiteUrl}`)
-      .then(this.$router.push(`/reports/${websiteName}`))
+      .$post(`/api/reports/generate/${reportName}/${websiteUrl}`)
+      .then(data => {
+        dispatch("fetchOwnedReports");
+      })
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);
       });

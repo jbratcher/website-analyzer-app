@@ -22,14 +22,14 @@ class ReportController {
    */
   async getReports({ auth }) {
     const user = await auth.getUser();
-    const reports = await user.rawReports().fetch();
+    const reports = await user.analyzedReports().fetch();
     return reports;
   }
 
   /*
    **  Get an Action Steps List by name
    */
-  async getActionStepsReport({ params }) {
+  async getActionStepsReport({ params, auth }) {
     const user = await auth.getUser();
     const actionStepsList = await ActionStepsList.query()
       .where("user_id", user.id)
@@ -41,7 +41,7 @@ class ReportController {
   /*
    **  Get an Analyzed Report by name
    */
-  async getAnalyzedReport({ params }) {
+  async getAnalyzedReport({ params, auth }) {
     const user = await auth.getUser();
     const analyzedReport = await AnalyzedReport.query()
       .where("user_id", user.id)
@@ -53,7 +53,7 @@ class ReportController {
   /*
    **  Get a Raw Report by name
    */
-  async getRawReport({ params }) {
+  async getRawReport({ params, auth }) {
     const user = await auth.getUser();
     const rawReport = await RawReport.query()
       .where("user_id", user.id)

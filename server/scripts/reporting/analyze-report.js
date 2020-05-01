@@ -50,6 +50,7 @@ overallScore();
 auditList = {
   name: filename,
   url: formattedJson.requestedUrl,
+  created_at: formattedJson.created_at,
   totalScore: totalScore,
   ...auditList,
 };

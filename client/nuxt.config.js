@@ -67,7 +67,6 @@ export default {
   plugins: [
     "~/plugins/breakpoint",
     "~/plugins/directives",
-    { src: "~/plugins/local-storage.js", ssr: false },
     "~/plugins/vuetify-theme-cache"
   ],
   /*
