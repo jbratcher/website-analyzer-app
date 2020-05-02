@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "adonis serve --dev",
-    "start": "node server.js",
+    "start": "adonis serve",
     "test": "node ace test",
     "fetch": "node ./scripts/reporting/fetch-report.js",
     "analyze": "node ./scripts/reporting/analyze-report.js",
