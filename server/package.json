@@ -5,11 +5,13 @@
   "description": "Server side for a Lighthouse dashboard",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "dev": "adonis serve --dev",
+    "start": "adonis serve",
     "test": "node ace test",
     "fetch": "node ./scripts/reporting/fetch-report.js",
     "analyze": "node ./scripts/reporting/analyze-report.js",
-    "remove": "node ./scripts/reporting/delete-report.js"
+    "remove": "node ./scripts/reporting/delete-report.js",
+    "deploy": "cd .. && git subtree push --prefix server heroku master"
   },
   "author": "Jeremy Bratcher",
   "license": "UNLICENSED",
