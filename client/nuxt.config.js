@@ -79,7 +79,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    "@nuxtjs/proxy",
     "@nuxtjs/auth",
     "nuxt-webfontloader"
   ],
@@ -108,19 +107,10 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "https://website-analyzer-app.herokuapp.com/api",
-    proxy: true
+    baseURL: "https://website-analyzer-app.herokuapp.com/"
   },
   markdownit: {
     injected: true
-  },
-  proxy: {
-    "/api": {
-      target: "http://localhost:3333",
-      pathRewrite: {
-        "^/api": "/"
-      }
-    }
   },
   /*
    ** Build configuration
