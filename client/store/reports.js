@@ -15,7 +15,7 @@ export const actions = {
   // delete a report
   async deleteReports({ commit }, reportName) {
     await this.$axios
-      .$delete(`/api/reports/${reportName}`)
+      .$delete(`/reports/${reportName}`)
       .then(data => {
         console.log(`Deleting report: ${reportName}`);
         commit("setOwnedReports", data);
@@ -25,7 +25,7 @@ export const actions = {
   // fetch action steps list by name
   async fetchActionStepsList({ commit }, websiteName) {
     await this.$axios
-      .$get(`/api/reports/${websiteName}/action-steps`)
+      .$get(`/reports/${websiteName}/action-steps`)
       .then(data => {
         commit("setActionStepsList", data[0]);
         commit("setActionSteps", data[0].report.auditsMatched);
@@ -37,7 +37,7 @@ export const actions = {
   // fetch analyzed report by name
   async fetchAnalyzedReport({ commit }, websiteName) {
     await this.$axios
-      .$get(`/api/reports/${websiteName}/analyzed`)
+      .$get(`/reports/${websiteName}/analyzed`)
       .then(data => {
         console.log(data);
         commit("setAnalyzedReportMeta", data[0]);
@@ -51,7 +51,7 @@ export const actions = {
   // fetch reports owned by a specific user
   async fetchOwnedReports({ commit }) {
     await this.$axios
-      .$get(`/api/reports`)
+      .$get(`/reports`)
       .then(data => {
         commit("setOwnedReports", data);
       })
@@ -62,7 +62,7 @@ export const actions = {
   // fetch raw report by name
   async fetchRawReport({ commit }, websiteName) {
     await this.$axios
-      .$get(`/api/reports/${websiteName}/raw`)
+      .$get(`/reports/${websiteName}/raw`)
       .then(data => {
         commit("setRawReportMeta", data[0]);
         commit("setRawReport", data[0].report);
@@ -78,7 +78,7 @@ export const actions = {
     { reportName, websiteUrl }
   ) {
     await this.$axios
-      .$post(`/api/reports/generate/${reportName}/${websiteUrl}`)
+      .$post(`/reports/generate/${reportName}/${websiteUrl}`)
       .then(data => {
         dispatch("fetchOwnedReports");
       })

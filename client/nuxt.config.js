@@ -92,12 +92,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: "/api/auth/login",
+            url: "/auth/login",
             method: "post",
             propertyName: "token"
           },
-          logout: { url: "api/auth/logout", method: "post" },
-          user: { url: "/api/auth/user", method: "get", propertyName: false }
+          logout: { url: "/auth/logout", method: "post" },
+          user: { url: "/auth/user", method: "get", propertyName: false }
         }
         // tokenRequired: true,
         // tokenType: 'bearer'
