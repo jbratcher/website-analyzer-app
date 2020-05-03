@@ -1,2 +1,0 @@
-release: node ace migration:refresh --seed --force
-web: npm start
