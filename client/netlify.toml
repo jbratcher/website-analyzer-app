@@ -1,1 +1,5 @@
+[build]
+  base = "client/"
+  publish = "dist/"
+  command = "cd client && npm run generate"
 
