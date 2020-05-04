@@ -10,6 +10,7 @@
   force = true
   [redirects.headers]
     X-From = "Netlify"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/*"
