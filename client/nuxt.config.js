@@ -1,29 +1,13 @@
 import colors from "vuetify/es5/util/colors";
 import * as strUtil from "./utils/str-utils.js";
 
-const routerBase =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? {
-        router: {
-          base: "/green-spaces/"
-        }
-      }
-    : {};
-
-const ghPagesMode =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? {
-        mode: "spa"
-      }
-    : {};
-
 // format package name for title display
 const title = strUtil.titleCase(
   process.env.npm_package_name.replace(/-/g, " ")
 );
 
 export default {
-  mode: "universal",
+  mode: "spa",
   /*
    ** env variables used in vue components
    */
@@ -105,12 +89,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: "/auth/login",
+            url: "api/auth/login",
             method: "post",
             propertyName: "token"
           },
-          logout: { url: "/auth/logout", method: "post" },
-          user: { url: "/auth/user", method: "get", propertyName: false }
+          logout: { url: "api/auth/logout", method: "post" },
+          user: { url: "api/auth/user", method: "get", propertyName: false }
         }
         // tokenRequired: true,
         // tokenType: 'bearer'
@@ -184,7 +168,5 @@ export default {
   },
   generate: {
     fallback: true
-  },
-  ...routerBase,
-  ...ghPagesMode
+  }
 };
