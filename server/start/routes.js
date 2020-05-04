@@ -21,51 +21,23 @@ Route.get("/", () => "Root Route");
 // API
 Route.group(() => {
   // Auth
-  Route.group(() => {
-    Route.post("/register", "UserController.register");
-    Route.post("/login", "UserController.login");
-    Route.post("/logout", "UserController.logout");
-    Route.get("/user", "UserController.getCurrentUser");
-  }).prefix("auth");
+  Route.post("auth/register", "UserController.register");
+  Route.post("auth/login", "UserController.login");
+  Route.post("auth/logout", "UserController.logout");
+  Route.get("auth/user", "UserController.getCurrentUser");
 
   // Profile
   Route.get("users/:id", "UserController.show");
 
   // Reports
-  Route.group(() => {
-    Route.get("/", "ReportController.getReports");
-    Route.delete("/:filename", "ReportController.deleteReportsByUser");
-    Route.get(
-      "/:filename/action-steps",
-      "ReportController.getActionStepsReport"
-    );
-    Route.get("/:filename/analyzed", "ReportController.getAnalyzedReport");
-    Route.get("/:filename/raw", "ReportController.getRawReport");
-    // generate new lighthouse report
-    Route.post("/generate/:name/:url", "ReportController.generateReport");
-  }).prefix("reports");
-  // Auth
-  Route.group(() => {
-    Route.post("/register", "UserController.register");
-    Route.post("/login", "UserController.login");
-    Route.post("/logout", "UserController.logout");
-    Route.get("/user", "UserController.getCurrentUser");
-  }).prefix("auth");
-
-  // Profile
-  Route.get("users/:id", "UserController.show");
-
-  // Reports
-  Route.group(() => {
-    Route.get("/", "ReportController.getReports");
-    Route.delete("/:filename", "ReportController.deleteReportsByUser");
-    Route.get(
-      "/:filename/action-steps",
-      "ReportController.getActionStepsReport"
-    );
-    Route.get("/:filename/analyzed", "ReportController.getAnalyzedReport");
-    Route.get("/:filename/raw", "ReportController.getRawReport");
-    // generate new lighthouse report
-    Route.post("/generate/:name/:url", "ReportController.generateReport");
-  }).prefix("reports");
+  Route.get("reports/", "ReportController.getReports");
+  Route.delete("reports/:filename", "ReportController.deleteReportsByUser");
+  Route.get(
+    "reports/:filename/action-steps",
+    "ReportController.getActionStepsReport"
+  );
+  Route.get("reports/:filename/analyzed", "ReportController.getAnalyzedReport");
+  Route.get("reports/:filename/raw", "ReportController.getRawReport");
+  // generate new lighthouse report
+  Route.post("reports/generate/:name/:url", "ReportController.generateReport");
 }).prefix("api");
