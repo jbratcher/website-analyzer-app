@@ -1,6 +1,15 @@
 import colors from "vuetify/es5/util/colors";
 import * as strUtil from "./utils/str-utils.js";
 
+const routerBase =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        router: {
+          base: "/green-spaces/"
+        }
+      }
+    : {};
+
 // format package name for title display
 const title = strUtil.titleCase(
   process.env.npm_package_name.replace(/-/g, " ")
@@ -79,7 +88,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    "@nuxtjs/proxy",
     "@nuxtjs/auth",
     "nuxt-webfontloader"
   ],
@@ -108,28 +116,10 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "http://127.0.0.1:3333/api",
-    proxy: true
+    baseURL: "https://website-analyzer-app.herokuapp.com/api"
   },
   markdownit: {
     injected: true
-  },
-  proxy: {
-    "/api": {
-      target: "http://localhost:3333",
-      pathRewrite: {
-        "^/api": "/"
-      }
-    }
-  },
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
   },
   /*
   // nuxt-webfontloader
@@ -176,5 +166,15 @@ export default {
         }
       }
     }
-  }
+  },
+  /*
+   ** Build configuration
+   */
+  build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
+  },
+  ...routerBase
 };
