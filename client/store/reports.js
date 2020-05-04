@@ -13,17 +13,20 @@ export const state = () => ({
 
 export const actions = {
   // delete a report
-  async deleteReports({ commit }, reportName) {
+  async deleteReports({ commit, rootState }, reportName) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$delete(`/reports/${reportName}`)
       .then(data => {
         console.log(`Deleting report: ${reportName}`);
         commit("setOwnedReports", data);
+        this.$router.push("/reports");
       })
       .catch(error => console.warn(`Delete report error: ${error}`));
   },
   // fetch action steps list by name
-  async fetchActionStepsList({ commit }, websiteName) {
+  async fetchActionStepsList({ commit, rootState }, websiteName) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$get(`/reports/${websiteName}/action-steps`)
       .then(data => {
@@ -36,6 +39,7 @@ export const actions = {
   },
   // fetch analyzed report by name
   async fetchAnalyzedReport({ commit }, websiteName) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$get(`/reports/${websiteName}/analyzed`)
       .then(data => {
@@ -50,10 +54,12 @@ export const actions = {
   },
   // fetch reports owned by a specific user
   async fetchOwnedReports({ commit }) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$get(`/reports`)
       .then(data => {
         commit("setOwnedReports", data);
+        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch user error: ${error}`);
@@ -61,6 +67,7 @@ export const actions = {
   },
   // fetch raw report by name
   async fetchRawReport({ commit }, websiteName) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$get(`/reports/${websiteName}/raw`)
       .then(data => {
@@ -77,10 +84,12 @@ export const actions = {
     { commit, dispatch },
     { reportName, websiteUrl }
   ) {
+    this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$post(`/reports/generate/${reportName}/${websiteUrl}`)
       .then(data => {
         dispatch("fetchOwnedReports");
+        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);
