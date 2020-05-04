@@ -1,6 +1,22 @@
 import colors from "vuetify/es5/util/colors";
 import * as strUtil from "./utils/str-utils.js";
 
+const routerBase =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        router: {
+          base: "/green-spaces/"
+        }
+      }
+    : {};
+
+const ghPagesMode =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        mode: "spa"
+      }
+    : {};
+
 // format package name for title display
 const title = strUtil.titleCase(
   process.env.npm_package_name.replace(/-/g, " ")
@@ -49,9 +65,6 @@ export default {
         as: "style"
       }
     ]
-  },
-  generate: {
-    fallback: true
   },
   /*
    ** Customize the progress-bar color
@@ -109,19 +122,10 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "https://website-analyzer-app.herokuapp.com/"
+    baseURL: "https://website-analyzer-app.herokuapp.com/api"
   },
   markdownit: {
     injected: true
-  },
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
   },
   /*
   // nuxt-webfontloader
@@ -168,5 +172,19 @@ export default {
         }
       }
     }
-  }
+  },
+  /*
+   ** Build configuration
+   */
+  build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
+  },
+  generate: {
+    fallback: true
+  },
+  ...routerBase,
+  ...ghPagesMode
 };
