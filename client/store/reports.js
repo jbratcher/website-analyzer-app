@@ -20,7 +20,7 @@ export const actions = {
       .then(data => {
         console.log(`Deleting report: ${reportName}`);
         commit("setOwnedReports", data);
-        this.$router.push("/dashboard");
+        this.$router.push("/reports");
       })
       .catch(error => console.warn(`Delete report error: ${error}`));
   },
@@ -59,6 +59,7 @@ export const actions = {
       .$get(`/reports`)
       .then(data => {
         commit("setOwnedReports", data);
+        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch user error: ${error}`);
@@ -88,6 +89,7 @@ export const actions = {
       .$post(`/reports/generate/${reportName}/${websiteUrl}`)
       .then(data => {
         dispatch("fetchOwnedReports");
+        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);

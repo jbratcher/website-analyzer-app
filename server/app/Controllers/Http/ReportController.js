@@ -22,10 +22,8 @@ class ReportController {
    */
   async getReports({ auth, request }) {
     const user = await auth.getUser();
-    console.log(`User: ${user.username}`);
     const reports = await user.analyzedReports().fetch();
-    console.log(`Reports: ${JSON.stringify(reports).substring(0, 100)}`);
-    return reports;
+    return await reports;
   }
 
   /*
