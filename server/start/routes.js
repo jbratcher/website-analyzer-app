@@ -23,7 +23,6 @@ Route.group(() => {
   // Auth
   Route.post("auth/register", "UserController.register");
   Route.post("auth/login", "UserController.login");
-  Route.post("auth/logout", "UserController.logout");
   Route.get("auth/user", "UserController.getCurrentUser");
 
   // Profile

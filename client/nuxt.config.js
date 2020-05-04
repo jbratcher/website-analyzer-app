@@ -1,15 +1,6 @@
 import colors from "vuetify/es5/util/colors";
 import * as strUtil from "./utils/str-utils.js";
 
-const routerBase =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? {
-        router: {
-          base: "/green-spaces/"
-        }
-      }
-    : {};
-
 // format package name for title display
 const title = strUtil.titleCase(
   process.env.npm_package_name.replace(/-/g, " ")
@@ -99,16 +90,19 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: "/api/auth/login",
+            url: "/auth/login",
             method: "post",
             propertyName: "token"
           },
-          logout: { url: "api/auth/logout", method: "post" },
-          user: { url: "/api/auth/user", method: "get", propertyName: false }
+          logout: { url: "/auth/logout", method: "post" },
+          user: { url: "/auth/user", method: "get", propertyName: false }
         }
         // tokenRequired: true,
-        // tokenType: 'bearer'
+        // tokenType: "bearer"
       }
+    },
+    token: {
+      prefix: "token"
     }
   },
   /*
@@ -116,7 +110,7 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "https://website-analyzer-app.herokuapp.com/api"
+    baseURL: "http://localhost:3333/api"
   },
   markdownit: {
     injected: true
@@ -175,6 +169,5 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  ...routerBase
+  }
 };

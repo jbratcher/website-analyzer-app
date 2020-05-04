@@ -21,18 +21,10 @@ class UserController {
     return user;
   }
 
-  async login({ request, auth }) {
+  async login({ auth, request }) {
     const { email, password } = request.all();
-    const user = await auth.remember(true).attempt(email, password);
-    return user;
-  }
-
-  async logout({ auth }) {
-    try {
-      await auth.logout();
-    } catch (e) {
-      console.log(e.response.data[0].message);
-    }
+    const token = await auth.attempt(email, password);
+    return token;
   }
 
   async register({ request }) {

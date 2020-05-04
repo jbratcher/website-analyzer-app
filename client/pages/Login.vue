@@ -44,18 +44,20 @@ export default {
   },
   methods: {
     async login() {
-      try {
-        await this.$auth
-          .loginWith("local", {
-            data: {
-              email: this.email,
-              password: this.password
-            }
-          })
-          .then(() => this.$router.push("/"));
-      } catch (e) {
-        this.error = e.response.data.message;
-      }
+      await this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        .then(response => {
+          console.log(`Token: ${response.data.token}`);
+          this.$auth.setToken("local", "Bearer " + response.data.token);
+          console.log(this.$auth.$state.tokenlocal);
+          this.$router.push("/");
+        })
+        .catch(error => console.log(`Login Error: ${error}`));
     }
   }
 };

@@ -63,7 +63,7 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName
         };
-        this.$axios.post("/api/auth/register", newUser);
+        this.$axios.post("/auth/register", newUser);
 
         this.$auth.loginWith("local", {
           data: {
