@@ -7,7 +7,7 @@ const title = strUtil.titleCase(
 );
 
 export default {
-  mode: "spa",
+  mode: "universal",
   /*
    ** env variables used in vue components
    */
