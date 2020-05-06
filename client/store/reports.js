@@ -6,6 +6,7 @@ export const state = () => ({
   analyzedReportMeta: {},
   categories: [],
   failingAudits: [],
+  isLoading: false,
   ownedReports: [],
   rawReport: {},
   rawReportMeta: {}
@@ -20,7 +21,7 @@ export const actions = {
       .then(data => {
         console.log(`Deleting report: ${reportName}`);
         commit("setOwnedReports", data);
-        this.$router.push("/reports");
+        this.$router.replace("/reports");
       })
       .catch(error => console.warn(`Delete report error: ${error}`));
   },
@@ -84,12 +85,16 @@ export const actions = {
     { commit, dispatch },
     { reportName, websiteUrl }
   ) {
+    commit("setIsLoading", true);
     this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$post(`/reports/generate/${reportName}/${websiteUrl}`)
-      .then(data => {
+      .then(response => {
         dispatch("fetchOwnedReports");
         this.$router.push("/reports");
+      })
+      .then(response => {
+        commit("setIsLoading", false);
       })
       .catch(error => {
         console.log(`Fetch new website reports error: ${error}`);
@@ -127,5 +132,11 @@ export const mutations = {
   },
   setRawReportMeta(state, rawReportMeta) {
     state.rawReportMeta = rawReportMeta;
+  },
+  setIsLoading(state, isLoading) {
+    state.isLoading = isLoading;
+  },
+  toggleIsLoading(state) {
+    state.isLoading = !state.isLoading;
   }
 };

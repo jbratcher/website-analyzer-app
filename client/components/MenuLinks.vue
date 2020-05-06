@@ -106,8 +106,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout();
-      await this.$axios.$post("/auth/logout");
-      this.$router.push("/login");
+      this.$router.replace("/reports");
     }
   }
 };
