@@ -94,7 +94,6 @@ export default {
             method: "post",
             propertyName: "token"
           },
-          logout: { url: "/auth/logout", method: "post" },
           user: { url: "/auth/user", method: "get", propertyName: false }
         }
         // tokenRequired: true,
