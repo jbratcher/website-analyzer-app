@@ -63,20 +63,31 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName
         };
-        this.$axios.post("/auth/register", newUser);
 
-        this.$auth.loginWith("local", {
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        });
-
-        this.$router.replace("/");
+        this.$axios
+          .post("/auth/register", newUser)
+          .then(response => {
+            this.login();
+          })
+          .catch(error => console.log(`Register/login error: ${error}`));
       } catch (e) {
         this.error = true;
         this.errorMessage = e.response.data[0].message;
       }
+    },
+    login() {
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        .then(response => {
+          this.$auth.setToken("local", "Bearer " + response.data.token);
+          this.$router.replace("/");
+        })
+        .catch(error => console.log(`Login Error: ${error}`));
     }
   }
 };

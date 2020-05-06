@@ -27,6 +27,14 @@ class UserController {
     return token;
   }
 
+  async logout({ auth }) {
+    const user = await auth.getUser();
+    const token = await auth.getAuthHeader();
+    console.log(`Logging out ${user.username}, revoking token ${token}`);
+    await user.tokens().where("token", token).update({ is_revoked: true });
+    return user;
+  }
+
   async register({ request }) {
     const { email, firstName, lastName, password } = request.all();
     await User.create({
