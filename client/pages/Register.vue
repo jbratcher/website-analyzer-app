@@ -72,7 +72,7 @@ export default {
           }
         });
 
-        this.$router.push("/");
+        this.$router.replace("/");
       } catch (e) {
         this.error = true;
         this.errorMessage = e.response.data[0].message;

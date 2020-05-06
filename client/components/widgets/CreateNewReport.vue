@@ -31,10 +31,23 @@
             cols="12"
             md="2"
           >
-            <v-btn @click="submit" color="primary" x-large>
-              <v-icon class="mr-2">{{ newReportIcon }}</v-icon>
-              Get Report</v-btn
-            >
+            <template v-if="!isLoading">
+              <v-btn @click="submit" color="primary" x-large>
+                <v-icon class="mr-2">{{ newReportIcon }}</v-icon>
+                Get Report</v-btn
+              >
+            </template>
+            <template v-if="isLoading">
+              <Progress
+                :transitionDuration="10000"
+                :radius="55"
+                :strokeWidth="10"
+                strokeColor="teal"
+                value="100"
+              >
+                <div class="content">Generating Report</div>
+              </Progress>
+            </template>
           </v-col>
         </v-row>
       </v-container>
@@ -42,12 +55,16 @@
   </v-card>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 import { mdiMagnify, mdiNewspaper, mdiNewspaperPlus, mdiWeb } from "@mdi/js";
 import formRulesMixin from "../../mixins/formRulesMixin";
 import { titleCase } from "../../utils/str-utils";
+import Progress from "./Progress";
 export default {
   name: "CreateNewReport",
+  components: {
+    Progress
+  },
   props: {
     cardClass: {
       type: String,
@@ -65,12 +82,16 @@ export default {
       websiteUrl: ""
     };
   },
+  computed: {
+    ...mapState("reports", ["isLoading"])
+  },
   methods: {
     ...mapActions("reports", ["generateNewWebsiteReports"]),
     submit() {
       console.log(
         `Creating report for ${this.reportName} using ${this.websiteUrl}`
       );
+      console.log(`isLoading at start: ${this.isLoading}`);
       this.generateNewWebsiteReports({
         reportName: titleCase(this.reportName),
         websiteUrl: this.websiteUrl

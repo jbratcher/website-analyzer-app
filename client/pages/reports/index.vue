@@ -1,9 +1,12 @@
 <template>
   <v-container>
     <v-row>
+      <!-- Main -->
       <v-col class="pb-0">
+        <!-- Create Report -->
         <h2 class="headline mb-3">Create a new report</h2>
         <CreateNewReport />
+        <!-- Generated Reports -->
         <h2 v-if="this.$auth.user" class="headline mt-9 mb-0">
           Websites analyzed
         </h2>
@@ -84,7 +87,7 @@ export default {
       }
     },
     logEvent(event) {
-      this.$router.push(`/reports/${event.name}`);
+      this.$router.replace(`/reports/${event.name}`);
     }
   },
   created() {

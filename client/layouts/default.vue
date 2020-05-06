@@ -2,9 +2,9 @@ i<template>
   <v-app>
     <!-- Header Area -->
     <!-- Main Navigation Bar -->
-    <v-app-bar app color="white" elevation="1" light short>
+    <v-app-bar app color="white" elevation="1" light>
       <v-app-bar-nav-icon
-        class="hidden-md-and-up"
+        class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
         name="menuopen"
         x-large
@@ -16,7 +16,7 @@ i<template>
       <MenuLinks
         :general-links="generalLinks"
         :logged-out-links="loggedOutLinks"
-        list-class="d-md-flex justify-end hidden-md-and-down"
+        list-class="d-md-flex justify-end hidden-md-and-down ml-auto"
         list-item-class="mx-1"
       />
     </v-app-bar>

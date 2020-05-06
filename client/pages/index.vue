@@ -1,40 +1,46 @@
 <template>
   <v-container>
     <v-row>
-      <v-col class="pa-0">
-        <h1 v-if="this.$auth.user" class="display-1 mb-3">
-          Website Reports for {{ this.$auth.user.full_name }}
-        </h1>
-        <h1 v-else>Please login for reports</h1>
-        <template v-if="ownedReports">
-          <v-list
-            flat
-            :width="$breakpoint.mdAndUp ? '200px' : '100%'"
-            :max-width="$breakpoint.mdAndUp ? '300px' : '100%'"
+      <!-- Main -->
+      <v-col class="pb-0">
+        <!-- Create Report -->
+        <h2 class="headline mb-3">Create a new report</h2>
+        <CreateNewReport />
+        <!-- Generated Reports -->
+        <h2 v-if="this.$auth.user" class="headline mt-9 mb-0">
+          Websites analyzed
+        </h2>
+        <h2 v-else class="headline mt-9 mb-0">Please login for reports</h2>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="py-0">
+        <template>
+          <v-data-table
+            @click:row="logEvent"
+            :headers="headers"
+            :items="ownedReports"
+            sort-by="name"
+            class="elevation-1"
           >
-            <v-list-item
-              v-for="(report, index) in ownedReports"
-              :key="`${report.name}-${index}`"
-            >
-              <v-list-item-content>
-                <v-btn
-                  class="my-3"
-                  color="primary lighten-1"
-                  :to="`/reports/${report.name}`"
-                  router
-                  exact
-                  width="100%"
-                  >{{ report.name }}</v-btn
-                >
-              </v-list-item-content>
-
-              <v-list-item-action>
-                <v-btn @click="deleteReport(report.name)" icon>
-                  <v-icon large>{{ trashCanIcon }}</v-icon>
-                </v-btn>
-              </v-list-item-action>
-            </v-list-item>
-          </v-list>
+            <template v-slot:item.report.totalScore="{ item }">
+              <v-progress-circular
+                :color="calcScoreColor(item.report.totalScore)"
+                :value="normalizedScore(item.report.totalScore)"
+                size="36"
+                width="2"
+                >{{ item.report.totalScore }}</v-progress-circular
+              >
+            </template>
+            <template v-slot:item.actions="{ item }">
+              <v-icon large @click="deleteReport(item.name)">
+                {{ trashCanIcon }}
+              </v-icon>
+            </template>
+            <template v-slot:no-data>
+              <p>No reports available</p>
+            </template>
+          </v-data-table>
         </template>
       </v-col>
     </v-row>
@@ -44,10 +50,29 @@
 <script>
 import { mapActions, mapMutations, mapState } from "vuex";
 import { mdiTrashCan } from "@mdi/js";
+import CreateNewReport from "../components/widgets/CreateNewReport";
+import scoresMixin from "../mixins/scoresMixin";
 export default {
+  components: {
+    CreateNewReport
+  },
+  middleware: "auth",
+  mixins: [scoresMixin],
   data() {
     return {
-      trashCanIcon: mdiTrashCan
+      trashCanIcon: mdiTrashCan,
+      dialog: false,
+      headers: [
+        {
+          text: "Website Name",
+          align: "start",
+          value: "name"
+        },
+        { text: "URL", value: "report.url" },
+        { text: "Score", value: "report.totalScore" },
+        { text: "Date", value: "created_at" },
+        { text: "Actions", value: "actions", sortable: false }
+      ]
     };
   },
   computed: {
@@ -60,6 +85,9 @@ export default {
       if (confirm("Are you sure you want to delete this report?")) {
         this.deleteReports(reportName);
       }
+    },
+    logEvent(event) {
+      this.$router.replace(`/reports/${event.name}`);
     }
   },
   created() {
