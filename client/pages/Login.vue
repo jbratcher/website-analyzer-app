@@ -53,7 +53,7 @@ export default {
         })
         .then(response => {
           this.$auth.setToken("local", "Bearer " + response.data.token);
-          this.$router.replace("/");
+          this.$router.replace("/reports");
         })
         .catch(error => console.log(`Login Error: ${error}`));
     }

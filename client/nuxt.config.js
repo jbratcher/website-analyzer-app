@@ -154,7 +154,7 @@ export default {
         light: {
           primary: colors.indigo,
           accent: colors.indigo.accent2,
-          secondary: "#b5763f",
+          secondary: colors.green.base,
           info: colors.blueGrey.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,

@@ -2,8 +2,16 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="display-2 my-3">About Website Analyzer Dashboard</h1>
-        <h2 class="headline my-3">
+        <h1
+          class="my-3"
+          :class="$breakpoint.mdAndUp ? 'display-2 text-center' : 'display-1'"
+        >
+          About Website Analyzer
+        </h1>
+        <h2
+          class="my-3"
+          :class="$breakpoint.mdAndUp ? 'headline text-center' : 'title'"
+        >
           Full control of your Google Lighthouse reports
         </h2>
         <p class="body-1 my-3">
