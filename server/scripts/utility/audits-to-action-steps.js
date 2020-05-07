@@ -1,10 +1,6 @@
 // utility to help programmatically convert lighthouse audits to action steps instead of manually copying them
 // generated action steps will still need the title, description, and actionStep properties modified for user readbility in reporting
 
-// *** Caution ***
-// running this script will automatically replace the current actions-steps.json file
-// *** Caution ***
-
 const fs = require("fs");
 const util = require("./to-camel-case.js"); //kebab to camel case utility
 

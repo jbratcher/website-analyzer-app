@@ -99,15 +99,6 @@ let dashboardJson = json.read(
   `resources/${filename}/${filename}-action-steps.json`
 );
 
-// Create user dashboard to display scores and action step list (explanations of scores?)
-// Stack
-// Front: Nuxt/Netlify
-// Back: Adonis/Heroku
-// CRUD for reports
-// Create - new report by name and URL input
-// Read - display scores in graph (chart.js?)
-// Update - rerun report for a name/URL
-// Delete - delete unused reports
 // RUD for actions steps (todo list style)
 // Action steps are auto created (no user create function)
 // Make alternate list for user create steps?

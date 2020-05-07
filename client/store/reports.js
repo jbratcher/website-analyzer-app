@@ -44,7 +44,6 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/analyzed`)
       .then(data => {
-        console.log(data);
         commit("setAnalyzedReportMeta", data[0]);
         commit("setAnalyzedReport", data[0].report);
         commit("setFailingAudits", data[0].report.audits);

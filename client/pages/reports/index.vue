@@ -7,7 +7,7 @@
         <h2 class="headline mb-3">Create a new report</h2>
         <CreateNewReport />
         <!-- Generated Reports -->
-        <h2 v-if="this.$auth.user" class="headline mt-9 mb-3">
+        <h2 v-if="isAuthenticated" class="headline mt-9 mb-3">
           Websites analyzed
         </h2>
         <h2 v-else class="headline mt-9 mb-0">Please login for reports</h2>

@@ -28,7 +28,11 @@
             <v-row>
               <v-col align="center">
                 <v-card flat>
-                  <v-btn class="my-12" color="secondary" to="/register" x-large
+                  <v-btn
+                    class="my-12"
+                    color="secondary"
+                    :to="isAuthenticated ? '/reports' : '/register'"
+                    x-large
                     >Get Started For Free</v-btn
                   >
                 </v-card>
@@ -42,8 +46,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  layout: "landing"
+  layout: "landing",
+  computed: {
+    ...mapGetters(["isAuthenticated", "loggedInUser"])
+  }
 };
 </script>
 
