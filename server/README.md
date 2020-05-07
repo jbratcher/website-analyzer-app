@@ -2,6 +2,8 @@
 
 A server for the Lighthouse dashboard
 
+[Heroku](https://website-analyzer-app.herokuapp.com/)
+
 1. Bodyparser
 2. Session
 3. Authentication
@@ -20,7 +22,6 @@ adonis new yardstick
 ```
 
 or manually clone the repo and then run `npm install`.
-
 
 ### Migrations
 

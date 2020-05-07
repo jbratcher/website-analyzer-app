@@ -59,6 +59,7 @@ export const actions = {
       .$get(`/reports`)
       .then(data => {
         commit("setOwnedReports", data);
+        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch user error: ${error}`);
@@ -89,6 +90,7 @@ export const actions = {
       .$post(`/reports/generate/${reportName}/${websiteUrl}`)
       .then(response => {
         dispatch("fetchOwnedReports");
+        this.$router.push("/reports");
       })
       .then(response => {
         commit("setIsLoading", false);

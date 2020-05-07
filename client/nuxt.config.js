@@ -7,7 +7,7 @@ const title = strUtil.titleCase(
 );
 
 export default {
-  mode: "universal",
+  mode: "spa",
   /*
    ** env variables used in vue components
    */
@@ -50,7 +50,6 @@ export default {
       }
     ]
   },
-  generate: {},
   /*
    ** Customize the progress-bar color
    */
@@ -114,7 +113,7 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "http://localhost:3333/api"
+    baseURL: "https://website-analyzer-app.herokuapp.com/api"
   },
   markdownit: {
     injected: true
@@ -173,5 +172,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    fallback: true
   }
 };

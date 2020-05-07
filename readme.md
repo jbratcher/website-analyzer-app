@@ -2,6 +2,8 @@
 
 Analyze and produce reports for website using Google Lighthouse automation
 
+[Demo](https://thirsty-lumiere-cb2cbe.netlify.app/)
+
 Repo split into server and client
 
 Stack: Adonis, Nuxt

@@ -23,7 +23,7 @@ class ReportController {
   async getReports({ auth, request }) {
     const user = await auth.getUser();
     const reports = await user.analyzedReports().fetch();
-    return reports;
+    return await reports;
   }
 
   /*

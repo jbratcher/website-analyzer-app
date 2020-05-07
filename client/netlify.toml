@@ -1,0 +1,9 @@
+[build]
+  base = "client/"
+  publish = "dist/"
+  command = "npm run generate"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
