@@ -3,6 +3,16 @@ i<template>
     <!-- Header Area -->
     <!-- Main Navigation Bar -->
     <v-app-bar app color="white" elevation="1" light>
+      <nuxt-link
+        class="brand-link"
+        :class="
+          $breakpoint.mdAndUp
+            ? 'headline font-weight-bold'
+            : 'title font-weight-bold'
+        "
+        to="/"
+        >Website Analyzer App</nuxt-link
+      >
       <v-app-bar-nav-icon
         class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
@@ -36,60 +46,6 @@ i<template>
         list-item-class="my-3"
         listItemTitleClass="title"
       />
-    </v-navigation-drawer>
-    <!-- Main Dashboard Navigation -->
-    <v-navigation-drawer
-      app
-      :mini-variant="sidedrawer"
-      :permanent="$breakpoint.smAndUp ? true : false"
-    >
-      <v-list nav>
-        <v-list-item
-          v-if="isAuthenticated"
-          exact
-          router
-          :to="`/users/${this.$auth.user.id}`"
-        >
-          <v-avatar size="36">
-            <img
-              v-if="this.$auth.user"
-              alt="Avatar"
-              :src="this.$auth.user.profile_image_source"
-            />
-          </v-avatar>
-        </v-list-item>
-      </v-list>
-
-      <v-app-bar-nav-icon
-        @click.stop="sidedrawer = !sidedrawer"
-        class="mb-1"
-        name="sidemenu"
-        x-large
-      >
-        <i aria-hidden="true" class="v-icon notranslate theme--dark">
-          <v-icon>
-            {{ sidedrawer ? arrowExpandRight : arrowExpandLeft }}
-          </v-icon>
-        </i>
-      </v-app-bar-nav-icon>
-
-      <v-list nav>
-        <v-list-item
-          v-for="item in dashboardLinks"
-          :key="item.title"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
     </v-navigation-drawer>
     <!-- Nuxt content -->
     <v-content>
@@ -166,10 +122,6 @@ export default {
       ],
       drawer: false,
       generalLinks: [
-        {
-          title: "Home",
-          to: "/"
-        },
         {
           title: "Dashboard",
           to: "/reports"
@@ -252,9 +204,6 @@ ul {
 }
 
 // main nav
-#brand {
-  text-decoration: none;
-}
 
 .v-toolbar__content {
   flex: 1 1 auto;
@@ -292,6 +241,12 @@ ul {
 
   article > * + * {
     margin-top: 1rem;
+  }
+
+  // global overrides
+  .brand-link {
+    color: #000;
+    text-decoration: none;
   }
 }
 

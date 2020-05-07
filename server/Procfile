@@ -1,2 +1,2 @@
-release: ENV_SILENT=true adonis migration:refresh --seed --force
+release: ENV_SILENT=true adonis migration:run
 web: ENV_SILENT=true adonis serve
