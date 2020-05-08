@@ -42,8 +42,9 @@ i<template>
       app
       :mini-variant="sidedrawer"
       :permanent="$breakpoint.smAndUp ? true : false"
+      width="200"
     >
-      <v-list nav>
+      <v-list :class="sidedrawer ? '' : 'mr-auto'" nav>
         <v-list-item
           v-if="isAuthenticated"
           exact
@@ -63,6 +64,7 @@ i<template>
       <v-app-bar-nav-icon
         @click.stop="sidedrawer = !sidedrawer"
         class="mb-1"
+        :class="sidedrawer ? '' : 'ml-1 mr-auto'"
         name="sidemenu"
         x-large
       >
@@ -73,7 +75,7 @@ i<template>
         </i>
       </v-app-bar-nav-icon>
 
-      <v-list nav>
+      <v-list :class="sidedrawer ? '' : 'mr-auto'" nav>
         <v-list-item
           v-for="item in dashboardLinks"
           :key="item.title"
