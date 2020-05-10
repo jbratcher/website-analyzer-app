@@ -1,0 +1,17 @@
+{
+  "name": "lighthouse-dashboard",
+  "version": "4.1.0",
+  "adonis-version": "4.1.0",
+  "description": "Easy create and manage Google Lighthouse Reports",
+  "scripts": {
+    "merge-dev:staging": "git checkout staging && git merge dev",
+    "merge-staging:heroku": "git checkout heroku && git merge staging",
+    "merge-staging:netlify": "git checkout netlify && git merge staging",
+    "deploy:client": "merge-dev:staging && merge-staging:netlify && git push origin netlify && git checkout staging",
+    "deploy:server": "merge-dev:staging && merge-staging:heroku && git subtree push --prefix server heroku master && git checkout staging",
+    "deploy:all": "deploy:client && deploy:server"
+  },
+  "author": "Jeremy Bratcher",
+  "license": "UNLICENSED",
+  "private": true
+}
