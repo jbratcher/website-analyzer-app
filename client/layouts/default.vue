@@ -6,7 +6,7 @@ i<template>
       <v-app-bar-nav-icon
         class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
-        name="menuopen"
+        name="menu-open"
         x-large
       >
         <i aria-hidden="true" class="v-icon notranslate theme--dark">
@@ -65,7 +65,7 @@ i<template>
         @click.stop="sidedrawer = !sidedrawer"
         class="mb-1"
         :class="sidedrawer ? '' : 'ml-1 mr-auto'"
-        name="sidemenu"
+        name="side-menu"
         x-large
       >
         <i aria-hidden="true" class="v-icon notranslate theme--dark">

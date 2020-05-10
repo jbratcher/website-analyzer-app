@@ -123,9 +123,9 @@ export default {
   // handles efficient loading of web fonts
   */
   webfontloader: {
-    google: {
-      // Loads Open Sans font with weights 300 and 400 + display font as swap
-      families: ["Open+Sans&display=swap"]
+    custom: {
+      families: ["Open Sans"],
+      urls: ["https://fonts.googleapis.com/css?family=Open+Sans&display=swap"]
     }
   },
   /*
