@@ -21,8 +21,8 @@
                   optimization that offers results.</v-card-text
                 >
               </v-col>
-              <v-col cols="12" sm="6">
-                <v-img src="/images/reporting.svg" height="250" contain />
+              <v-col class="mt-4" cols="12" sm="6">
+                <v-img src="/images/reporting.svg" height="240" contain />
               </v-col>
             </v-row>
             <v-row>

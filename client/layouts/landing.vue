@@ -2,17 +2,32 @@ i<template>
   <v-app>
     <!-- Header Area -->
     <!-- Main Navigation Bar -->
-    <v-app-bar app color="white" elevation="1" light>
+    <v-app-bar
+      app
+      color="white"
+      elevation="1"
+      hide-on-scroll
+      light
+      scroll-threshold="100"
+    >
       <nuxt-link
-        class="brand-link"
-        :class="
-          $breakpoint.mdAndUp
-            ? 'headline font-weight-bold'
-            : 'title font-weight-bold'
-        "
+        class="d-flex align-center"
+        :class="$breakpoint.mdAndUp ? 'brand-margin' : 'ml-6'"
         to="/"
-        >Website Analyzer App</nuxt-link
       >
+        <v-img
+          alt="future lighthouse logo"
+          src="/images/logo.svg"
+          :max-width="$breakpoint.mdAndUp ? '52px' : '42px'"
+        />
+        <h1
+          class="black--text d-flex font-weight-regular ml-2 compact-text"
+          :class="$breakpoint.mdAndUp ? 'display-3 mt-0' : 'display-2 mt-1'"
+        >
+          <span class="primary--text">W</span>
+          <span class="complimentary-color">A</span>
+        </h1>
+      </nuxt-link>
       <v-app-bar-nav-icon
         class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
@@ -244,9 +259,16 @@ ul {
   }
 
   // global overrides
-  .brand-link {
-    color: #000;
-    text-decoration: none;
+  .brand-margin {
+    margin-left: 4rem;
+  }
+
+  .complimentary-color {
+    color: #b5b13f;
+  }
+
+  .compact-text {
+    letter-spacing: 1px;
   }
 }
 

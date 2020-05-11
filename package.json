@@ -4,7 +4,7 @@
   "adonis-version": "4.1.0",
   "description": "Analyze and produce reports for website optimization using Google Lighthouse automation",
   "scripts": {
-    "merge-dev:master": "git checkout master && git merge dev",
+    "merge-dev:master": "git checkout master && git merge dev && git push origin master",
     "merge-dev:staging": "git checkout staging && git merge dev",
     "merge-dev:release": "npm run merge-dev:master && npm run merge-dev:staging",
     "merge-staging:heroku": "git checkout heroku && git merge staging",
