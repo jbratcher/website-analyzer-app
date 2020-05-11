@@ -1,15 +1,27 @@
 # Website Analyzer App
 
-Analyze and produce reports for website using Google Lighthouse automation
+Analyze and produce reports for website optimization using Google Lighthouse automation.
+
+Lighthouse audits are generated and processed to display opportunities for website optimization and plain speak fixes for the issues.
 
 [Demo](https://thirsty-lumiere-cb2cbe.netlify.app/)
 
 Repo split into server and client
 
 Stack: Adonis, Nuxt
-Hosting: Netlify
+Hosting: Heroku, Netlify
 
 Features:
+
+- Dashboard
+
+  - User Auth functions
+  - Run an audit by project name and website URL
+  - List of audits performed showing info in table format
+  - Report view showing
+    - general report info
+    - categorical scores
+    - failed audit and their details
 
 - Node commands to automatically run a lighthouse audit for one website and generate a raw report, an analyzed report, and an 'action-step' list.
 
@@ -18,28 +30,10 @@ Features:
   - The action steps list describes the remedies for the failing audits in low tech terms.
     - The action steps are designed for the average computer-literate person to be able to complete.
 
-- Dashboard (WIP)
-  - Display navigable data in an analytic way.
-  - Users will be able to view:
-    - categorical scores
-    - failed audit and their details
-
 Road map:
 
 Write 'action steps' for each reported issue from Google Lighthouse reports
 Create dashboard to view report data and complete action steps.
-
-Create Dashboard focusing on UI
-
-- model some basic dashboard pages
-- add user and auth modules
-- learn what data is needed during dashboard development
-- later create any additional data calls
-
-Convert document folder storage to DB
-
-- NoSQL like MongoDB is best for document oriented and JSON databases(?)
-- Research MongoDB for Adonis or best Nodejs framework otherwise
 
 User stories for dashboard refinement
 
