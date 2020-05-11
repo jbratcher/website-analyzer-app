@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col class="mx-auto col-9 col-md-6 py-12">
+      <v-col class="mx-auto col-9 col-sm-4 py-12">
         <!-- User Sign Up Form -->
         <h1
           :class="{

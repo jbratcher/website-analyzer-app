@@ -3,20 +3,17 @@ const lighthouse = require("lighthouse");
 const chromeLauncher = require("chrome-launcher");
 const fs = require("fs");
 
+const website_name = process.argv[2];
+const website_url = process.argv[3];
+
 const storeData = (data, path) => {
   try {
-    // pretty print json
     fs.writeFileSync(path, JSON.stringify(data, null, 4));
   } catch (err) {
     console.error(err);
   }
 };
 
-// 1st argument passed
-const website_name = process.argv[2];
-const website_url = process.argv[3];
-
-// def
 function launchChromeAndRunLighthouse(url, opts, config = null) {
   return chromeLauncher
     .launch({ chromeFlags: opts.chromeFlags })
@@ -45,17 +42,18 @@ if (process.argv.some((arg) => arg === "--help" || arg === "-h")) {
   return;
 }
 
-// Usage
+// Fetch report
 launchChromeAndRunLighthouse(website_url, opts).then((results) => {
   // store data to json file
   if (!fs.existsSync(`resources/${website_name}`)) {
     fs.mkdirSync(`resources/${website_name}`, { recursive: true });
   }
+  // append report name to results
   results = {
     name: website_name,
     ...results,
   };
-  // TODO: make json 'requestable' by adonis controller
+  // create temp file with raw report
   storeData(
     results,
     `resources/${website_name}/${website_name}-lighthouse.json`

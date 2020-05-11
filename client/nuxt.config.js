@@ -123,6 +123,7 @@ export default {
   // handles efficient loading of web fonts
   */
   webfontloader: {
+    // use custom instead of google property to prevent flash of invisible text(foit)
     custom: {
       families: ["Open Sans"],
       urls: ["https://fonts.googleapis.com/css?family=Open+Sans&display=swap"]

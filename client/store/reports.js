@@ -56,7 +56,7 @@ export const actions = {
   async fetchOwnedReports({ commit }) {
     this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
-      .$get(`/reports`)
+      .$get(`/reports/`)
       .then(data => {
         commit("setOwnedReports", data);
         this.$router.push("/reports");

@@ -1,10 +1,10 @@
 // read lighthouse report and convert to business report
+
 const json = require("../utility/json.js");
 
 // import master action step list
 let actionSteps = json.read("resources/action-steps/action-steps.json");
 
-// 1st argument passed
 const filename = process.argv[2];
 
 // read lighthouse report by name, parse and format for analysis
@@ -93,15 +93,3 @@ actionStepsMatchingObject();
 
 // write action list to it's own file
 json.write(filename, "-action-steps", auditMatchList);
-
-// Use saved report as read-only JSON API for display to dashboard
-let dashboardJson = json.read(
-  `resources/${filename}/${filename}-action-steps.json`
-);
-
-// RUD for actions steps (todo list style)
-// Action steps are auto created (no user create function)
-// Make alternate list for user create steps?
-// Read - list action steps
-// Update - mark action step as completed
-// Delete - removed action step from list
