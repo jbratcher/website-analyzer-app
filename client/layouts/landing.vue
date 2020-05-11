@@ -12,7 +12,7 @@ i<template>
     >
       <nuxt-link
         class="d-flex align-center"
-        :class="$breakpoint.mdAndUp ? 'brand-margin' : 'ml-6'"
+        :class="$breakpoint.mdAndUp ? 'ml-6' : 'ml-2'"
         to="/"
       >
         <v-img
@@ -31,7 +31,7 @@ i<template>
       <v-app-bar-nav-icon
         class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
-        name="menuopen"
+        name="menu-open"
         x-large
       >
         <i aria-hidden="true" class="v-icon notranslate theme--dark">

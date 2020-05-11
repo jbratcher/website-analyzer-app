@@ -3,6 +3,24 @@ i<template>
     <!-- Header Area -->
     <!-- Main Navigation Bar -->
     <v-app-bar app color="white" elevation="1" light>
+      <nuxt-link
+        class="d-flex align-center"
+        :class="$breakpoint.mdAndUp ? 'ml-6' : 'ml-2'"
+        to="/"
+      >
+        <v-img
+          alt="future lighthouse logo"
+          src="/images/logo.svg"
+          :max-width="$breakpoint.mdAndUp ? '36px' : '24px'"
+        />
+        <h1
+          class="black--text d-flex font-weight-regular ml-2 compact-text"
+          :class="$breakpoint.mdAndUp ? 'display-2 mt-0' : 'display-1'"
+        >
+          <span class="primary--text">W</span>
+          <span class="complimentary-color">A</span>
+        </h1>
+      </nuxt-link>
       <v-app-bar-nav-icon
         class="hidden-md-and-up ml-auto"
         @click.stop="drawer = !drawer"
@@ -79,11 +97,12 @@ i<template>
         <v-list-item
           v-for="item in dashboardLinks"
           :key="item.title"
+          :class="sidedrawer ? '' : 'pr-4'"
           :to="item.to"
           router
           exact
         >
-          <v-list-item-icon>
+          <v-list-item-icon :class="sidedrawer ? '' : 'mr-2'">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
 

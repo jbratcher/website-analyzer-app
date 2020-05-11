@@ -1,11 +1,11 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <!-- Main -->
-      <v-col class="pb-0">
+      <v-col class="px-0 pb-0">
         <!-- Landing Page -->
         <v-card flat>
-          <v-container>
+          <v-container :class="$breakpoint.mdAndUp ? 'px-6' : 'px-2'" fluid>
             <v-row>
               <v-col cols="12" sm="6">
                 <v-card-title class="display-1 mb-6"
