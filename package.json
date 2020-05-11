@@ -6,15 +6,15 @@
   "scripts": {
     "merge-dev:master": "git checkout master && git merge dev",
     "merge-dev:staging": "git checkout staging && git merge dev",
-    "merge-dev:release": "merge-dev:master && merge-dev:staging",
+    "merge-dev:release": "npm run merge-dev:master && npm run merge-dev:staging",
     "merge-staging:heroku": "git checkout heroku && git merge staging",
     "merge-staging:netlify": "git checkout netlify && git merge staging",
-    "merge-staging:release": "merge-staging:heroku && merge:staging:netlify",
+    "merge-staging:release": "npm run merge-staging:heroku && npm run merge:staging:netlify",
     "release:heroku": "git subtree push --prefix server heroku master && git checkout staging",
     "release:netlify": "git push origin netlify && git checkout staging",
-    "deploy:client": "merge-dev:release && merge-staging:netlify && release:netlify",
-    "deploy:server": "merge-dev:release && merge-staging:heroku && release:heroku",
-    "deploy:all": "deploy:client && deploy:server"
+    "deploy:client": "npm run merge-dev:release && npm run merge-staging:netlify && npm run release:netlify",
+    "deploy:server": "npm run merge-dev:release && npm run merge-staging:heroku && npm run release:heroku",
+    "deploy:all": "npm run deploy:client && npm run deploy:server"
   },
   "author": "Jeremy Bratcher",
   "license": "UNLICENSED",
