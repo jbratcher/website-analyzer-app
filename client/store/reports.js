@@ -14,7 +14,7 @@ export const state = () => ({
 
 export const actions = {
   // delete a report
-  async deleteReports({ commit, rootState }, reportName) {
+  async deleteReports({ commit }, reportName) {
     this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$delete(`/reports/${reportName}`)
@@ -26,11 +26,12 @@ export const actions = {
       .catch(error => console.warn(`Delete report error: ${error}`));
   },
   // fetch action steps list by name
-  async fetchActionStepsList({ commit, rootState }, websiteName) {
+  async fetchActionStepsList({ commit }, websiteName) {
     this.$axios.setHeader("Authorization", this.$auth.$state.tokenlocal);
     await this.$axios
       .$get(`/reports/${websiteName}/action-steps`)
       .then(data => {
+        console.log(data[0]);
         commit("setActionStepsList", data[0]);
         commit("setActionSteps", data[0].report.auditsMatched);
       })
@@ -44,6 +45,7 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/analyzed`)
       .then(data => {
+        console.log(data[0]);
         commit("setAnalyzedReportMeta", data[0]);
         commit("setAnalyzedReport", data[0].report);
         commit("setFailingAudits", data[0].report.audits);
@@ -71,6 +73,7 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/raw`)
       .then(data => {
+        console.log(data[0]);
         commit("setRawReportMeta", data[0]);
         commit("setRawReport", data[0].report);
         commit("setCategories", data[0].report.categories);
@@ -90,7 +93,6 @@ export const actions = {
       .$post(`/reports/generate/${reportName}/${websiteUrl}`)
       .then(response => {
         dispatch("fetchOwnedReports");
-        this.$router.push("/reports");
       })
       .then(response => {
         commit("setIsLoading", false);

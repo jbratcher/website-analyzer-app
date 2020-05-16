@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import { mdiTrashCan } from "@mdi/js";
 import CreateNewReport from "../../components/widgets/CreateNewReport";
 import scoresMixin from "../../mixins/scoresMixin";
@@ -76,6 +76,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["isAuthenticated"]),
     ...mapState("reports", ["ownedReports"])
   },
   methods: {
@@ -90,7 +91,7 @@ export default {
       this.$router.replace(`/reports/${event.name}`);
     }
   },
-  created() {
+  mounted() {
     this.fetchOwnedReports();
   }
 };

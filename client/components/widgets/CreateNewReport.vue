@@ -38,15 +38,26 @@
               >
             </template>
             <template v-if="isLoading">
-              <Progress
-                :transitionDuration="10000"
-                :radius="55"
-                :strokeWidth="10"
-                strokeColor="teal"
-                value="100"
-              >
-                <div class="content">Generating Report</div>
-              </Progress>
+              <v-container class="pa-0">
+                <v-row>
+                  <v-col class="d-flex flex-column align-center pa-0">
+                    <v-progress-circular
+                      class="mx-auto"
+                      color="teal"
+                      indeterminate
+                      size="36"
+                      width="4"
+                    ></v-progress-circular>
+                    <p class="text-center">
+                      {{
+                        isStarting
+                          ? "Generating Report"
+                          : "Just a few more seconds"
+                      }}
+                    </p>
+                  </v-col>
+                </v-row>
+              </v-container>
             </template>
           </v-col>
         </v-row>
@@ -59,12 +70,8 @@ import { mapActions, mapMutations, mapState } from "vuex";
 import { mdiMagnify, mdiNewspaper, mdiNewspaperPlus, mdiWeb } from "@mdi/js";
 import formRulesMixin from "../../mixins/formRulesMixin";
 import { titleCase } from "../../utils/str-utils";
-import Progress from "./Progress";
 export default {
   name: "CreateNewReport",
-  components: {
-    Progress
-  },
   props: {
     cardClass: {
       type: String,
@@ -74,6 +81,7 @@ export default {
   mixins: [formRulesMixin],
   data() {
     return {
+      isStarting: true,
       magnifyIcon: mdiMagnify,
       newReportIcon: mdiNewspaperPlus,
       reportIcon: mdiNewspaper,
@@ -88,10 +96,7 @@ export default {
   methods: {
     ...mapActions("reports", ["generateNewWebsiteReports"]),
     submit() {
-      console.log(
-        `Creating report for ${this.reportName} using ${this.websiteUrl}`
-      );
-      console.log(`isLoading at start: ${this.isLoading}`);
+      setTimeout(() => (this.isStarting = !this.isStarting), 5000);
       this.generateNewWebsiteReports({
         reportName: titleCase(this.reportName),
         websiteUrl: this.websiteUrl
