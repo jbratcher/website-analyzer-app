@@ -113,7 +113,7 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: "http://localhost:3333/api"
+    baseURL: "https://website-analyzer-app.herokuapp.com/api"
   },
   markdownit: {
     injected: true
