@@ -31,7 +31,6 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/action-steps`)
       .then(data => {
-        console.log(data[0]);
         commit("setActionStepsList", data[0]);
         commit("setActionSteps", data[0].report.auditsMatched);
       })
@@ -45,7 +44,6 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/analyzed`)
       .then(data => {
-        console.log(data[0]);
         commit("setAnalyzedReportMeta", data[0]);
         commit("setAnalyzedReport", data[0].report);
         commit("setFailingAudits", data[0].report.audits);
@@ -73,7 +71,6 @@ export const actions = {
     await this.$axios
       .$get(`/reports/${websiteName}/raw`)
       .then(data => {
-        console.log(data[0]);
         commit("setRawReportMeta", data[0]);
         commit("setRawReport", data[0].report);
         commit("setCategories", data[0].report.categories);
