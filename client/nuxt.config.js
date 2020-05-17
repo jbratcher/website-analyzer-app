@@ -79,6 +79,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/auth",
+    "@nuxtjs/markdownit",
     "nuxt-webfontloader"
   ],
   /*

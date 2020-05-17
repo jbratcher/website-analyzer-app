@@ -32,7 +32,8 @@
             <p class="font-weight-bold">
               {{ data.title }}
             </p>
-            <p>{{ data.description }}</p>
+            <p v-if="data.displayValue">{{ data.displayValue }}</p>
+            <p v-html="$md.render(data.description)"></p>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>

@@ -17,11 +17,12 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@mdi/js": "^5.1.45",
-    "nuxt": "^2.12.2",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/vuetify": "^1.11.0",
+    "nuxt": "^2.12.2",
     "nuxt-webfontloader": "^1.1.0",
     "vuex-persistedstate": "^3.0.1"
   },
