@@ -32,16 +32,6 @@ Features:
 
 Road map:
 
-Write 'action steps' for each reported issue from Google Lighthouse reports
-Create dashboard to view report data and complete action steps.
-
-User stories for dashboard refinement
-
-Add subscription model for users
-
-- Developer (free or \$3/month)
-- Solo (\$3/month)
-- Business (\$17/month)
-- Enterprise (\$47/month)
-
-Should this be developed as a Sass or software package?
+- Write 'action steps' for each reported issue from Google Lighthouse reports
+  Create dashboard to view report data and complete action steps.
+- User stories for dashboard refinement
