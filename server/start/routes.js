@@ -21,10 +21,20 @@ Route.get("/", () => "Root Route");
 // API
 Route.group(() => {
   // Auth
+  Route.get("auth/user", "UserController.getCurrentUser");
   Route.post("auth/register", "UserController.register");
   Route.post("auth/login", "UserController.login");
   Route.post("auth/logout", "UserController.logout");
-  Route.get("auth/user", "UserController.getCurrentUser");
+  Route.get("auth/verify-email", "UserController.verifyEmail");
+  Route.post("auth/update/profile-pic", "UserController.updateProfilePic");
+  Route.patch("auth/update", "UserController.update");
+  Route.patch("auth/update/email", "UserController.updateEmail");
+  Route.patch("auth/update/password", "UserController.updatePassword");
+  Route.get("auth/forgot/password", "UserController.forgotPassword");
+  Route.post(
+    "auth/update/password-by-token",
+    "UserController.updatePasswordByToken"
+  );
 
   // Profile
   Route.get("users/:id", "UserController.show");
