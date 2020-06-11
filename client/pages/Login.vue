@@ -1,61 +1,73 @@
 <template>
   <v-container>
     <v-row>
-      <v-col class="mx-auto col-9 col-sm-4 py-12">
+      <v-col class="d-flex flex-column mx-auto col-8 col-md-5 py-12">
         <!-- User Login Form -->
-        <h1
-          :class="{
-            'display-1 mb-12': $breakpoint.mdAndUp,
-            'headline mb-9': $breakpoint.smAndDown
-          }"
-        >
-          Login
-        </h1>
+        <v-card class="pa-6" elevation="6">
+          <v-card-title
+            :class="{
+              'headline mb-6': $breakpoint.mdAndUp,
+              'title mb-4': $breakpoint.smAndDown
+            }"
+          >
+            Sign in to your account
+          </v-card-title>
 
-        <v-text-field v-model="email" label="Email" placeholder="Email" />
-        <v-text-field
-          v-model="password"
-          label="Password"
-          placeholder="Password"
-          type="password"
-          autocomplete="new-password"
-        />
-        <v-alert :value="Boolean(error)" type="error">{{ error }}</v-alert>
-        <v-btn @click="login" dark>
-          <v-icon class="mr-3">{{ loginIcon }}</v-icon
-          >Login
-        </v-btn>
+          <v-card-text class="pb-0 px-4">
+            <v-form v-model="valid" lazy-validation>
+              <v-text-field
+                v-model="credentials.email"
+                label="Email"
+                :rules="emailRules"
+                outlined
+              />
+              <v-text-field
+                v-model="credentials.password"
+                autocomplete="new-password"
+                label="Password"
+                :rules="shortTextRules"
+                type="password"
+                outlined
+              />
+            </v-form>
+          </v-card-text>
+
+          <v-card-actions class="pt-0">
+            <v-btn @click="loginClient" dark width="fit-content">
+              <v-icon class="mr-3">{{ loginIcon }}</v-icon
+              >Sign In
+            </v-btn>
+            <v-btn
+              class="caption my-6 ml-auto px-0"
+              to="/users/forgot-password"
+              text
+              >Forgot Password?</v-btn
+            >
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import { mdiLogin } from "@mdi/js";
+import formRulesMixin from "../mixins/formRulesMixin";
 export default {
-  data() {
-    return {
-      loginIcon: mdiLogin,
+  mixins: [formRulesMixin],
+  data: () => ({
+    loginIcon: mdiLogin,
+    credentials: {
       email: "",
-      password: "",
-      error: null
-    };
-  },
+      password: ""
+    },
+    valid: true
+  }),
   methods: {
-    async login() {
-      await this.$auth
-        .loginWith("local", {
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        })
-        .then(response => {
-          this.$auth.setToken("local", "Bearer " + response.data.token);
-          this.$router.replace("/reports");
-        })
-        .catch(error => console.log(`Login Error: ${error}`));
+    ...mapActions(["login"]),
+    async loginClient() {
+      this.login(this.credentials);
     }
   }
 };

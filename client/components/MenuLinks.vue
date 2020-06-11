@@ -106,7 +106,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout();
-      this.$router.replace("/reports");
+      this.$toast.success("Logged you out").goAway(2000);
     }
   }
 };
