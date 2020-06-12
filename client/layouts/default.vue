@@ -11,11 +11,11 @@ i<template>
         <v-img
           alt="future lighthouse logo"
           src="/images/logo.svg"
-          :max-width="$breakpoint.mdAndUp ? '36px' : '24px'"
+          :max-width="$breakpoint.mdAndUp ? '1.67rem' : '2.75rem'"
         />
         <h1
-          class="black--text d-flex font-weight-regular ml-2 compact-text"
-          :class="$breakpoint.mdAndUp ? 'display-2 mt-0' : 'display-1'"
+          class="black--text d-flex font-weight-regular mb-0 ml-2 compact-text"
+          :class="$breakpoint.mdAndUp ? 'display-1 mt-0' : 'display-2 mt-1'"
         >
           <span class="primary--text">W</span>
           <span class="complimentary-color">A</span>
@@ -28,7 +28,7 @@ i<template>
         x-large
       >
         <i aria-hidden="true" class="v-icon notranslate theme--dark">
-          <v-icon>{{ menuIcon }}</v-icon>
+          <v-icon class="ml-6" x-large>{{ menuIcon }}</v-icon>
         </i>
       </v-app-bar-nav-icon>
       <MenuLinks
@@ -126,17 +126,17 @@ i<template>
         <h2
           class="mb-3"
           :class="{
-            'display-1': $breakpoint.mdAndUp,
-            headline: $breakpoint.smAndDown
+            headline: $breakpoint.mdAndUp,
+            title: $breakpoint.smAndDown
           }"
         >
           {{ appTitle }}
         </h2>
         <p
-          class="px-6 text-align-center"
+          class="px-6 text-center"
           :class="{
-            headline: $breakpoint.mdAndUp,
-            'subtitle-1': $breakpoint.smAndDown
+            'subtitle-1': $breakpoint.mdAndUp,
+            'subtitle-2': $breakpoint.smAndDown
           }"
         >
           {{ appDescription }}

@@ -6,22 +6,20 @@
         <v-card>
           <v-container class="pa-0">
             <v-row>
-              <v-col sm="2">
+              <v-col class="d-flex">
                 <v-card class="px-3" flat
                   ><b>Report:</b> {{ rawReport.name }}</v-card
                 >
-              </v-col>
-              <v-col sm="3">
                 <v-card class="px-3" flat
                   ><b>Url:</b> {{ rawReport.requestedUrl }}</v-card
                 >
-              </v-col>
-              <v-col sm="3">
                 <v-card class="px-3" flat
                   ><b>Created:</b> {{ formattedDateTime }}</v-card
                 >
               </v-col>
-              <v-col sm="4">
+            </v-row>
+            <v-row>
+              <v-col>
                 <v-card
                   v-if="rawReport && rawReport.userAgent"
                   class="px-3 caption"
