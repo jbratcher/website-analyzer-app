@@ -10,14 +10,6 @@
           <p>{{ this.$auth.user.full_name }}</p>
 
           <p>{{ this.$auth.user.email }}</p>
-
-          <v-file-input
-            :rules="profileImageRules"
-            accept="image/png, image/jpeg, image/bmp"
-            placeholder="Update your profile picture"
-            prepend-icon="mdi-camera"
-            label="Profile Picture"
-          />
         </v-container>
 
         <v-container>
@@ -62,7 +54,7 @@ export default {
     ...mapGetters(["isAuthenticated", "loggedInUser"]),
     ...mapState("reports", ["ownedReports"])
   },
-  crated() {
+  mounted() {
     this.fetchOwnedReports();
   },
   methods: {

@@ -128,8 +128,13 @@ export default {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: conditionalBaseURL,
   },
+  // [optional] markdownit options
+  // See https://github.com/markdown-it/markdown-it
   markdownit: {
     injected: true,
+    preset: "default",
+    linkify: true,
+    breaks: true,
   },
   /*
    ** Nuxt Toast Module

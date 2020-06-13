@@ -58,8 +58,8 @@ export const actions = {
     await this.$axios
       .$get(`/reports/`)
       .then(data => {
+        console.log(data);
         commit("setOwnedReports", data);
-        this.$router.push("/reports");
       })
       .catch(error => {
         console.log(`Fetch user error: ${error}`);
