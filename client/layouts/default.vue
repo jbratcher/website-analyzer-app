@@ -123,28 +123,25 @@ i<template>
         class="d-flex flex-column align-center my-12 pt-12 py-6 px-5"
         color="transparent"
       >
-        <h2
-          class="mb-3"
-          :class="{
-            headline: $breakpoint.mdAndUp,
-            title: $breakpoint.smAndDown
-          }"
-        >
+        <h2 class="mb-3" :class="$breakpoint.mdAndUp ? 'title' : 'headline'">
           {{ appTitle }}
         </h2>
         <p
           class="px-6 text-center"
-          :class="{
-            'subtitle-1': $breakpoint.mdAndUp,
-            'subtitle-2': $breakpoint.smAndDown
-          }"
+          :class="$breakpoint.mdAndUp ? 'subtitle-1' : 'title'"
         >
           {{ appDescription }}
         </p>
         <nav>
           <ul class="d-flex flex-wrap py-3 px-0">
             <li v-for="(link, i) in generalLinks" :key="i + link.title">
-              <v-btn :href="link.to" :name="link.title" text rounded>
+              <v-btn
+                :class="$breakpoint.mdAndUp ? 'subtitle-1' : 'title'"
+                :href="link.to"
+                :name="link.title"
+                text
+                rounded
+              >
                 {{ link.title }}
               </v-btn>
             </li>

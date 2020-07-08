@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col class="d-flex flex-column mx-auto col-8 col-md-5 py-12">
+      <v-col class="d-flex flex-column mx-auto col-11 col-md-5 py-12">
         <!-- User Login Form -->
         <v-card class="pa-6" elevation="6">
           <v-card-title

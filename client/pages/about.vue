@@ -3,18 +3,21 @@
     <v-row>
       <v-col>
         <h1
-          class="pt-6 pb-3"
-          :class="$breakpoint.mdAndUp ? 'display-1 text-center' : 'headline'"
+          class="pt-6 pb-3 text-center"
+          :class="$breakpoint.mdAndUp ? 'display-1' : 'display-2'"
         >
           About Website Analyzer
         </h1>
         <h2
-          class="pb-6"
-          :class="$breakpoint.mdAndUp ? 'title text-center' : 'subtitle-1'"
+          class="font-weight-regular pb-6 text-center"
+          :class="$breakpoint.mdAndUp ? 'title' : 'display-1'"
         >
           Full control of your Google Lighthouse reports
         </h2>
-        <p class="body-1 pb-6 text-center">
+        <p
+          class="pb-6 text-center"
+          :class="$breakpoint.mdAndUp ? 'subtitle-1' : 'headline'"
+        >
           View and manage your website analysis reports all in one place. Get an
           easy-to-understand report with detailed action steps. Each action step
           is linked ot the official Google documentation on how to fix the

@@ -70,13 +70,41 @@
       <nuxt />
     </v-content>
     <!-- Footer Area -->
-    <v-footer>
-      <v-row justify="center">
-        <v-col class="py-4 text-center">
-          {{ new Date().getFullYear() }} — <strong>Adonis Nuxt Starter</strong>
-        </v-col>
-      </v-row>
-    </v-footer>
+    <v-lazy>
+      <v-footer
+        class="d-flex flex-column align-center my-12 pt-12 py-6 px-5"
+        color="transparent"
+      >
+        <h2 class="mb-3" :class="$breakpoint.mdAndUp ? 'title' : 'headline'">
+          {{ appTitle }}
+        </h2>
+        <p
+          class="px-6 text-center"
+          :class="$breakpoint.mdAndUp ? 'subtitle-1' : 'title'"
+        >
+          {{ appDescription }}
+        </p>
+        <nav>
+          <ul class="d-flex flex-wrap py-3 px-0">
+            <li v-for="(link, i) in generalLinks" :key="i + link.title">
+              <v-btn
+                :class="$breakpoint.mdAndUp ? 'subtitle-1' : 'title'"
+                :href="link.to"
+                :name="link.title"
+                text
+                rounded
+              >
+                {{ link.title }}
+              </v-btn>
+            </li>
+          </ul>
+        </nav>
+        <v-container class="text-center">
+          {{ new Date().getFullYear() }}&nbsp;-&nbsp;
+          <strong>{{ appTitle }}</strong>
+        </v-container>
+      </v-footer>
+    </v-lazy>
   </v-app>
 </template>
 
