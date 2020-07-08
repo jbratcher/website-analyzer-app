@@ -16,17 +16,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@mdi/js": "^5.1.45",
+    "@mdi/js": "^5.3.45",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/markdownit": "^1.2.9",
-    "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/toast": "^3.3.0",
-    "@nuxtjs/vuetify": "^1.11.0",
-    "nuxt": "^2.12.2",
+    "nuxt": "^2.13.0",
     "nuxt-webfontloader": "^1.1.0",
     "vuex-persistedstate": "^3.0.1",
     "vue-toasted": "^1.1.28"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/vuetify": "^1.11.2"
+  }
 }

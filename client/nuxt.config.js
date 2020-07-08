@@ -6,14 +6,6 @@ const title = strUtil.titleCase(
   process.env.npm_package_name.replace(/-/g, " ")
 );
 
-let conditionalBaseURL = "";
-
-if (process.env.NODE_ENV === "development") {
-  conditionalBaseURL = "http://localhost:3333/api";
-} else if (process.env.NODE_ENV === "production") {
-  conditionalBaseURL = "https://website-analyzer-app.herokuapp.com/api";
-}
-
 export default {
   mode: "universal",
   /*
@@ -79,7 +71,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/vuetify"],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/pwa"],
   /*
    ** Nuxt.js modules
    */
@@ -88,7 +80,6 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/auth",
     "@nuxtjs/markdownit",
-    "@nuxtjs/pwa",
     "@nuxtjs/toast",
     "nuxt-webfontloader"
   ],
@@ -126,15 +117,19 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: conditionalBaseURL
+    baseURL:
+      process.env.NODE_ENV === "development"
+        ? process.env.DEV_HOST
+        : process.env.PROD_HOST
   },
   // [optional] markdownit options
   // See https://github.com/markdown-it/markdown-it
   markdownit: {
+    breaks: true,
+    html: true,
     injected: true,
-    preset: "default",
     linkify: true,
-    breaks: true
+    preset: "default"
   },
   /*
    ** Nuxt Toast Module
